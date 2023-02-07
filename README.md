@@ -14,5 +14,7 @@ python -m venv venv
 source ./venv/bin/activate
 pip install -r requirements.txt
 python3 manage.py runserver
-```
-
+``` 
+> SECRET_KEY, DEBUG, DATABASE_NAME, DATABASE_USER,DATABASE_PASS \
+и ALLOWED_HOSTS следует указать в файле .env. Для первых двух \
+из них предусмотрено значение по умолчанию.
