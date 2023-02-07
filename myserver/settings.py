@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(
     SECRET_KEY=(str, "default"),
     DEBUG=(bool, True),
-    DATABASE_NAME=(str, "db.sqlite3")
+    DATABASE_NAME=(str, "db.sqlite3"),
 )
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
@@ -103,10 +103,8 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": (
-            """django.contrib.auth.password_validation
-            .UserAttributeSimilarityValidator"""
-        ),
+        "NAME": """django.contrib.auth.password_validation
+            .UserAttributeSimilarityValidator""",
     },
     {
         "NAME": (
