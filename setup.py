@@ -3,7 +3,7 @@ import setuptools
 setuptools.setup(
     name="django_academy",
     version="0.0.1",
-    packages=['about', 'catalog', 'homepage', 'myserver'],
+    packages=["about", "catalog", "homepage", "myserver"],
     install_requires=[
         "asgiref==3.6.0",
         "Django==3.2.16",
