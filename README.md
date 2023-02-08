@@ -28,7 +28,9 @@ pip install -e .
 ## Запуск
 > SECRET_KEY, DEBUG, DATABASE_NAME, DATABASE_USER,DATABASE_PASS \
 и ALLOWED_HOSTS следует указать в файле .env. Для первых двух \
-из них предусмотрено значение по умолчанию.
+из них предусмотрено значение по умолчанию. Пример представлен \
+в .env.example, для использования необходимо убрать расширение \
+файла
 ```
 python3 manage.py runserver
 ``` 

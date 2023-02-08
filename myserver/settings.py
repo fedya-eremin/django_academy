@@ -26,6 +26,7 @@ env = environ.Env(
     SECRET_KEY=(str, "default"),
     DEBUG=(bool, True),
     DATABASE_NAME=(str, "db.sqlite3"),
+    ALLOWED_HOSTS=(str, "localhost")
 )
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
