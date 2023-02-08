@@ -1,6 +1,11 @@
 import setuptools
 
 setuptools.setup(
+
+
+
+
+
     name="django_academy",
     version="0.0.1",
     packages=["about", "catalog", "homepage", "myserver"],
