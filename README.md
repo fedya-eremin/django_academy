@@ -1,10 +1,6 @@
 # django_academy
 [![Python package](https://github.com/sunfireaegis/django_academy/actions/workflows/python-package.yml/badge.svg)](https://github.com/sunfireaegis/django_academy/actions/workflows/python-package.yml)
 
-![GitHub last commit](https://img.shields.io/github/last-commit/sunfireaegis/django_academy)
-![GitHub issues](https://img.shields.io/github/issues/sunfireaegis/django_academy)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/sunfireaegis/django_academy)
-
 Предназначен для интенсива Академии Яндекс.\
 Проект содержит следущие ветки:
 - dev для текущего состояния
