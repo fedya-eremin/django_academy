@@ -1,5 +1,7 @@
 # django_academy
 [![Python package](https://github.com/sunfireaegis/django_academy/actions/workflows/python-package.yml/badge.svg)](https://github.com/sunfireaegis/django_academy/actions/workflows/python-package.yml)
+
+
 Предназначен для интенсива Академии Яндекс.\
 Проект содержит следущие ветки:
 - dev для текущего состояния
