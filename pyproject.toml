@@ -1,0 +1,24 @@
+[project]
+name = "django_academy"
+version = "0.0.1"
+dependencies = [
+    "asgiref==3.6.0",
+    "Django==3.2.16",
+    "django-environ",
+    "pytz==2022.7.1",
+    "sqlparse==0.4.3",
+]
+
+[tool.setuptools]
+packages = ["about", "catalog", "homepage", "myserver"]
+
+[project.optional-dependencies]
+    dev = ["flake8==6.0.0", "black==23.1.0", 
+		"pep8-naming", "flake8-import-order", 
+		"flake8-quotes", "Flake8-pyproject"]
+    test = ["pytest==7.2.1"]
+
+[tool.black]
+line-length = 80
+target-version = ["py310"]
+check = true
