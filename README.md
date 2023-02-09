@@ -1,10 +1,6 @@
 # django_academy
 [![Python package](https://github.com/sunfireaegis/django_academy/actions/workflows/python-package.yml/badge.svg)](https://github.com/sunfireaegis/django_academy/actions/workflows/python-package.yml)
 
-![GitHub last commit](https://img.shields.io/github/last-commit/sunfireaegis/django_academy)
-![GitHub issues](https://img.shields.io/github/issues/sunfireaegis/django_academy)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/sunfireaegis/django_academy)
-
 Предназначен для интенсива Академии Яндекс.\
 Проект содержит следущие ветки:
 - dev для текущего состояния
@@ -28,7 +24,9 @@ pip install -e .
 ## Запуск
 > SECRET_KEY, DEBUG, DATABASE_NAME, DATABASE_USER,DATABASE_PASS \
 и ALLOWED_HOSTS следует указать в файле .env. Для первых двух \
-из них предусмотрено значение по умолчанию.
+из них предусмотрено значение по умолчанию. Пример представлен \
+в .env.example, для использования необходимо убрать расширение \
+файла
 ```
 python3 manage.py runserver
 ``` 
