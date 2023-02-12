@@ -6,5 +6,4 @@ def item_list(request):
 
 
 def item_detail(request, key):
-    return HttpResponse(f"<body>This is item {key} page</body>"
-                        .encode("utf-8"))
+    return HttpResponse(f"<body>This is item {key} page</body>".encode("utf-8"))
