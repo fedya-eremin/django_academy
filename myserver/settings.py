@@ -29,6 +29,7 @@ env = environ.Env(
     ALLOWED_HOSTS=(list, ["localhost"]),
     DATABASE_USER=(str, None),
     DATABASE_PASS=(str, None),
+    INTERNAL_IPS=(list, ["127.0.0.1"]),
 )
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
@@ -68,9 +69,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
+INTERNAL_IPS = env("INTERNAL_IPS")
 
 ROOT_URLCONF = "myserver.urls"
 
