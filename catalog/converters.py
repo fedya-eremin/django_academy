@@ -1,5 +1,5 @@
 class UIntConverter:
-    regex = r"([1-9]+\d*)" 
+    regex = r"([1-9]+\d*)"
 
     def to_python(self, value):
         return int(value)
