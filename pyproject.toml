@@ -7,17 +7,17 @@ dependencies = [
     "django-environ",
     "pytz==2022.7.1",
     "sqlparse==0.4.3",
+    "django-debug-toolbar==3.8.1",
 ]
 
 [tool.setuptools]
 packages = ["about", "catalog", "homepage", "myserver"]
 
 [project.optional-dependencies]
-    dev = ["flake8==6.0.0", "black==23.1.0", 
-		"pep8-naming", "flake8-import-order", 
-		"flake8-quotes", "Flake8-pyproject"]
+    dev = ["flake8==6.0.0", "black==23.1.0", "pep8-naming", 
+	   "flake8-import-order","flake8-quotes", "Flake8-pyproject"]
     test = ["pytest==7.2.1"]
 
 [tool.black]
-line-length = 80
+line-length = 79
 target-version = ["py310"]
