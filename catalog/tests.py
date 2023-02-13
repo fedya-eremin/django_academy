@@ -22,5 +22,6 @@ class StaticUrlTests(TestCase):
         }
 
         for test in tests:
-            response = Client().get(f"/catalog/{test}/")
-            self.assertEqual(response.status_code, tests[test], msg=f"{test}")
+            with self.subTest(test):
+                response = Client().get(f"/catalog/{test}/")
+                self.assertEqual(response.status_code, tests[test])
