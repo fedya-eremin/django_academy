@@ -2,7 +2,11 @@ from django.test import Client, TestCase
 
 
 class StaticUrlTests(TestCase):
-    def test_homepage_endpoint(self):
+    def test_catalog_endpoint(self):
+        response = Client().get("/catalog/")
+        self.assertEqual(response.status_code, 200)
+
+    def test_catalog_number_endpoint(self):
         tests = {
             123: 200,
             12345: 200,
@@ -18,5 +22,5 @@ class StaticUrlTests(TestCase):
         }
 
         for test in tests:
-            response = Client().get(f"/catalog/{test}")
+            response = Client().get(f"/catalog/{test}/")
             self.assertEqual(response.status_code, tests[test], msg=f"{test}")
