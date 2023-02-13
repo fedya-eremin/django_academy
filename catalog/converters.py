@@ -1,8 +1,8 @@
 class UIntConverter:
-    regex = r"\d*"
+    regex = r"([1-9]+\d*)" 
 
     def to_python(self, value):
-        return str(value)
+        return int(value)
 
     def to_url(self, value):
         return "%d" % value
