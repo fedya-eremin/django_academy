@@ -3,3 +3,4 @@ count = True
 show-source = True
 statistics = True
 inline-quotes = double
+ignore = E203

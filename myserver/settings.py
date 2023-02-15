@@ -30,6 +30,7 @@ env = environ.Env(
     DATABASE_USER=(str, None),
     DATABASE_PASS=(str, None),
     INTERNAL_IPS=(list, ["127.0.0.1"]),
+    ENABLE_REVERSE_RU_MIDDLEWARE=(bool, False),
 )
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
@@ -69,6 +70,10 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
+
+if env("ENABLE_REVERSE_RU_MIDDLEWARE") is True:
+    MIDDLEWARE.append("myserver.middleware.ReverseRuMiddleware")
+
 INTERNAL_IPS = env("INTERNAL_IPS")
 
 ROOT_URLCONF = "myserver.urls"
