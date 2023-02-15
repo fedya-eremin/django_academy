@@ -25,3 +25,43 @@ class StaticUrlTests(TestCase):
             with self.subTest(test):
                 response = Client().get(f"/catalog/{test}/")
                 self.assertEqual(response.status_code, tests[test])
+
+    def test_re_number_endpoint(self):
+        tests = {
+            123: 200,
+            456: 200,
+            789: 200,
+            "012": 404,
+            0x012: 200,
+            0: 404,
+            "0x012": 404,
+            "string": 404,
+            1.4142: 404,
+            True: 404,
+            None: 404,
+        }
+
+        for test in tests:
+            with self.subTest(test):
+                response = Client().get(f"/catalog/re/{test}/")
+                self.assertEqual(response.status_code, tests[test])
+
+    def test_converter_uint_endpoint(self):
+        tests = {
+            123: 200,
+            456: 200,
+            789: 200,
+            "012": 404,
+            0x012: 200,
+            0: 404,
+            "0x012": 404,
+            "string": 404,
+            1.4142: 404,
+            True: 404,
+            None: 404,
+        }
+
+        for test in tests:
+            with self.subTest(test):
+                response = Client().get(f"/catalog/converter/{test}/")
+                self.assertEqual(response.status_code, tests[test])
