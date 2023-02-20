@@ -3,4 +3,11 @@ count = True
 show-source = True
 statistics = True
 inline-quotes = double
-ignore = E203,W503
+ignore = E203,W503,W391
+exclude = 
+	venv,
+	catalog/migrations,
+	about/migrations,
+	core/migrations,
+	homepage/migrations,
+	build,

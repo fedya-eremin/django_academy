@@ -5,15 +5,18 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('catalog', '0003_auto_20230220_1104'),
+        ("catalog", "0003_auto_20230220_1104"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='catalogitem',
-            name='text',
-            field=models.TextField(help_text='Текст должен содержать слово "превосходно" или "роскошно"', validators=[catalog.models.great_validator], verbose_name='Описание'),
+            model_name="catalogitem",
+            name="text",
+            field=models.TextField(
+                help_text='Текст должен содержать слово "превосходно" или "роскошно"',
+                validators=[catalog.models.great_validator],
+                verbose_name="Описание",
+            ),
         ),
     ]

@@ -1,6 +1,5 @@
 from catalog.models import (
     CatalogCategory,
-    CatalogItem,
     CatalogTag,
     great_validator,
 )

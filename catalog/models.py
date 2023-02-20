@@ -83,8 +83,7 @@ class CatalogItem(AbstractCatalog):
         help_text='Текст должен содержать слово "превосходно" или "роскошно"',
     )
     category = django.db.models.ForeignKey(
-        CatalogCategory, on_delete=django.db.models.CASCADE,
-        default=None
+        CatalogCategory, on_delete=django.db.models.CASCADE, default=None
     )
     tags = django.db.models.ManyToManyField(CatalogTag)
 
