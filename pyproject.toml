@@ -11,13 +11,18 @@ dependencies = [
 ]
 
 [tool.setuptools]
-packages = ["about", "catalog", "homepage", "myserver"]
+packages = ["about", "catalog", "homepage", "myserver", "core"]
 
 [project.optional-dependencies]
     dev = ["flake8==6.0.0", "black==23.1.0", "pep8-naming", 
 	   "flake8-import-order","flake8-quotes", "Flake8-pyproject"]
-    test = ["pytest==7.2.1"]
+    test = ["pytest==7.2.1", "pytest-django==4.5.2"]
 
 [tool.black]
 line-length = 79
 target-version = ["py310"]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+DJANGO_SETTINGS_MODULE = "myserver.settings"
+
