@@ -1,8 +1,9 @@
 from catalog.models import (
-    CatalogCategory,
-    CatalogTag,
-    great_validator,
+    Category,
+    Tag,
+    Item
 )
+from catalog.validators import GreatValidator
 
 import django.core.exceptions
 
@@ -73,22 +74,30 @@ def test_converter_uint_endpoint(url, code, client):
     assert client.get(f"/catalog/converter/{url}/").status_code == code
 
 
+def test_category_creation(db):
+    init_cnt = Category.objects.count()
+    category = Category.objects.create(name="test_category")
+    final_cnt = Category.objects.count()
+    assert final_cnt == init_cnt + 1 and category.name == "test_category"
+
+
+def test_tag_creation(db):
+    init_cnt = Tag.objects.count()
+    tag = Tag.objects.create(name="test_tag")
+    final_cnt = Tag.objects.count()
+    assert final_cnt == init_cnt + 1 and tag.name == "test_tag"
+
 @pytest.fixture
 def category(db):
-    return CatalogCategory.objects.create(name="test_category")
+    return Category.objects.create(name="test_category")
+
+def test_item_creation(db, category):
+    init_cnt = Item.objects.count()
+    item = Item.objects.create(name="test_item", category=category)
+    final_cnt = Item.objects.count()
+    assert final_cnt == init_cnt + 1 and item.name == "test_item"
 
 
-def test_category_creation(category):
-    assert category.name == "test_category"
-
-
-@pytest.fixture
-def tag(db):
-    return CatalogTag.objects.create(name="test_tag")
-
-
-def test_tag_creation(tag):
-    assert tag.name == "test_tag"
 
 
 @pytest.mark.parametrize(
@@ -98,11 +107,14 @@ def test_tag_creation(tag):
         "123123213123",
         "ogqweqqыфвфф",
         "яндексбраузер",
+        "weweqwdпревосходнононеверно",
+        "роскошнононеправильно",
     ],
 )
 def test_great_validator_negative(text):
     with pytest.raises(django.core.exceptions.ValidationError):
-        great_validator(text)
+        func = GreatValidator("превосходно", "роскошно")
+        func(text)
 
 
 @pytest.mark.parametrize(
@@ -114,4 +126,5 @@ def test_great_validator_negative(text):
     ],
 )
 def test_great_validator_positive(text):
-    assert great_validator(text) is None
+    func = GreatValidator("превосходно", "роскошно")
+    assert func(text) is None

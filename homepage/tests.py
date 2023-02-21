@@ -9,8 +9,9 @@ class StaticUrlTests(TestCase):
             "google": "<body>google</body>",
             "гугл chrome": "<body>лгуг chrome</body>",
             "the quick brown fox": "<body>the quick brown fox</body>",
-            "11//23.31df11мама_мыла123123раму;;!3": "<body>11//23.31d"
-            "f11амам_алым123123умар;;!3</body>",
+            "11//23.31df11мама_мыла123123раму;;!3": (
+                "<body>11//23.31df11амам_алым123123умар;;!3</body>"
+            ),
             True: "<body>True</body>",
             None: "<body>None</body>",
         }

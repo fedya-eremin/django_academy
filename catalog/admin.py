@@ -1,9 +1,9 @@
-from catalog.models import CatalogCategory, CatalogItem, CatalogTag
+from catalog.models import Category, Item, Tag
 
 from django.contrib import admin
 
 
-@admin.register(CatalogItem)
+@admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
     list_display = (
         "name",
@@ -14,11 +14,11 @@ class ItemAdmin(admin.ModelAdmin):
     list_display_links = ("name",)
 
 
-@admin.register(CatalogCategory)
+@admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ("name",)
 
 
-@admin.register(CatalogTag)
+@admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     list_display = ("name",)

@@ -1,26 +1,20 @@
 from core.models import AbstractCatalog
+from catalog.validators import GreatValidator
 
 import django.core.exceptions
 import django.core.validators
 import django.db.models
 
 
-def great_validator(value):
-    if "превосходно" not in value and "роскошно" not in value:
-        raise django.core.exceptions.ValidationError(
-            "Поле должно содержать 'превосходно' или 'роскошно'!"
-        )
-
-
-class CatalogTag(AbstractCatalog):
+class Tag(AbstractCatalog):
     """
     model which describes tag.
     has AbstractCatalog's inner fields and slug
     """
 
     class Meta:
-        verbose_name = "Тэг"
-        verbose_name_plural = "Тэги"
+        verbose_name = "тэг"
+        verbose_name_plural = "тэги"
 
     slug = django.db.models.TextField(
         "Слизняк",
@@ -33,17 +27,17 @@ class CatalogTag(AbstractCatalog):
         return self.name
 
 
-class CatalogCategory(AbstractCatalog):
+class Category(AbstractCatalog):
     """
     model which describes category.
     has AbstractCatalog's inner fields and slug & weight
     """
 
     class Meta:
-        verbose_name = "Категория"
-        verbose_name_plural = "Категории"
+        verbose_name = "категория"
+        verbose_name_plural = "категории"
 
-    slug = django.db.models.TextField(
+    slug = django.db.models.SlugField(
         "Слизняк",
         unique=True,
         validators=[django.core.validators.validate_slug],
@@ -64,7 +58,7 @@ class CatalogCategory(AbstractCatalog):
         return self.name
 
 
-class CatalogItem(AbstractCatalog):
+class Item(AbstractCatalog):
     """
     model which describes item.
     has AbstractCatalog's inner fields, text,
@@ -72,20 +66,20 @@ class CatalogItem(AbstractCatalog):
     """
 
     class Meta:
-        verbose_name = "Товар"
-        verbose_name_plural = "Товары"
+        verbose_name = "товар"
+        verbose_name_plural = "товары"
 
     text = django.db.models.TextField(
         "Описание",
         validators=[
-            great_validator,
+            GreatValidator("превосходно", "роскошно"),
         ],
         help_text='Текст должен содержать слово "превосходно" или "роскошно"',
     )
     category = django.db.models.ForeignKey(
-        CatalogCategory, on_delete=django.db.models.CASCADE, default=None
+        Category, on_delete=django.db.models.CASCADE, default=None
     )
-    tags = django.db.models.ManyToManyField(CatalogTag)
+    tags = django.db.models.ManyToManyField(Tag)
 
     def __str__(self):
         return self.name
