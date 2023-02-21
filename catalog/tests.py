@@ -1,8 +1,4 @@
-from catalog.models import (
-    Category,
-    Tag,
-    Item
-)
+from catalog.models import Category, Item, Tag
 from catalog.validators import GreatValidator
 
 import django.core.exceptions
@@ -87,17 +83,17 @@ def test_tag_creation(db):
     final_cnt = Tag.objects.count()
     assert final_cnt == init_cnt + 1 and tag.name == "test_tag"
 
+
 @pytest.fixture
 def category(db):
     return Category.objects.create(name="test_category")
+
 
 def test_item_creation(db, category):
     init_cnt = Item.objects.count()
     item = Item.objects.create(name="test_item", category=category)
     final_cnt = Item.objects.count()
     assert final_cnt == init_cnt + 1 and item.name == "test_item"
-
-
 
 
 @pytest.mark.parametrize(

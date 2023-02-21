@@ -1,5 +1,6 @@
-from core.models import AbstractCatalog
 from catalog.validators import GreatValidator
+
+from core.models import AbstractCatalog
 
 import django.core.exceptions
 import django.core.validators

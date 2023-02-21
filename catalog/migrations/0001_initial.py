@@ -8,53 +8,133 @@ import re
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('is_published', models.BooleanField(default=True)),
-                ('name', models.TextField(max_length=150)),
-                ('slug', models.SlugField(help_text='Выберите категорию из списка', max_length=200, unique=True, validators=[django.core.validators.RegexValidator(re.compile('^[-a-zA-Z0-9_]+\\Z'), 'Enter a valid “slug” consisting of letters, numbers, underscores or hyphens.', 'invalid')], verbose_name='Слизняк')),
-                ('weight', models.IntegerField(default=100, help_text='Вес - число от 0 до 32767', validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(32767)], verbose_name='Вес')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("is_published", models.BooleanField(default=True)),
+                ("name", models.TextField(max_length=150)),
+                (
+                    "slug",
+                    models.SlugField(
+                        help_text="Выберите категорию из списка",
+                        max_length=200,
+                        unique=True,
+                        validators=[
+                            django.core.validators.RegexValidator(
+                                re.compile("^[-a-zA-Z0-9_]+\\Z"),
+                                "Enter a valid “slug” consisting of letters, numbers, underscores or hyphens.",
+                                "invalid",
+                            )
+                        ],
+                        verbose_name="Слизняк",
+                    ),
+                ),
+                (
+                    "weight",
+                    models.IntegerField(
+                        default=100,
+                        help_text="Вес - число от 0 до 32767",
+                        validators=[
+                            django.core.validators.MinValueValidator(0),
+                            django.core.validators.MaxValueValidator(32767),
+                        ],
+                        verbose_name="Вес",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'категория',
-                'verbose_name_plural': 'категории',
+                "verbose_name": "категория",
+                "verbose_name_plural": "категории",
             },
         ),
         migrations.CreateModel(
-            name='Tag',
+            name="Tag",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('is_published', models.BooleanField(default=True)),
-                ('name', models.TextField(max_length=150)),
-                ('slug', models.TextField(max_length=200, unique=True, validators=[django.core.validators.RegexValidator(re.compile('^[-a-zA-Z0-9_]+\\Z'), 'Enter a valid “slug” consisting of letters, numbers, underscores or hyphens.', 'invalid')], verbose_name='Слизняк')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("is_published", models.BooleanField(default=True)),
+                ("name", models.TextField(max_length=150)),
+                (
+                    "slug",
+                    models.TextField(
+                        max_length=200,
+                        unique=True,
+                        validators=[
+                            django.core.validators.RegexValidator(
+                                re.compile("^[-a-zA-Z0-9_]+\\Z"),
+                                "Enter a valid “slug” consisting of letters, numbers, underscores or hyphens.",
+                                "invalid",
+                            )
+                        ],
+                        verbose_name="Слизняк",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'тэг',
-                'verbose_name_plural': 'тэги',
+                "verbose_name": "тэг",
+                "verbose_name_plural": "тэги",
             },
         ),
         migrations.CreateModel(
-            name='Item',
+            name="Item",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('is_published', models.BooleanField(default=True)),
-                ('name', models.TextField(max_length=150)),
-                ('text', models.TextField(help_text='Текст должен содержать слово "превосходно" или "роскошно"', validators=[catalog.validators.GreatValidator('превосходно', 'роскошно')], verbose_name='Описание')),
-                ('category', models.ForeignKey(default=None, on_delete=django.db.models.deletion.CASCADE, to='catalog.category')),
-                ('tags', models.ManyToManyField(to='catalog.Tag')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("is_published", models.BooleanField(default=True)),
+                ("name", models.TextField(max_length=150)),
+                (
+                    "text",
+                    models.TextField(
+                        help_text='Текст должен содержать слово "превосходно" или "роскошно"',
+                        validators=[
+                            catalog.validators.GreatValidator(
+                                "превосходно", "роскошно"
+                            )
+                        ],
+                        verbose_name="Описание",
+                    ),
+                ),
+                (
+                    "category",
+                    models.ForeignKey(
+                        default=None,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="catalog.category",
+                    ),
+                ),
+                ("tags", models.ManyToManyField(to="catalog.Tag")),
             ],
             options={
-                'verbose_name': 'товар',
-                'verbose_name_plural': 'товары',
+                "verbose_name": "товар",
+                "verbose_name_plural": "товары",
             },
         ),
     ]

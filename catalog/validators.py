@@ -1,6 +1,7 @@
 import django.core.exceptions
 from django.utils.deconstruct import deconstructible
 
+
 @deconstructible
 class GreatValidator:
     def __init__(self, *args):
