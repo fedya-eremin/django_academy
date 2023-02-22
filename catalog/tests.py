@@ -119,6 +119,8 @@ def test_great_validator_negative(text):
         "яндекс бразер - это превосходно",
         "пользоваться им - роскошно",
         "превосходно роскошно",
+        "Роскошно!!!",
+        "превосходно? но правильно!",
     ],
 )
 def test_great_validator_positive(text):

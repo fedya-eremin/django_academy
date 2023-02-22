@@ -12,7 +12,10 @@ class AbstractCatalog(django.db.models.Model):
         verbose_name = "абстрактная модель"
         verbose_name_plural = "абстрактные модели"
 
-    is_published = django.db.models.BooleanField(default=True)
+    is_published = django.db.models.BooleanField("Опубликовано", default=True)
     name = django.db.models.TextField(
-        max_length=150, help_text="Имя, содержит до 150 символов"
+        "Имя", max_length=150, help_text="Имя, содержит до 150 символов"
     )
+
+    def __str__(self):
+        return self.name
