@@ -18,7 +18,7 @@ class Tag(core.models.AbstractCatalog, core.models.AbstractWithSlug):
         verbose_name_plural = "тэги"
 
 
-class Category(core.models.AbstractCatalog):
+class Category(core.models.AbstractCatalog, core.models.AbstractWithSlug):
     """
     model which describes category.
     has AbstractCatalog's inner fields and slug & weight
