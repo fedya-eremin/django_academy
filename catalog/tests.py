@@ -1,9 +1,8 @@
+import django.core.exceptions
+import pytest
+
 from catalog.models import Category, Item, Tag
 from catalog.validators import GreatValidator
-
-import django.core.exceptions
-
-import pytest
 
 
 def test_catalog_endpoint(client):
