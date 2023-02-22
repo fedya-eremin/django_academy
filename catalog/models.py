@@ -7,7 +7,7 @@ import django.core.validators
 import django.db.models
 
 
-class Tag(core.models.AbstractCatalog):
+class Tag(core.models.AbstractCatalog, core.models.AbstractWithSlug):
     """
     model which describes tag.
     has AbstractCatalog's inner fields and slug
@@ -16,13 +16,6 @@ class Tag(core.models.AbstractCatalog):
     class Meta:
         verbose_name = "тэг"
         verbose_name_plural = "тэги"
-
-    slug = django.db.models.SlugField(
-        "Слизняк",
-        unique=True,
-        max_length=200,
-        help_text="Впишите slug-последовательность в поле",
-    )
 
 
 class Category(core.models.AbstractCatalog):
@@ -39,16 +32,10 @@ class Category(core.models.AbstractCatalog):
         "Вес",
         default=100,
         validators=[
-            django.core.validators.MinValueValidator(0),
+            django.core.validators.MinValueValidator(1),
             django.core.validators.MaxValueValidator(32767),
         ],
         help_text="Вес - число от 0 до 32767",
-    )
-    slug = django.db.models.SlugField(
-        "Слизняк",
-        unique=True,
-        max_length=200,
-        help_text="Впишите slug-последовательность в поле",
     )
 
 

@@ -19,3 +19,17 @@ class AbstractCatalog(django.db.models.Model):
 
     def __str__(self):
         return self.name
+
+
+class AbstractWithSlug(django.db.models.Model):
+    class Meta:
+        abstract = True
+        verbose_name = "модель со slug"
+        verbose_name_plural = "модели со slug"
+
+    slug = django.db.models.SlugField(
+        "Слизняк",
+        unique=True,
+        max_length=200,
+        help_text="Впишите slug-последовательность в поле",
+    )

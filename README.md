@@ -32,3 +32,12 @@ pip install -e .
 python3 manage.py runserver
 ``` 
 
+## База данных
+База данных содержит три таблицы:
+- Item
+- Category
+- Tag
+
+Данные для примера находятся в фикстуре в приложении catalog
+
+Более подробно связи в таблице можно изучить в https://app.quickdatabasediagrams.com/#/d/bgWQtS
