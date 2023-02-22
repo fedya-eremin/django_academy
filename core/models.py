@@ -16,6 +16,30 @@ class AbstractCatalog(django.db.models.Model):
     name = django.db.models.TextField(
         "Имя", max_length=150, help_text="Имя, содержит до 150 символов"
     )
+    normalized = django.db.models.TextField(
+        default="", unique=True, editable=False
+    )
+
+    def save(self, *args, **kwargs):
+        """
+        если честно, я не представляю, как сделать это иначе, кроме как
+        переопределяя save() или clean(). Оба они возвращают цикл исключений
+        при попытке внести похожее на уже существующее значение :(
+        """
+        alph_ru = "АВЕКМОРСТХаеорсух"
+        alph_en = "ABEKMOPCTXaeopcyx"
+        puncts = ",.!?:;'\""
+        normalized = ""
+        # name = self.name
+        for i in self.name.split():
+            if i in alph_ru:
+                normalized += alph_en[alph_ru.index(i)]
+            elif i in puncts:
+                normalized += "."
+            else:
+                normalized += i
+        self.normalized = normalized.lower()
+        super(AbstractCatalog, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name

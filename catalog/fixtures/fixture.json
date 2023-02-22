@@ -4,7 +4,8 @@
     "pk": 1,
     "fields": {
         "is_published": true,
-        "name": "Свежие",
+        "name": "Свежее",
+        "normalized": "свежее",
         "slug": "fresh"
     }
 },
@@ -13,8 +14,9 @@
     "pk": 2,
     "fields": {
         "is_published": true,
-        "name": "Новинка",
-        "slug": "new"
+        "name": "По акции",
+        "normalized": "поакции",
+        "slug": "sale"
     }
 },
 {
@@ -22,8 +24,9 @@
     "pk": 3,
     "fields": {
         "is_published": true,
-        "name": "Успейте купить",
-        "slug": "few"
+        "name": "Новое",
+        "normalized": "новое",
+        "slug": "new"
     }
 },
 {
@@ -31,8 +34,9 @@
     "pk": 4,
     "fields": {
         "is_published": true,
-        "name": "Скидка",
-        "slug": "sale"
+        "name": "Распродажа",
+        "normalized": "распродажа",
+        "slug": "discount"
     }
 },
 {
@@ -40,8 +44,9 @@
     "pk": 5,
     "fields": {
         "is_published": true,
-        "name": "Теперь в России",
-        "slug": "avalaible"
+        "name": "Выгодно",
+        "normalized": "выгодно",
+        "slug": "Cheap"
     }
 },
 {
@@ -50,8 +55,9 @@
     "fields": {
         "is_published": true,
         "name": "Фрукты",
-        "slug": "fruits",
-        "weight": 99
+        "normalized": "фрукты",
+        "slug": "fruit",
+        "weight": 100
     }
 },
 {
@@ -60,8 +66,9 @@
     "fields": {
         "is_published": true,
         "name": "Овощи",
-        "slug": "vegies",
-        "weight": 101
+        "normalized": "овощи",
+        "slug": "ve",
+        "weight": 100
     }
 },
 {
@@ -70,11 +77,12 @@
     "fields": {
         "is_published": true,
         "name": "Яблоко",
+        "normalized": "яблоко",
         "text": "роскошно яблоко",
         "category": 1,
         "tags": [
-            1,
-            2
+            4,
+            5
         ]
     }
 },
@@ -84,11 +92,12 @@
     "fields": {
         "is_published": true,
         "name": "Банан",
+        "normalized": "банан",
         "text": "превосходно банан",
         "category": 1,
         "tags": [
-            1,
-            5
+            2,
+            3
         ]
     }
 },
@@ -98,12 +107,13 @@
     "fields": {
         "is_published": true,
         "name": "Помидор",
-        "text": "Роскошно\r\nотличный помидор",
-        "category": 2,
+        "normalized": "помидор",
+        "text": "роскошно помидор",
+        "category": 1,
         "tags": [
+            1,
             2,
-            3,
-            4
+            3
         ]
     }
 },
@@ -112,11 +122,12 @@
     "pk": 4,
     "fields": {
         "is_published": true,
-        "name": "Капуста",
-        "text": "превосходно!\r\nкапуста",
-        "category": 2,
+        "name": "Груша",
+        "normalized": "груша",
+        "text": "превосходно",
+        "category": 1,
         "tags": [
-            1,
+            2,
             3
         ]
     }
@@ -126,12 +137,13 @@
     "pk": 5,
     "fields": {
         "is_published": true,
-        "name": "Лук",
-        "text": "великолепно роскошно\r\nотличный овощ",
+        "name": "Тыква",
+        "normalized": "тыква",
+        "text": "роскошно",
         "category": 2,
         "tags": [
-            4,
-            5
+            2,
+            4
         ]
     }
 },
@@ -139,9 +151,9 @@
     "model": "admin.logentry",
     "pk": 1,
     "fields": {
-        "action_time": "2023-02-22T13:18:30.828Z",
+        "action_time": "2023-02-22T19:20:38.395Z",
         "user": 1,
-        "content_type": 1,
+        "content_type": 2,
         "object_id": "1",
         "object_repr": "Фрукты",
         "action_flag": 1,
@@ -152,9 +164,9 @@
     "model": "admin.logentry",
     "pk": 2,
     "fields": {
-        "action_time": "2023-02-22T13:18:59.002Z",
+        "action_time": "2023-02-22T19:20:48.972Z",
         "user": 1,
-        "content_type": 1,
+        "content_type": 2,
         "object_id": "2",
         "object_repr": "Овощи",
         "action_flag": 1,
@@ -165,11 +177,11 @@
     "model": "admin.logentry",
     "pk": 3,
     "fields": {
-        "action_time": "2023-02-22T13:19:18.565Z",
+        "action_time": "2023-02-22T19:21:23.911Z",
         "user": 1,
-        "content_type": 2,
+        "content_type": 1,
         "object_id": "1",
-        "object_repr": "Свежие",
+        "object_repr": "Свежее",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -178,11 +190,11 @@
     "model": "admin.logentry",
     "pk": 4,
     "fields": {
-        "action_time": "2023-02-22T13:19:30.757Z",
+        "action_time": "2023-02-22T19:21:38.021Z",
         "user": 1,
-        "content_type": 2,
+        "content_type": 1,
         "object_id": "2",
-        "object_repr": "Новинка",
+        "object_repr": "По акции",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -191,11 +203,11 @@
     "model": "admin.logentry",
     "pk": 5,
     "fields": {
-        "action_time": "2023-02-22T13:20:09.170Z",
+        "action_time": "2023-02-22T19:21:47.331Z",
         "user": 1,
-        "content_type": 2,
+        "content_type": 1,
         "object_id": "3",
-        "object_repr": "Успейте купить",
+        "object_repr": "Новое",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -204,11 +216,11 @@
     "model": "admin.logentry",
     "pk": 6,
     "fields": {
-        "action_time": "2023-02-22T13:20:31.231Z",
+        "action_time": "2023-02-22T19:22:01.911Z",
         "user": 1,
-        "content_type": 2,
+        "content_type": 1,
         "object_id": "4",
-        "object_repr": "Скидка",
+        "object_repr": "Распродажа",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -217,11 +229,11 @@
     "model": "admin.logentry",
     "pk": 7,
     "fields": {
-        "action_time": "2023-02-22T13:21:17.350Z",
+        "action_time": "2023-02-22T19:22:23.135Z",
         "user": 1,
-        "content_type": 2,
+        "content_type": 1,
         "object_id": "5",
-        "object_repr": "Теперь в России",
+        "object_repr": "Выгодно",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -230,7 +242,7 @@
     "model": "admin.logentry",
     "pk": 8,
     "fields": {
-        "action_time": "2023-02-22T13:21:58.691Z",
+        "action_time": "2023-02-22T19:22:47.194Z",
         "user": 1,
         "content_type": 3,
         "object_id": "1",
@@ -243,7 +255,7 @@
     "model": "admin.logentry",
     "pk": 9,
     "fields": {
-        "action_time": "2023-02-22T13:22:17.439Z",
+        "action_time": "2023-02-22T19:23:15.695Z",
         "user": 1,
         "content_type": 3,
         "object_id": "2",
@@ -256,7 +268,7 @@
     "model": "admin.logentry",
     "pk": 10,
     "fields": {
-        "action_time": "2023-02-22T13:22:40.669Z",
+        "action_time": "2023-02-22T19:23:35.589Z",
         "user": 1,
         "content_type": 3,
         "object_id": "3",
@@ -269,11 +281,11 @@
     "model": "admin.logentry",
     "pk": 11,
     "fields": {
-        "action_time": "2023-02-22T13:23:07.761Z",
+        "action_time": "2023-02-22T19:24:01.878Z",
         "user": 1,
         "content_type": 3,
         "object_id": "4",
-        "object_repr": "Капуста",
+        "object_repr": "Груша",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -282,11 +294,11 @@
     "model": "admin.logentry",
     "pk": 12,
     "fields": {
-        "action_time": "2023-02-22T13:23:39.836Z",
+        "action_time": "2023-02-22T19:24:31.059Z",
         "user": 1,
         "content_type": 3,
         "object_id": "5",
-        "object_repr": "Лук",
+        "object_repr": "Тыква",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -295,72 +307,72 @@
     "model": "auth.permission",
     "pk": 1,
     "fields": {
-        "name": "Can add категория",
+        "name": "Can add тэг",
         "content_type": 1,
-        "codename": "add_category"
+        "codename": "add_tag"
     }
 },
 {
     "model": "auth.permission",
     "pk": 2,
     "fields": {
-        "name": "Can change категория",
+        "name": "Can change тэг",
         "content_type": 1,
-        "codename": "change_category"
+        "codename": "change_tag"
     }
 },
 {
     "model": "auth.permission",
     "pk": 3,
     "fields": {
-        "name": "Can delete категория",
+        "name": "Can delete тэг",
         "content_type": 1,
-        "codename": "delete_category"
+        "codename": "delete_tag"
     }
 },
 {
     "model": "auth.permission",
     "pk": 4,
     "fields": {
-        "name": "Can view категория",
+        "name": "Can view тэг",
         "content_type": 1,
-        "codename": "view_category"
+        "codename": "view_tag"
     }
 },
 {
     "model": "auth.permission",
     "pk": 5,
     "fields": {
-        "name": "Can add тэг",
+        "name": "Can add категория",
         "content_type": 2,
-        "codename": "add_tag"
+        "codename": "add_category"
     }
 },
 {
     "model": "auth.permission",
     "pk": 6,
     "fields": {
-        "name": "Can change тэг",
+        "name": "Can change категория",
         "content_type": 2,
-        "codename": "change_tag"
+        "codename": "change_category"
     }
 },
 {
     "model": "auth.permission",
     "pk": 7,
     "fields": {
-        "name": "Can delete тэг",
+        "name": "Can delete категория",
         "content_type": 2,
-        "codename": "delete_tag"
+        "codename": "delete_category"
     }
 },
 {
     "model": "auth.permission",
     "pk": 8,
     "fields": {
-        "name": "Can view тэг",
+        "name": "Can view категория",
         "content_type": 2,
-        "codename": "view_tag"
+        "codename": "view_category"
     }
 },
 {
@@ -619,16 +631,16 @@
     "model": "auth.user",
     "pk": 1,
     "fields": {
-        "password": "pbkdf2_sha256$260000$gEg35BTYkGnOLldu04Us5I$O1M7K4vLTZeRdee0T9z1FQaEQLxqEtuTbE7KCGqA104=",
-        "last_login": "2023-02-22T13:17:35.858Z",
+        "password": "pbkdf2_sha256$260000$M55QajDaUofutDCV7D8tFn$JcsDDfHQLU9SanYdMo9TBqhHTds9du065KOpiliUq9g=",
+        "last_login": "2023-02-22T19:20:11.108Z",
         "is_superuser": true,
         "username": "fedyaeremin",
         "first_name": "",
         "last_name": "",
-        "email": "qwertier06@gmail.com",
+        "email": "",
         "is_staff": true,
         "is_active": true,
-        "date_joined": "2023-02-22T13:17:27.588Z",
+        "date_joined": "2023-02-22T19:19:55.812Z",
         "groups": [],
         "user_permissions": []
     }
@@ -638,7 +650,7 @@
     "pk": 1,
     "fields": {
         "app_label": "catalog",
-        "model": "category"
+        "model": "tag"
     }
 },
 {
@@ -646,7 +658,7 @@
     "pk": 2,
     "fields": {
         "app_label": "catalog",
-        "model": "tag"
+        "model": "category"
     }
 },
 {
@@ -707,10 +719,10 @@
 },
 {
     "model": "sessions.session",
-    "pk": "36lz73zs4k32wxpwv85ub2fb9cjh65e9",
+    "pk": "lwx2npd6pyq47ecsglqo038zx0von98v",
     "fields": {
-        "session_data": ".eJxVjMEOwiAQRP-FsyGAW1Y8eu83kF2WStXQpLQn47_bJj1oMqd5b-atIq1LiWvLcxxFXZVVp9-OKT1z3YE8qN4nnaa6zCPrXdEHbbqfJL9uh_t3UKiVbe3PYJnpYjL4FEJmss4YNwQrNnRb2AmGzjsgTpIIABBxQAPofEKjPl_OXDcN:1pUp03:bmR03oSprLsUrpxeq_HpLFjv3hqXsYjRRK5Ydeh_glU",
-        "expire_date": "2023-03-08T13:17:35.889Z"
+        "session_data": ".eJxVjDsOwjAQBe_iGln2wvpDSc8Zot14jQPIluKkQtwdIqWA9s3Me6mB1qUMa5d5mJI6K6sOvxvT-JC6gXSnemt6bHWZJ9abonfa9bUleV529--gUC_fOpAAuiCY-cjoowEJdAIySMCIAh7YRQvO54QQQ4je2ZgpJ0G0YtT7A9JtN1g:1pUuex:e-IXQ_bpIgb4D4tjyuc9aUUNIe5LPzLSQwsrcts7ic4",
+        "expire_date": "2023-03-08T19:20:11.149Z"
     }
 }
 ]

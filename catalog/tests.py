@@ -126,3 +126,24 @@ def test_great_validator_negative(text):
 def test_great_validator_positive(text):
     func = GreatValidator("превосходно", "роскошно")
     assert func(text) is None
+
+
+@pytest.mark.xfail
+@pytest.mark.parametrize(
+    "name",
+    [
+        "Cвежее",
+        "СвeЖЕЕ",
+        "Нoвоe",
+        "НОВОЕ",
+    ],
+)
+def test_normalize_negative(db, name):
+    assert Tag.objects.create(name=name)
+
+
+@pytest.mark.parametrize(
+    "name", ["тег", "123123123", "Категория", "ЯндексБраузер"]
+)
+def test_normalize_positive(db, name):
+    assert Tag.objects.create(name=name).name == name
