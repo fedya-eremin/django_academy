@@ -1,4 +1,5 @@
 import django.db.models
+from django.core.exceptions import ValidationError
 
 
 class AbstractCatalog(django.db.models.Model):
@@ -16,21 +17,29 @@ class AbstractCatalog(django.db.models.Model):
     name = django.db.models.TextField(
         "Имя", max_length=150, help_text="Имя, содержит до 150 символов"
     )
+
+
+class NormalizedField(django.db.models.Model):
+    class Meta:
+        abstract = True
+        verbose_name = "нормализовано"
+        verbose_name_plural = "нормализовано"
+
     normalized = django.db.models.TextField(
         default="", unique=True, editable=False
     )
+    name = AbstractCatalog.__dict__["name"]
 
-    def save(self, *args, **kwargs):
+    def clean(self, *args, **kwargs):
         """
         если честно, я не представляю, как сделать это иначе, кроме как
         переопределяя save() или clean(). Оба они возвращают цикл исключений
         при попытке внести похожее на уже существующее значение :(
         """
-        alph_ru = "АВЕКМОРСТХаеорсух"
-        alph_en = "ABEKMOPCTXaeopcyx"
+        alph_ru = "АВЕКМНОРСТХаеомнкрстух"
+        alph_en = "ABEKMНOPCTXaeomhkpctyx"
         puncts = ",.!?:;'\""
         normalized = ""
-        # name = self.name
         for i in self.name.split():
             if i in alph_ru:
                 normalized += alph_en[alph_ru.index(i)]
@@ -39,10 +48,14 @@ class AbstractCatalog(django.db.models.Model):
             else:
                 normalized += i
         self.normalized = normalized.lower()
-        super(AbstractCatalog, self).save(*args, **kwargs)
+        manager = self.__class__.objects.all()
+        if len(manager.filter(normalized=self.normalized)):
+            raise ValidationError("Поле с подобным именем уже имеется!")
+        super(NormalizedField, self).clean(*args, **kwargs)
 
-    def __str__(self):
-        return self.name
+    def save(self, *args, **kwargs):
+        self.clean()
+        super(NormalizedField, self).save(*args, **kwargs)
 
 
 class AbstractWithSlug(django.db.models.Model):

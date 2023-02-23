@@ -1,12 +1,12 @@
 from catalog.validators import GreatValidator
 
-import core.models
+from core.models import AbstractCatalog, AbstractWithSlug, NormalizedField
 
 import django.core.validators
 import django.db.models
 
 
-class Tag(core.models.AbstractCatalog, core.models.AbstractWithSlug):
+class Tag(AbstractCatalog, AbstractWithSlug, NormalizedField):
     """
     model which describes tag.
     has AbstractCatalog's inner fields and slug
@@ -17,7 +17,7 @@ class Tag(core.models.AbstractCatalog, core.models.AbstractWithSlug):
         verbose_name_plural = "тэги"
 
 
-class Category(core.models.AbstractCatalog, core.models.AbstractWithSlug):
+class Category(AbstractCatalog, AbstractWithSlug, NormalizedField):
     """
     model which describes category.
     has AbstractCatalog's inner fields and slug & weight
@@ -38,7 +38,7 @@ class Category(core.models.AbstractCatalog, core.models.AbstractWithSlug):
     )
 
 
-class Item(core.models.AbstractCatalog):
+class Item(AbstractCatalog, NormalizedField):
     """
     model which describes item.
     has AbstractCatalog's inner fields, text,
