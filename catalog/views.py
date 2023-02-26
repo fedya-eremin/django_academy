@@ -1,8 +1,9 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def item_list(request):
-    return HttpResponse(b"<body>This is item list</body>")
+    return render(request, "base.html")
 
 
 def item_detail(request, key):

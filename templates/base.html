@@ -1,0 +1,39 @@
+{% load static %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--<link rel="icon" href="{% static 'img/favicon.ico' %}" type="image">-->
+	{% compress css %}
+	<link type="text/x-scss" rel="stylesheet" href="{% static 'scss/style.scss' %}">
+	{% endcompress %}
+	<title>Лучший Магазин</title>
+</head>
+<body>
+	<header class="d-flex justify-content-between py-3 px-5">
+			<img id="main-logo" src="{% static 'img/cat-logo.png' %}">
+			{% with request.resolver_match.view_name as view_name %}			
+			<ul class="nav nav-pills justify-content-between">
+				<li class="nav-item">
+					<a href="{% url 'homepage:home' %}" 
+						class="nav-link {% if view_name == 'homepage:home' %}active{% endif %}">Главная
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="{% url 'catalog:item_list' %}"
+						class="nav-link {% if view_name == 'catalog:item_list' %}active{% endif %}">Список товаров
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="#" class="nav-link">О проекте</a>
+				</li>
+			</ul>
+			{% endwith %}
+    </header>	
+	<main>
+		{% block content %}Какие-то проблемы?{% endblock content %}
+	</main>
+</body>
+</html>
