@@ -1,9 +1,12 @@
+from catalog.validators import GreatValidator
+
+from core.models import AbstractCatalog, AbstractWithSlug, NormalizedField
+
 import django.core.validators
 import django.db.models
 import django.utils.safestring
+
 from sorl.thumbnail.engines.pil_engine import Engine
-from catalog.validators import GreatValidator
-from core.models import AbstractCatalog, AbstractWithSlug, NormalizedField
 
 
 def crop_image(fin):
