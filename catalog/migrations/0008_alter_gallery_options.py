@@ -6,12 +6,15 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('catalog', '0007_gallery'),
+        ("catalog", "0007_gallery"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='gallery',
-            options={'verbose_name': 'допольнительное фото', 'verbose_name_plural': 'допольнительные фото'},
+            name="gallery",
+            options={
+                "verbose_name": "допольнительное фото",
+                "verbose_name_plural": "допольнительные фото",
+            },
         ),
     ]

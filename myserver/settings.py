@@ -163,15 +163,15 @@ STATICFILES_DIRS = [
     BASE_DIR / "static_dev",
 ]
 # Following lines are adding SASS to project
-STATICFILES_FINDERS = [  
-   "compressor.finders.CompressorFinder"
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
 ]
 COMPRESS_ROOT = BASE_DIR / STATICFILES_DIRS[0]
-# Following command will be executet if either STATIC_ROOT or 
+# Following command will be executet if either STATIC_ROOT or
 # COMPRESS_PRECOMPILERS is set
-COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'django_libsass.SassCompiler'),
-)
+COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"

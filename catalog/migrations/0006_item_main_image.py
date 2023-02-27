@@ -6,13 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('catalog', '0005_auto_20230222_1703'),
+        ("catalog", "0005_auto_20230222_1703"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='item',
-            name='main_image',
-            field=models.ImageField(blank=True, default='static_dev/img/cat-logo.png', null=True, upload_to='titles/'),
+            model_name="item",
+            name="main_image",
+            field=models.ImageField(
+                blank=True,
+                default="static_dev/img/cat-logo.png",
+                null=True,
+                upload_to="titles/",
+            ),
         ),
     ]

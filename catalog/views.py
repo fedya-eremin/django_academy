@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 
 def item_list(request):
-    return render(request, "base.html")
+    return render(request, "catalog/catalog.html")
 
 
 def item_detail(request, key):

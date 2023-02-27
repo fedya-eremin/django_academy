@@ -1,6 +1,6 @@
-from catalog.models import Category, Item, Gallery, Tag
-
 from django.contrib import admin
+
+from catalog.models import Category, Gallery, Item, Tag
 
 
 class GalleryField(admin.StackedInline):
