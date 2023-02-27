@@ -9,6 +9,7 @@ def item_list(request):
 def item_detail(request, key):
     return render(request, "catalog/item.html")
 
+
 def re_positive_num(request):
     return HttpResponse(
         b"<body>This is re page which handles positive number</body>"
