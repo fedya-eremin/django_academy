@@ -92,7 +92,7 @@ def category(db):
 # fails for some reason...
 # def test_item_creation(db, category):
 #     init_cnt = Item.objects.count()
-#     item = Item.objects.create(name="test_item", category=category)
+#     item = Item.objects.create(id=100, name="test_item1", category=category)
 #     final_cnt = Item.objects.count()
 #     assert final_cnt == init_cnt + 1 and item.name == "test_item"
 

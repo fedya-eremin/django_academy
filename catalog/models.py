@@ -6,6 +6,8 @@ import django.core.validators
 import django.db.models
 import django.utils.safestring
 
+from django_quill.fields import QuillField
+
 from sorl.thumbnail.engines.pil_engine import Engine
 
 
@@ -64,10 +66,10 @@ class Item(AbstractCatalog, NormalizedField):
         verbose_name = "товар"
         verbose_name_plural = "товары"
 
-    text = django.db.models.TextField(
+    text = QuillField(
         "Описание",
         validators=[
-            GreatValidator("превосходно", "роскошно"),
+            # GreatValidator("превосходно", "роскошно"),
         ],
         help_text='Текст должен содержать слово "превосходно" или "роскошно"',
     )

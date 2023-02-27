@@ -12,7 +12,8 @@ dependencies = [
 	"sorl-thumbnail==12.9.0",
 	"django_compressor==4.3.1",
 	"django-libsass==0.9",
-	"pillow==9.4.0"
+	"pillow==9.4.0",
+	"django-quill-editor==0.1.40"
 ]
 
 [tool.setuptools]

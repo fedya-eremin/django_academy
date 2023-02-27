@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     "sorl.thumbnail",  # Thumbnails, mostly for admin panel
     "django_cleanup.apps.CleanupConfig",  # To work with images
     "compressor",  # Adds CSS, SASS, JS compressor and so on
+    "django_quill",
 ]
 
 MIDDLEWARE = [

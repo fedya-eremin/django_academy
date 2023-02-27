@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-	<main class="px-3">
-    <h1>О проекте</h1>
+<div class="container px-4 under">
+	<h1>О проекте</h1>
     <p class="lead">{% lorem 1 b random %}</p>
     <p class="lead">
       <a href="{% url 'homepage:home' %}" class="btn btn-lg btn-light fw-bold border-white bg-white">Узнайте больше!</a>
     </p>
-  </main>
+</div>
 {% endblock content %}
