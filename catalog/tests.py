@@ -97,6 +97,14 @@ def category(db):
 #     assert final_cnt == init_cnt + 1 and item.name == "test_item"
 
 
+class Plain(str):
+    """because of Quill usage added some properties"""
+
+    def __init__(self, plain):
+        super().__init__()
+        self.plain = plain
+
+
 @pytest.mark.parametrize(
     "text",
     [
@@ -111,7 +119,7 @@ def category(db):
 def test_great_validator_negative(text):
     with pytest.raises(django.core.exceptions.ValidationError):
         func = GreatValidator("превосходно", "роскошно")
-        func(text)
+        func(Plain(text))
 
 
 @pytest.mark.parametrize(
@@ -126,7 +134,7 @@ def test_great_validator_negative(text):
 )
 def test_great_validator_positive(text):
     func = GreatValidator("превосходно", "роскошно")
-    assert func(text) is None
+    assert func(Plain(text)) is None
 
 
 @pytest.mark.xfail

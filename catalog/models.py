@@ -69,7 +69,7 @@ class Item(AbstractCatalog, NormalizedField):
     text = QuillField(
         "Описание",
         validators=[
-            # GreatValidator("превосходно", "роскошно"),
+            GreatValidator("превосходно", "роскошно"),
         ],
         help_text='Текст должен содержать слово "превосходно" или "роскошно"',
     )

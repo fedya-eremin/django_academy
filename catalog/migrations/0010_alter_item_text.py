@@ -5,15 +5,17 @@ import django_quill.fields
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('catalog', '0009_auto_20230227_1351'),
+        ("catalog", "0009_auto_20230227_1351"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='item',
-            name='text',
-            field=django_quill.fields.QuillField(help_text='Текст должен содержать слово "превосходно" или "роскошно"', verbose_name='Описание'),
+            model_name="item",
+            name="text",
+            field=django_quill.fields.QuillField(
+                help_text='Текст должен содержать слово "превосходно" или "роскошно"',
+                verbose_name="Описание",
+            ),
         ),
     ]
