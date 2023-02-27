@@ -2,48 +2,64 @@
 {% load compress %}
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	{% include "includes/header.html" %}	
-	<!--<link rel="icon" href="{% static 'img/favicon.ico' %}" type="image">-->
-	{% compress css %}
-	<link type="text/x-scss" rel="stylesheet" href="{% static 'scss/style.scss' %}">
-	{% endcompress %}
-	<title>{% block title %}Teapot{% endblock title %}</title>
-</head>
-<body class="d-flex flex-column min-vh-100">
-	<header class="d-flex justify-content-between py-3 px-5">
-			<img id="main-logo" src="{% static 'img/cat-logo.png' %}">
-			{% with request.resolver_match.view_name as view_name %}			
-			<ul class="nav nav-pills justify-content-between">
-				<li class="nav-item">
-					<a href="{% url 'homepage:home' %}" 
-						class="nav-link {% if view_name == 'homepage:home' %}active{% endif %}">Главная
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="{% url 'catalog:item_list' %}"
-						class="nav-link {% if view_name == 'catalog:item_list' %}active{% endif %}">Список товаров
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="{% url 'about:about' %}" class="nav-link {% if view_name == 'about:about' %}active{% endif %}">О проекте</a>
-				</li>
-			</ul>
-			{% endwith %}
-    </header>	
-	<main>
-		{% block content %}Какие-то проблемы?{% endblock content %}
-	</main>
-	<footer class="mt-auto py-5">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="{% url 'homepage:home' %}" class="nav-link px-2 text-muted">Главная</a></li>
-      <li class="nav-item"><a href="{% url 'catalog:item_list' %}" class="nav-link px-2 text-muted">Каталог</a></li>
-      <li class="nav-item"><a href="{% url 'about:about' %}" class="nav-link px-2 text-muted">О проекте</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Соцсети</a></li>
-    </ul>
-    <p class="text-center text-muted">© 2023 Cat Company, Inc</p>
-  </footer>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include "includes/header.html" %}
+    <!--<link rel="icon" href="{% static 'img/favicon.ico' %}" type="image">-->
+    {% compress css %}
+      <link type="text/x-scss"
+            rel="stylesheet"
+            href="{% static 'scss/style.scss' %}">
+    {% endcompress %}
+    <title>
+      {% block title %}
+        Teapot
+      {% endblock title %}
+    </title>
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <header class="d-flex justify-content-between py-3 px-5">
+      <img id="main-logo" src="{% static 'img/cat-logo.png' %}">
+      {% with request.resolver_match.view_name as view_name %}
+        <ul class="nav nav-pills justify-content-between">
+          <li class="nav-item">
+            <a href="{% url 'homepage:home' %}"
+               class="nav-link {% if view_name == 'homepage:home' %}active{% endif %}">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'catalog:item_list' %}"
+               class="nav-link {% if view_name == 'catalog:item_list' %}active{% endif %}">Список товаров
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'about:about' %}"
+               class="nav-link {% if view_name == 'about:about' %}active{% endif %}">О проекте</a>
+          </li>
+        </ul>
+      {% endwith %}
+    </header>
+    <main>
+      {% block content %}
+        Какие-то проблемы?
+      {% endblock content %}
+    </main>
+    <footer class="mt-auto py-5">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item">
+          <a href="{% url 'homepage:home' %}" class="nav-link px-2 text-muted">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'catalog:item_list' %}" class="nav-link px-2 text-muted">Каталог</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'about:about' %}" class="nav-link px-2 text-muted">О проекте</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 text-muted">Соцсети</a>
+        </li>
+      </ul>
+      <p class="text-center text-muted">© 2023 Cat Company, Inc</p>
+    </footer>
+  </body>
 </html>
