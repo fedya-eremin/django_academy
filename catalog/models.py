@@ -1,6 +1,11 @@
 from catalog.validators import GreatValidator
 
-from core.models import AbstractCatalog, AbstractWithSlug, NormalizedField
+from core.models import (
+    AbstractCatalog,
+    AbstractImage,
+    AbstractWithSlug,
+    NormalizedField,
+)
 
 import django.core.validators
 import django.db.models
@@ -55,6 +60,23 @@ class Category(AbstractCatalog, AbstractWithSlug, NormalizedField):
     )
 
 
+class TitleImage(django.db.models.Model):
+    class Meta:
+        verbose_name = "иконка"
+        verbose_name_plural = "иконки"
+
+    image = django.db.models.ImageField(
+        "Иконка",
+        upload_to="titles",
+        default="../static_dev/img/cat-logo.png",
+        blank=True,
+        null=True,
+    )
+
+    def __str__(self):
+        return self.image.path
+
+
 class Item(AbstractCatalog, NormalizedField):
     """
     model which describes item.
@@ -77,37 +99,36 @@ class Item(AbstractCatalog, NormalizedField):
         Category, on_delete=django.db.models.CASCADE, default=None
     )
     tags = django.db.models.ManyToManyField(Tag)
-    main_image = django.db.models.ImageField(
-        upload_to="titles",
-        default="../static_dev/img/cat-logo.png",
-        blank=True,
+
+    main_image = django.db.models.OneToOneField(
+        TitleImage,
+        on_delete=django.db.models.CASCADE,
         null=True,
+        verbose_name="иконка",
     )
 
     def image_thumbnail(self):
         """shows item's thumbnail on the dashboard of table"""
         if self.main_image:
             return django.utils.safestring.mark_safe(
-                f'<img src="{self.main_image.url}" height=50>'
+                f'<img src="{self.main_image.image.url}" height=50>'
             )
 
     image_thumbnail.allow_tags = True
     image_thumbnail.short_description = "превью"
-
-    list_display = ("image_thumbnail",)
 
     def save(self, *args, **kwargs):
         self.clean()
 
         super(Item, self).save(*args, **kwargs)  # needed if image is abscent
         try:
-            crop_image(self.main_image.path)
+            crop_image(self.main_image.image.path)
         except ValueError:  # suppresses warning on deletion
             pass
         super(Item, self).save(*args, **kwargs)
 
 
-class Gallery(django.db.models.Model):
+class Gallery(AbstractImage):
     """
     model which stores all additional item images
     """
@@ -119,7 +140,6 @@ class Gallery(django.db.models.Model):
     item = django.db.models.ForeignKey(
         Item, on_delete=django.db.models.CASCADE, default=None
     )
-    image = django.db.models.ImageField(upload_to="gallery/")
 
     def save(self, *args, **kwargs):
         # same as item, except clean()

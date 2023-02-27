@@ -14,9 +14,9 @@
     "pk": 2,
     "fields": {
         "is_published": true,
-        "name": "По акции",
-        "normalized": "поакции",
-        "slug": "sale"
+        "name": "Новинка",
+        "normalized": "новинка",
+        "slug": "new"
     }
 },
 {
@@ -24,9 +24,9 @@
     "pk": 3,
     "fields": {
         "is_published": true,
-        "name": "Новое",
-        "normalized": "новое",
-        "slug": "new"
+        "name": "Акция",
+        "normalized": "акция",
+        "slug": "sale"
     }
 },
 {
@@ -34,9 +34,9 @@
     "pk": 4,
     "fields": {
         "is_published": true,
-        "name": "Распродажа",
-        "normalized": "распродажа",
-        "slug": "discount"
+        "name": "Осталось мало",
+        "normalized": "осталосьмало",
+        "slug": "few"
     }
 },
 {
@@ -44,29 +44,9 @@
     "pk": 5,
     "fields": {
         "is_published": true,
-        "name": "Выгодно",
-        "normalized": "выгодно",
-        "slug": "Cheap"
-    }
-},
-{
-    "model": "catalog.tag",
-    "pk": 8,
-    "fields": {
-        "is_published": true,
-        "name": "Круто",
-        "normalized": "круто",
-        "slug": "cool"
-    }
-},
-{
-    "model": "catalog.tag",
-    "pk": 10,
-    "fields": {
-        "is_published": true,
-        "name": "Мегахорош",
-        "normalized": "мегахорош",
-        "slug": "supercool"
+        "name": "Выращено в России",
+        "normalized": "выращеновроссии",
+        "slug": "grown_in_russia"
     }
 },
 {
@@ -76,7 +56,7 @@
         "is_published": true,
         "name": "Фрукты",
         "normalized": "фрукты",
-        "slug": "fruit",
+        "slug": "fruits",
         "weight": 100
     }
 },
@@ -87,8 +67,43 @@
         "is_published": true,
         "name": "Овощи",
         "normalized": "овощи",
-        "slug": "ve",
+        "slug": "vegies",
         "weight": 100
+    }
+},
+{
+    "model": "catalog.titleimage",
+    "pk": 1,
+    "fields": {
+        "image": "titles/banana_L7d3UnI.jpg"
+    }
+},
+{
+    "model": "catalog.titleimage",
+    "pk": 3,
+    "fields": {
+        "image": "titles/pearandcat.jpg"
+    }
+},
+{
+    "model": "catalog.titleimage",
+    "pk": 4,
+    "fields": {
+        "image": "titles/кот-и-яб-око-42983406.jpg"
+    }
+},
+{
+    "model": "catalog.titleimage",
+    "pk": 5,
+    "fields": {
+        "image": "titles/tomato.jpeg"
+    }
+},
+{
+    "model": "catalog.titleimage",
+    "pk": 6,
+    "fields": {
+        "image": "titles/милый-черный-кот-и-тыква-хеллоуина-на-белой-предпосылке-151252785.jpg"
     }
 },
 {
@@ -96,11 +111,11 @@
     "pk": 1,
     "fields": {
         "is_published": true,
-        "name": "Яблоко",
-        "normalized": "яблоко",
-        "text": "роскошно яблоко",
+        "name": "Банан",
+        "normalized": "банан",
+        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"роскошно банан\\\\n\\\"}]}\",\"html\":\"<p>роскошно банан</p>\"}",
         "category": 1,
-        "main_image": "titles/кот-и-яб-око-42983406_MX3yWUD.jpg",
+        "main_image": 1,
         "tags": [
             4,
             5
@@ -112,14 +127,14 @@
     "pk": 2,
     "fields": {
         "is_published": true,
-        "name": "Банан",
-        "normalized": "банан",
-        "text": "превосходно банан",
+        "name": "Яблоко",
+        "normalized": "яблоко",
+        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"превосходно яблокок\\\\n\\\"}]}\",\"html\":\"<p>превосходно яблокок</p>\"}",
         "category": 1,
-        "main_image": "titles/banana.jpg",
+        "main_image": 4,
         "tags": [
-            2,
-            3
+            3,
+            5
         ]
     }
 },
@@ -128,15 +143,14 @@
     "pk": 3,
     "fields": {
         "is_published": true,
-        "name": "Помидор",
-        "normalized": "помидор",
-        "text": "роскошно помидор",
-        "category": 1,
-        "main_image": "titles/tomato_qgNd9S2.jpeg",
+        "name": "Томат",
+        "normalized": "томат",
+        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"attributes\\\":{\\\"italic\\\":true},\\\"insert\\\":\\\"роскошно томат\\\"},{\\\"insert\\\":\\\"\\\\n\\\"}]}\",\"html\":\"<p><em>роскошно томат<span class=\\\"ql-cursor\\\">﻿</span></em></p>\"}",
+        "category": 2,
+        "main_image": 5,
         "tags": [
             1,
-            2,
-            3
+            2
         ]
     }
 },
@@ -147,12 +161,12 @@
         "is_published": true,
         "name": "Груша",
         "normalized": "груша",
-        "text": "превосходно",
+        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"роскошно груша\\\\n\\\"}]}\",\"html\":\"<p>роскошно груша</p>\"}",
         "category": 1,
-        "main_image": "titles/кот-и-груши-49270640_lJHBisC.jpg",
+        "main_image": 3,
         "tags": [
-            2,
-            3
+            3,
+            5
         ]
     }
 },
@@ -163,46 +177,35 @@
         "is_published": true,
         "name": "Тыква",
         "normalized": "тыква",
-        "text": "роскошно",
+        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"превосходно тыква\\\\n\\\"}]}\",\"html\":\"<p>превосходно тыква</p>\"}",
         "category": 2,
-        "main_image": "titles/милый-черный-кот-и-тыква-хеллоуина-на-белой-предпосылке-151252785.jpg",
+        "main_image": 6,
         "tags": [
-            2,
-            4
+            1,
+            2
         ]
-    }
-},
-{
-    "model": "catalog.gallery",
-    "pk": 2,
-    "fields": {
-        "item": 5,
-        "image": "gallery/милый-черный-кот-и-тыква-хеллоуина-на-белой-предпосылке-151252785.jpg"
-    }
-},
-{
-    "model": "catalog.gallery",
-    "pk": 3,
-    "fields": {
-        "item": 4,
-        "image": "gallery/pearandcat_mNuR1Gs.jpg"
-    }
-},
-{
-    "model": "catalog.gallery",
-    "pk": 4,
-    "fields": {
-        "item": 4,
-        "image": "gallery/pearandcat1.jpg"
     }
 },
 {
     "model": "admin.logentry",
     "pk": 1,
     "fields": {
-        "action_time": "2023-02-22T19:20:38.395Z",
+        "action_time": "2023-02-27T18:52:57.580Z",
         "user": 1,
-        "content_type": 2,
+        "content_type": 12,
+        "object_id": "1",
+        "object_repr": "TitleImage object (1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2023-02-27T18:54:12.995Z",
+        "user": 1,
+        "content_type": 1,
         "object_id": "1",
         "object_repr": "Фрукты",
         "action_flag": 1,
@@ -211,24 +214,11 @@
 },
 {
     "model": "admin.logentry",
-    "pk": 2,
-    "fields": {
-        "action_time": "2023-02-22T19:20:48.972Z",
-        "user": 1,
-        "content_type": 2,
-        "object_id": "2",
-        "object_repr": "Овощи",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
     "pk": 3,
     "fields": {
-        "action_time": "2023-02-22T19:21:23.911Z",
+        "action_time": "2023-02-27T18:54:31.115Z",
         "user": 1,
-        "content_type": 1,
+        "content_type": 2,
         "object_id": "1",
         "object_repr": "Свежее",
         "action_flag": 1,
@@ -239,11 +229,11 @@
     "model": "admin.logentry",
     "pk": 4,
     "fields": {
-        "action_time": "2023-02-22T19:21:38.021Z",
+        "action_time": "2023-02-27T19:06:57.044Z",
         "user": 1,
-        "content_type": 1,
+        "content_type": 12,
         "object_id": "2",
-        "object_repr": "По акции",
+        "object_repr": "TitleImage object (2)",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -252,24 +242,24 @@
     "model": "admin.logentry",
     "pk": 5,
     "fields": {
-        "action_time": "2023-02-22T19:21:47.331Z",
+        "action_time": "2023-02-27T19:12:48.815Z",
         "user": 1,
-        "content_type": 1,
-        "object_id": "3",
-        "object_repr": "Новое",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
+        "content_type": 12,
+        "object_id": "2",
+        "object_repr": "TitleImage object (2)",
+        "action_flag": 3,
+        "change_message": ""
     }
 },
 {
     "model": "admin.logentry",
     "pk": 6,
     "fields": {
-        "action_time": "2023-02-22T19:22:01.911Z",
+        "action_time": "2023-02-27T19:13:09.613Z",
         "user": 1,
-        "content_type": 1,
-        "object_id": "4",
-        "object_repr": "Распродажа",
+        "content_type": 12,
+        "object_id": "3",
+        "object_repr": "TitleImage object (3)",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -278,11 +268,11 @@
     "model": "admin.logentry",
     "pk": 7,
     "fields": {
-        "action_time": "2023-02-22T19:22:23.135Z",
+        "action_time": "2023-02-27T19:13:32.807Z",
         "user": 1,
-        "content_type": 1,
-        "object_id": "5",
-        "object_repr": "Выгодно",
+        "content_type": 12,
+        "object_id": "4",
+        "object_repr": "TitleImage object (4)",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -291,11 +281,11 @@
     "model": "admin.logentry",
     "pk": 8,
     "fields": {
-        "action_time": "2023-02-22T19:22:47.194Z",
+        "action_time": "2023-02-27T19:13:58.039Z",
         "user": 1,
-        "content_type": 3,
-        "object_id": "1",
-        "object_repr": "Яблоко",
+        "content_type": 12,
+        "object_id": "5",
+        "object_repr": "TitleImage object (5)",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -304,11 +294,11 @@
     "model": "admin.logentry",
     "pk": 9,
     "fields": {
-        "action_time": "2023-02-22T19:23:15.695Z",
+        "action_time": "2023-02-27T19:14:16.632Z",
         "user": 1,
-        "content_type": 3,
-        "object_id": "2",
-        "object_repr": "Банан",
+        "content_type": 12,
+        "object_id": "6",
+        "object_repr": "TitleImage object (6)",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -317,11 +307,11 @@
     "model": "admin.logentry",
     "pk": 10,
     "fields": {
-        "action_time": "2023-02-22T19:23:35.589Z",
+        "action_time": "2023-02-27T19:14:33.438Z",
         "user": 1,
-        "content_type": 3,
-        "object_id": "3",
-        "object_repr": "Помидор",
+        "content_type": 1,
+        "object_id": "2",
+        "object_repr": "Овощи",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -330,11 +320,11 @@
     "model": "admin.logentry",
     "pk": 11,
     "fields": {
-        "action_time": "2023-02-22T19:24:01.878Z",
+        "action_time": "2023-02-27T19:14:48.123Z",
         "user": 1,
-        "content_type": 3,
-        "object_id": "4",
-        "object_repr": "Груша",
+        "content_type": 2,
+        "object_id": "2",
+        "object_repr": "Новинка",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -343,11 +333,11 @@
     "model": "admin.logentry",
     "pk": 12,
     "fields": {
-        "action_time": "2023-02-22T19:24:31.059Z",
+        "action_time": "2023-02-27T19:16:07.799Z",
         "user": 1,
-        "content_type": 3,
-        "object_id": "5",
-        "object_repr": "Тыква",
+        "content_type": 2,
+        "object_id": "3",
+        "object_repr": "Акция",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -356,11 +346,11 @@
     "model": "admin.logentry",
     "pk": 13,
     "fields": {
-        "action_time": "2023-02-23T11:53:49.207Z",
+        "action_time": "2023-02-27T19:16:24.268Z",
         "user": 1,
-        "content_type": 1,
-        "object_id": "6",
-        "object_repr": "новоe",
+        "content_type": 2,
+        "object_id": "4",
+        "object_repr": "Осталось мало",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -369,63 +359,63 @@
     "model": "admin.logentry",
     "pk": 14,
     "fields": {
-        "action_time": "2023-02-23T11:59:50.959Z",
+        "action_time": "2023-02-27T19:17:41.972Z",
         "user": 1,
-        "content_type": 1,
-        "object_id": "6",
-        "object_repr": "Cвежeе",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043c\\u044f\"]}}]"
+        "content_type": 2,
+        "object_id": "5",
+        "object_repr": "Выращено в России",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
     }
 },
 {
     "model": "admin.logentry",
     "pk": 15,
     "fields": {
-        "action_time": "2023-02-23T12:09:30.716Z",
+        "action_time": "2023-02-27T19:23:32.957Z",
         "user": 1,
-        "content_type": 1,
-        "object_id": "6",
-        "object_repr": "Cвeжее",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043c\\u044f\"]}}]"
+        "content_type": 3,
+        "object_id": "1",
+        "object_repr": "Банан",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
     }
 },
 {
     "model": "admin.logentry",
     "pk": 16,
     "fields": {
-        "action_time": "2023-02-23T12:11:02.111Z",
+        "action_time": "2023-02-27T19:27:44.446Z",
         "user": 1,
-        "content_type": 1,
-        "object_id": "6",
-        "object_repr": "новоe",
-        "action_flag": 2,
-        "change_message": "[]"
+        "content_type": 3,
+        "object_id": "2",
+        "object_repr": "Яблоко",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
     }
 },
 {
     "model": "admin.logentry",
     "pk": 17,
     "fields": {
-        "action_time": "2023-02-23T12:11:08.612Z",
+        "action_time": "2023-02-27T19:28:19.772Z",
         "user": 1,
-        "content_type": 1,
-        "object_id": "6",
-        "object_repr": "новоe",
-        "action_flag": 3,
-        "change_message": ""
+        "content_type": 3,
+        "object_id": "3",
+        "object_repr": "Томат",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
     }
 },
 {
     "model": "admin.logentry",
     "pk": 18,
     "fields": {
-        "action_time": "2023-02-23T12:15:34.459Z",
+        "action_time": "2023-02-27T19:28:50.335Z",
         "user": 1,
-        "content_type": 1,
-        "object_id": "None",
-        "object_repr": "Круто",
+        "content_type": 3,
+        "object_id": "4",
+        "object_repr": "Груша",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -434,11 +424,11 @@
     "model": "admin.logentry",
     "pk": 19,
     "fields": {
-        "action_time": "2023-02-23T12:16:12.429Z",
+        "action_time": "2023-02-27T19:29:25.522Z",
         "user": 1,
-        "content_type": 1,
-        "object_id": "None",
-        "object_repr": "Круто",
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Тыква",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -447,436 +437,20 @@
     "model": "admin.logentry",
     "pk": 20,
     "fields": {
-        "action_time": "2023-02-23T12:16:53.037Z",
+        "action_time": "2023-02-27T19:32:16.312Z",
         "user": 1,
-        "content_type": 1,
-        "object_id": "None",
-        "object_repr": "Круто",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Тыква",
+        "action_flag": 2,
+        "change_message": "[{\"added\": {\"name\": \"\\u0434\\u043e\\u043f\\u043e\\u043b\\u044c\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0444\\u043e\\u0442\\u043e\", \"object\": \"/media/galley/%D0%BC%D0%B8%D0%BB%D1%8B%D0%B9-%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9-%D0%BA%D0%BE%D1%82-%D0%B8-%D1%82%D1%8B%D0%BA%D0%B2%D0%B0-%D1%85%D0%B5%D0%BB%D0%BB%D0%BE%D1%83%D0%B8%D0%BD%D0%B0-%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%BE%D0%B9-%D0%BF%D1%80%D0%B5%D0%B4%D0%BF%D0%BE%D1%81%D1%8B%D0%BB%D0%BA%D0%B5-151252785.jpg\"}}]"
     }
 },
 {
     "model": "admin.logentry",
     "pk": 21,
     "fields": {
-        "action_time": "2023-02-23T12:17:46.409Z",
-        "user": 1,
-        "content_type": 1,
-        "object_id": "7",
-        "object_repr": "Круто",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 22,
-    "fields": {
-        "action_time": "2023-02-23T12:18:03.266Z",
-        "user": 1,
-        "content_type": 1,
-        "object_id": "7",
-        "object_repr": "Круто",
-        "action_flag": 3,
-        "change_message": ""
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 23,
-    "fields": {
-        "action_time": "2023-02-23T12:18:17.184Z",
-        "user": 1,
-        "content_type": 1,
-        "object_id": "8",
-        "object_repr": "Круто",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 24,
-    "fields": {
-        "action_time": "2023-02-23T12:28:57.648Z",
-        "user": 1,
-        "content_type": 1,
-        "object_id": "9",
-        "object_repr": "Кpутo",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 25,
-    "fields": {
-        "action_time": "2023-02-23T12:29:09.496Z",
-        "user": 1,
-        "content_type": 1,
-        "object_id": "9",
-        "object_repr": "Кpутo",
-        "action_flag": 3,
-        "change_message": ""
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 26,
-    "fields": {
-        "action_time": "2023-02-23T12:38:46.540Z",
-        "user": 1,
-        "content_type": 1,
-        "object_id": "10",
-        "object_repr": "Tag object (10)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 27,
-    "fields": {
-        "action_time": "2023-02-26T15:29:46.975Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "5",
-        "object_repr": "Тыква",
-        "action_flag": 2,
-        "change_message": "[]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 28,
-    "fields": {
-        "action_time": "2023-02-26T15:30:04.730Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "5",
-        "object_repr": "Тыква",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Main image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 29,
-    "fields": {
-        "action_time": "2023-02-26T15:32:10.844Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "5",
-        "object_repr": "Тыква",
-        "action_flag": 2,
-        "change_message": "[]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 30,
-    "fields": {
-        "action_time": "2023-02-26T15:33:34.560Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "5",
-        "object_repr": "Тыква",
-        "action_flag": 2,
-        "change_message": "[]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 31,
-    "fields": {
-        "action_time": "2023-02-26T16:18:05.688Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "5",
-        "object_repr": "Тыква",
-        "action_flag": 2,
-        "change_message": "[{\"added\": {\"name\": \"\\u0433\\u0430\\u043b\\u0435\\u0440\\u0435\\u044f\", \"object\": \"Gallery object (1)\"}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 32,
-    "fields": {
-        "action_time": "2023-02-26T17:00:50.717Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "5",
-        "object_repr": "Тыква",
-        "action_flag": 2,
-        "change_message": "[{\"deleted\": {\"name\": \"\\u0434\\u043e\\u043f\\u043e\\u043b\\u044c\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0444\\u043e\\u0442\\u043e\", \"object\": \"/media/gallery/png-clipart-pumpkin-and-cat-pumpkins-black-cat.png\"}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 33,
-    "fields": {
-        "action_time": "2023-02-26T17:59:28.838Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "4",
-        "object_repr": "Груша",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Main image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 34,
-    "fields": {
-        "action_time": "2023-02-26T18:00:16.507Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "3",
-        "object_repr": "Помидор",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Main image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 35,
-    "fields": {
-        "action_time": "2023-02-26T18:01:43.507Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "2",
-        "object_repr": "Банан",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Main image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 36,
-    "fields": {
-        "action_time": "2023-02-26T18:02:27.156Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "1",
-        "object_repr": "Яблоко",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Main image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 37,
-    "fields": {
-        "action_time": "2023-02-26T18:03:05.887Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "5",
-        "object_repr": "Тыква",
-        "action_flag": 2,
-        "change_message": "[{\"added\": {\"name\": \"\\u0434\\u043e\\u043f\\u043e\\u043b\\u044c\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0444\\u043e\\u0442\\u043e\", \"object\": \"/media/gallery/%D0%BC%D0%B8%D0%BB%D1%8B%D0%B9-%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9-%D0%BA%D0%BE%D1%82-%D0%B8-%D1%82%D1%8B%D0%BA%D0%B2%D0%B0-%D1%85%D0%B5%D0%BB%D0%BB%D0%BE%D1%83%D0%B8%D0%BD%D0%B0-%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%BE%D0%B9-%D0%BF%D1%80%D0%B5%D0%B4%D0%BF%D0%BE%D1%81%D1%8B%D0%BB%D0%BA%D0%B5-151252785.jpg\"}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 38,
-    "fields": {
-        "action_time": "2023-02-26T18:46:39.804Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "5",
-        "object_repr": "Тыква",
-        "action_flag": 2,
-        "change_message": "[]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 39,
-    "fields": {
-        "action_time": "2023-02-27T06:04:03.334Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "4",
-        "object_repr": "Груша",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Main image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 40,
-    "fields": {
-        "action_time": "2023-02-27T06:04:15.930Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "4",
-        "object_repr": "Груша",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Main image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 41,
-    "fields": {
-        "action_time": "2023-02-27T06:29:07.825Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "3",
-        "object_repr": "Помидор",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Main image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 42,
-    "fields": {
-        "action_time": "2023-02-27T06:32:40.983Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "3",
-        "object_repr": "Помидор",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Main image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 43,
-    "fields": {
-        "action_time": "2023-02-27T06:33:35.400Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "4",
-        "object_repr": "Груша",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Main image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 44,
-    "fields": {
-        "action_time": "2023-02-27T06:33:55.934Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "1",
-        "object_repr": "Яблоко",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Main image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 45,
-    "fields": {
-        "action_time": "2023-02-27T06:34:11.666Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "3",
-        "object_repr": "Помидор",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Main image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 46,
-    "fields": {
-        "action_time": "2023-02-27T06:40:08.887Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "5",
-        "object_repr": "Тыква",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Main image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 47,
-    "fields": {
-        "action_time": "2023-02-27T06:40:28.254Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "5",
-        "object_repr": "Тыква",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Main image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 48,
-    "fields": {
-        "action_time": "2023-02-27T06:44:11.166Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "5",
-        "object_repr": "Тыква",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Main image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 49,
-    "fields": {
-        "action_time": "2023-02-27T06:44:28.146Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "5",
-        "object_repr": "Тыква",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Main image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 50,
-    "fields": {
-        "action_time": "2023-02-27T06:52:04.342Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "4",
-        "object_repr": "Груша",
-        "action_flag": 2,
-        "change_message": "[{\"added\": {\"name\": \"\\u0434\\u043e\\u043f\\u043e\\u043b\\u044c\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0444\\u043e\\u0442\\u043e\", \"object\": \"/media/gallery/pearandcat.jpg\"}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 51,
-    "fields": {
-        "action_time": "2023-02-27T06:53:26.441Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "4",
-        "object_repr": "Груша",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"name\": \"\\u0434\\u043e\\u043f\\u043e\\u043b\\u044c\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0444\\u043e\\u0442\\u043e\", \"object\": \"/media/gallery/pearandcat_mNuR1Gs.jpg\", \"fields\": [\"Image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 52,
-    "fields": {
-        "action_time": "2023-02-27T06:54:47.100Z",
-        "user": 1,
-        "content_type": 3,
-        "object_id": "5",
-        "object_repr": "Тыква",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"name\": \"\\u0434\\u043e\\u043f\\u043e\\u043b\\u044c\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0444\\u043e\\u0442\\u043e\", \"object\": \"/media/gallery/1234.png\", \"fields\": [\"Image\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 53,
-    "fields": {
-        "action_time": "2023-02-27T06:55:19.472Z",
+        "action_time": "2023-02-27T19:33:47.106Z",
         "user": 1,
         "content_type": 3,
         "object_id": "5",
@@ -887,87 +461,126 @@
 },
 {
     "model": "admin.logentry",
-    "pk": 54,
+    "pk": 22,
     "fields": {
-        "action_time": "2023-02-27T06:56:09.135Z",
+        "action_time": "2023-02-27T19:34:56.041Z",
         "user": 1,
         "content_type": 3,
-        "object_id": "4",
-        "object_repr": "Груша",
+        "object_id": "5",
+        "object_repr": "Тыква",
         "action_flag": 2,
-        "change_message": "[{\"added\": {\"name\": \"\\u0434\\u043e\\u043f\\u043e\\u043b\\u044c\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0444\\u043e\\u0442\\u043e\", \"object\": \"/media/gallery/pearandcat1.jpg\"}}]"
+        "change_message": "[{\"deleted\": {\"name\": \"\\u0434\\u043e\\u043f\\u043e\\u043b\\u044c\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0444\\u043e\\u0442\\u043e\", \"object\": \"/media/gallery/%D0%BC%D0%B8%D0%BB%D1%8B%D0%B9-%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9-%D0%BA%D0%BE%D1%82-%D0%B8-%D1%82%D1%8B%D0%BA%D0%B2%D0%B0-%D1%85%D0%B5%D0%BB%D0%BB%D0%BE%D1%83%D0%B8%D0%BD%D0%B0-%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%BE%D0%B9-%D0%BF%D1%80%D0%B5%D0%B4%D0%BF%D0%BE%D1%81%D1%8B%D0%BB%D0%BA%D0%B5-151252785.jpg\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2023-02-27T19:35:05.813Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Тыква",
+        "action_flag": 2,
+        "change_message": "[{\"added\": {\"name\": \"\\u0434\\u043e\\u043f\\u043e\\u043b\\u044c\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0444\\u043e\\u0442\\u043e\", \"object\": \"/media/gallery/%D0%BC%D0%B8%D0%BB%D1%8B%D0%B9-%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9-%D0%BA%D0%BE%D1%82-%D0%B8-%D1%82%D1%8B%D0%BA%D0%B2%D0%B0-%D1%85%D0%B5%D0%BB%D0%BB%D0%BE%D1%83%D0%B8%D0%BD%D0%B0-%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%BE%D0%B9-%D0%BF%D1%80%D0%B5%D0%B4%D0%BF%D0%BE%D1%81%D1%8B%D0%BB%D0%BA%D0%B5-151252785.jpg\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2023-02-27T19:35:18.169Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Тыква",
+        "action_flag": 2,
+        "change_message": "[{\"added\": {\"name\": \"\\u0434\\u043e\\u043f\\u043e\\u043b\\u044c\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0444\\u043e\\u0442\\u043e\", \"object\": \"/media/gallery/%D0%BC%D0%B8%D0%BB%D1%8B%D0%B9-%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9-%D0%BA%D0%BE%D1%82-%D0%B8-%D1%82%D1%8B%D0%BA%D0%B2%D0%B0-%D1%85%D0%B5%D0%BB%D0%BB%D0%BE%D1%83%D0%B8%D0%BD%D0%B0-%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%BE%D0%B9-%D0%BF%D1%80%D0%B5%D0%B4%D0%BF%D0%BE%D1%81%D1%8B%D0%BB%D0%BA%D0%B5-151252785_7nLtxhe.jpg\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2023-02-27T19:35:29.767Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Тыква",
+        "action_flag": 2,
+        "change_message": "[{\"deleted\": {\"name\": \"\\u0434\\u043e\\u043f\\u043e\\u043b\\u044c\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0444\\u043e\\u0442\\u043e\", \"object\": \"/media/gallery/%D0%BC%D0%B8%D0%BB%D1%8B%D0%B9-%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9-%D0%BA%D0%BE%D1%82-%D0%B8-%D1%82%D1%8B%D0%BA%D0%B2%D0%B0-%D1%85%D0%B5%D0%BB%D0%BB%D0%BE%D1%83%D0%B8%D0%BD%D0%B0-%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%BE%D0%B9-%D0%BF%D1%80%D0%B5%D0%B4%D0%BF%D0%BE%D1%81%D1%8B%D0%BB%D0%BA%D0%B5-151252785.jpg\"}}, {\"deleted\": {\"name\": \"\\u0434\\u043e\\u043f\\u043e\\u043b\\u044c\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0444\\u043e\\u0442\\u043e\", \"object\": \"/media/gallery/%D0%BC%D0%B8%D0%BB%D1%8B%D0%B9-%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9-%D0%BA%D0%BE%D1%82-%D0%B8-%D1%82%D1%8B%D0%BA%D0%B2%D0%B0-%D1%85%D0%B5%D0%BB%D0%BB%D0%BE%D1%83%D0%B8%D0%BD%D0%B0-%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%BE%D0%B9-%D0%BF%D1%80%D0%B5%D0%B4%D0%BF%D0%BE%D1%81%D1%8B%D0%BB%D0%BA%D0%B5-151252785_7nLtxhe.jpg\"}}]"
     }
 },
 {
     "model": "auth.permission",
     "pk": 1,
     "fields": {
-        "name": "Can add тэг",
+        "name": "Can add категория",
         "content_type": 1,
-        "codename": "add_tag"
+        "codename": "add_category"
     }
 },
 {
     "model": "auth.permission",
     "pk": 2,
     "fields": {
-        "name": "Can change тэг",
+        "name": "Can change категория",
         "content_type": 1,
-        "codename": "change_tag"
+        "codename": "change_category"
     }
 },
 {
     "model": "auth.permission",
     "pk": 3,
     "fields": {
-        "name": "Can delete тэг",
+        "name": "Can delete категория",
         "content_type": 1,
-        "codename": "delete_tag"
+        "codename": "delete_category"
     }
 },
 {
     "model": "auth.permission",
     "pk": 4,
     "fields": {
-        "name": "Can view тэг",
+        "name": "Can view категория",
         "content_type": 1,
-        "codename": "view_tag"
+        "codename": "view_category"
     }
 },
 {
     "model": "auth.permission",
     "pk": 5,
     "fields": {
-        "name": "Can add категория",
+        "name": "Can add тэг",
         "content_type": 2,
-        "codename": "add_category"
+        "codename": "add_tag"
     }
 },
 {
     "model": "auth.permission",
     "pk": 6,
     "fields": {
-        "name": "Can change категория",
+        "name": "Can change тэг",
         "content_type": 2,
-        "codename": "change_category"
+        "codename": "change_tag"
     }
 },
 {
     "model": "auth.permission",
     "pk": 7,
     "fields": {
-        "name": "Can delete категория",
+        "name": "Can delete тэг",
         "content_type": 2,
-        "codename": "delete_category"
+        "codename": "delete_tag"
     }
 },
 {
     "model": "auth.permission",
     "pk": 8,
     "fields": {
-        "name": "Can view категория",
+        "name": "Can view тэг",
         "content_type": 2,
-        "codename": "view_category"
+        "codename": "view_tag"
     }
 },
 {
@@ -1010,252 +623,252 @@
     "model": "auth.permission",
     "pk": 13,
     "fields": {
-        "name": "Can add log entry",
+        "name": "Can add допольнительное фото",
         "content_type": 4,
-        "codename": "add_logentry"
+        "codename": "add_gallery"
     }
 },
 {
     "model": "auth.permission",
     "pk": 14,
     "fields": {
-        "name": "Can change log entry",
+        "name": "Can change допольнительное фото",
         "content_type": 4,
-        "codename": "change_logentry"
+        "codename": "change_gallery"
     }
 },
 {
     "model": "auth.permission",
     "pk": 15,
     "fields": {
-        "name": "Can delete log entry",
+        "name": "Can delete допольнительное фото",
         "content_type": 4,
-        "codename": "delete_logentry"
+        "codename": "delete_gallery"
     }
 },
 {
     "model": "auth.permission",
     "pk": 16,
     "fields": {
-        "name": "Can view log entry",
+        "name": "Can view допольнительное фото",
         "content_type": 4,
-        "codename": "view_logentry"
+        "codename": "view_gallery"
     }
 },
 {
     "model": "auth.permission",
     "pk": 17,
     "fields": {
-        "name": "Can add permission",
+        "name": "Can add log entry",
         "content_type": 5,
-        "codename": "add_permission"
+        "codename": "add_logentry"
     }
 },
 {
     "model": "auth.permission",
     "pk": 18,
     "fields": {
-        "name": "Can change permission",
+        "name": "Can change log entry",
         "content_type": 5,
-        "codename": "change_permission"
+        "codename": "change_logentry"
     }
 },
 {
     "model": "auth.permission",
     "pk": 19,
     "fields": {
-        "name": "Can delete permission",
+        "name": "Can delete log entry",
         "content_type": 5,
-        "codename": "delete_permission"
+        "codename": "delete_logentry"
     }
 },
 {
     "model": "auth.permission",
     "pk": 20,
     "fields": {
-        "name": "Can view permission",
+        "name": "Can view log entry",
         "content_type": 5,
-        "codename": "view_permission"
+        "codename": "view_logentry"
     }
 },
 {
     "model": "auth.permission",
     "pk": 21,
     "fields": {
-        "name": "Can add group",
+        "name": "Can add permission",
         "content_type": 6,
-        "codename": "add_group"
+        "codename": "add_permission"
     }
 },
 {
     "model": "auth.permission",
     "pk": 22,
     "fields": {
-        "name": "Can change group",
+        "name": "Can change permission",
         "content_type": 6,
-        "codename": "change_group"
+        "codename": "change_permission"
     }
 },
 {
     "model": "auth.permission",
     "pk": 23,
     "fields": {
-        "name": "Can delete group",
+        "name": "Can delete permission",
         "content_type": 6,
-        "codename": "delete_group"
+        "codename": "delete_permission"
     }
 },
 {
     "model": "auth.permission",
     "pk": 24,
     "fields": {
-        "name": "Can view group",
+        "name": "Can view permission",
         "content_type": 6,
-        "codename": "view_group"
+        "codename": "view_permission"
     }
 },
 {
     "model": "auth.permission",
     "pk": 25,
     "fields": {
-        "name": "Can add user",
+        "name": "Can add group",
         "content_type": 7,
-        "codename": "add_user"
+        "codename": "add_group"
     }
 },
 {
     "model": "auth.permission",
     "pk": 26,
     "fields": {
-        "name": "Can change user",
+        "name": "Can change group",
         "content_type": 7,
-        "codename": "change_user"
+        "codename": "change_group"
     }
 },
 {
     "model": "auth.permission",
     "pk": 27,
     "fields": {
-        "name": "Can delete user",
+        "name": "Can delete group",
         "content_type": 7,
-        "codename": "delete_user"
+        "codename": "delete_group"
     }
 },
 {
     "model": "auth.permission",
     "pk": 28,
     "fields": {
-        "name": "Can view user",
+        "name": "Can view group",
         "content_type": 7,
-        "codename": "view_user"
+        "codename": "view_group"
     }
 },
 {
     "model": "auth.permission",
     "pk": 29,
     "fields": {
-        "name": "Can add content type",
+        "name": "Can add user",
         "content_type": 8,
-        "codename": "add_contenttype"
+        "codename": "add_user"
     }
 },
 {
     "model": "auth.permission",
     "pk": 30,
     "fields": {
-        "name": "Can change content type",
+        "name": "Can change user",
         "content_type": 8,
-        "codename": "change_contenttype"
+        "codename": "change_user"
     }
 },
 {
     "model": "auth.permission",
     "pk": 31,
     "fields": {
-        "name": "Can delete content type",
+        "name": "Can delete user",
         "content_type": 8,
-        "codename": "delete_contenttype"
+        "codename": "delete_user"
     }
 },
 {
     "model": "auth.permission",
     "pk": 32,
     "fields": {
-        "name": "Can view content type",
+        "name": "Can view user",
         "content_type": 8,
-        "codename": "view_contenttype"
+        "codename": "view_user"
     }
 },
 {
     "model": "auth.permission",
     "pk": 33,
     "fields": {
-        "name": "Can add session",
+        "name": "Can add content type",
         "content_type": 9,
-        "codename": "add_session"
+        "codename": "add_contenttype"
     }
 },
 {
     "model": "auth.permission",
     "pk": 34,
     "fields": {
-        "name": "Can change session",
+        "name": "Can change content type",
         "content_type": 9,
-        "codename": "change_session"
+        "codename": "change_contenttype"
     }
 },
 {
     "model": "auth.permission",
     "pk": 35,
     "fields": {
-        "name": "Can delete session",
+        "name": "Can delete content type",
         "content_type": 9,
-        "codename": "delete_session"
+        "codename": "delete_contenttype"
     }
 },
 {
     "model": "auth.permission",
     "pk": 36,
     "fields": {
-        "name": "Can view session",
+        "name": "Can view content type",
         "content_type": 9,
-        "codename": "view_session"
+        "codename": "view_contenttype"
     }
 },
 {
     "model": "auth.permission",
     "pk": 37,
     "fields": {
-        "name": "Can add галерея",
+        "name": "Can add session",
         "content_type": 10,
-        "codename": "add_gallery"
+        "codename": "add_session"
     }
 },
 {
     "model": "auth.permission",
     "pk": 38,
     "fields": {
-        "name": "Can change галерея",
+        "name": "Can change session",
         "content_type": 10,
-        "codename": "change_gallery"
+        "codename": "change_session"
     }
 },
 {
     "model": "auth.permission",
     "pk": 39,
     "fields": {
-        "name": "Can delete галерея",
+        "name": "Can delete session",
         "content_type": 10,
-        "codename": "delete_gallery"
+        "codename": "delete_session"
     }
 },
 {
     "model": "auth.permission",
     "pk": 40,
     "fields": {
-        "name": "Can view галерея",
+        "name": "Can view session",
         "content_type": 10,
-        "codename": "view_gallery"
+        "codename": "view_session"
     }
 },
 {
@@ -1295,11 +908,47 @@
     }
 },
 {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+        "name": "Can add иконка",
+        "content_type": 12,
+        "codename": "add_titleimage"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+        "name": "Can change иконка",
+        "content_type": 12,
+        "codename": "change_titleimage"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+        "name": "Can delete иконка",
+        "content_type": 12,
+        "codename": "delete_titleimage"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+        "name": "Can view иконка",
+        "content_type": 12,
+        "codename": "view_titleimage"
+    }
+},
+{
     "model": "auth.user",
     "pk": 1,
     "fields": {
-        "password": "pbkdf2_sha256$260000$M55QajDaUofutDCV7D8tFn$JcsDDfHQLU9SanYdMo9TBqhHTds9du065KOpiliUq9g=",
-        "last_login": "2023-02-26T19:55:15.632Z",
+        "password": "pbkdf2_sha256$260000$ft0LFBAuTlRZnUB0r4du9G$WmzlRjEsV222wHdAY7o2b/hSQzE4C22efbe6fHXoQuE=",
+        "last_login": "2023-02-27T18:47:21.053Z",
         "is_superuser": true,
         "username": "fedyaeremin",
         "first_name": "",
@@ -1307,7 +956,7 @@
         "email": "",
         "is_staff": true,
         "is_active": true,
-        "date_joined": "2023-02-22T19:19:55.812Z",
+        "date_joined": "2023-02-27T18:47:13.852Z",
         "groups": [],
         "user_permissions": []
     }
@@ -1317,7 +966,7 @@
     "pk": 1,
     "fields": {
         "app_label": "catalog",
-        "model": "tag"
+        "model": "category"
     }
 },
 {
@@ -1325,7 +974,7 @@
     "pk": 2,
     "fields": {
         "app_label": "catalog",
-        "model": "category"
+        "model": "tag"
     }
 },
 {
@@ -1340,16 +989,16 @@
     "model": "contenttypes.contenttype",
     "pk": 4,
     "fields": {
-        "app_label": "admin",
-        "model": "logentry"
+        "app_label": "catalog",
+        "model": "gallery"
     }
 },
 {
     "model": "contenttypes.contenttype",
     "pk": 5,
     "fields": {
-        "app_label": "auth",
-        "model": "permission"
+        "app_label": "admin",
+        "model": "logentry"
     }
 },
 {
@@ -1357,7 +1006,7 @@
     "pk": 6,
     "fields": {
         "app_label": "auth",
-        "model": "group"
+        "model": "permission"
     }
 },
 {
@@ -1365,12 +1014,20 @@
     "pk": 7,
     "fields": {
         "app_label": "auth",
-        "model": "user"
+        "model": "group"
     }
 },
 {
     "model": "contenttypes.contenttype",
     "pk": 8,
+    "fields": {
+        "app_label": "auth",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
     "fields": {
         "app_label": "contenttypes",
         "model": "contenttype"
@@ -1378,18 +1035,10 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 9,
+    "pk": 10,
     "fields": {
         "app_label": "sessions",
         "model": "session"
-    }
-},
-{
-    "model": "contenttypes.contenttype",
-    "pk": 10,
-    "fields": {
-        "app_label": "catalog",
-        "model": "gallery"
     }
 },
 {
@@ -1401,85 +1050,19 @@
     }
 },
 {
-    "model": "sessions.session",
-    "pk": "22vdkt0jzbf0jyih98juky9x976qnqwr",
+    "model": "contenttypes.contenttype",
+    "pk": 12,
     "fields": {
-        "session_data": ".eJxVjDsOwjAQBe_iGln2wvpDSc8Zot14jQPIluKkQtwdIqWA9s3Me6mB1qUMa5d5mJI6K6sOvxvT-JC6gXSnemt6bHWZJ9abonfa9bUleV529--gUC_fOpAAuiCY-cjoowEJdAIySMCIAh7YRQvO54QQQ4je2ZgpJ0G0YtT7A9JtN1g:1pWN75:dGxkH0QRpuhXQMhth1ECfBtPFAr5kEBcIy3_2rJ6WUI",
-        "expire_date": "2023-03-12T19:55:15.687Z"
+        "app_label": "catalog",
+        "model": "titleimage"
     }
 },
 {
     "model": "sessions.session",
-    "pk": "b4kq3t28585p0skxmm361lcsrbtde83i",
+    "pk": "vgfi1xfdzizyfx748p3slbtprjm1n3x4",
     "fields": {
-        "session_data": ".eJxVjDsOwjAQBe_iGln2wvpDSc8Zot14jQPIluKkQtwdIqWA9s3Me6mB1qUMa5d5mJI6K6sOvxvT-JC6gXSnemt6bHWZJ9abonfa9bUleV529--gUC_fOpAAuiCY-cjoowEJdAIySMCIAh7YRQvO54QQQ4je2ZgpJ0G0YtT7A9JtN1g:1pWMO3:wIZQTvhxCuy3RZgWcKJYIeGgCYqCBVzJDWGdsgBVkbA",
-        "expire_date": "2023-03-12T19:08:43.927Z"
-    }
-},
-{
-    "model": "sessions.session",
-    "pk": "lwx2npd6pyq47ecsglqo038zx0von98v",
-    "fields": {
-        "session_data": ".eJxVjDsOwjAQBe_iGln2wvpDSc8Zot14jQPIluKkQtwdIqWA9s3Me6mB1qUMa5d5mJI6K6sOvxvT-JC6gXSnemt6bHWZJ9abonfa9bUleV529--gUC_fOpAAuiCY-cjoowEJdAIySMCIAh7YRQvO54QQQ4je2ZgpJ0G0YtT7A9JtN1g:1pUuex:e-IXQ_bpIgb4D4tjyuc9aUUNIe5LPzLSQwsrcts7ic4",
-        "expire_date": "2023-03-08T19:20:11.149Z"
-    }
-},
-{
-    "model": "sessions.session",
-    "pk": "w8o9i8nhneqmfz5mkqz1yg9a10hzkpqr",
-    "fields": {
-        "session_data": ".eJxVjDsOwjAQBe_iGln2wvpDSc8Zot14jQPIluKkQtwdIqWA9s3Me6mB1qUMa5d5mJI6K6sOvxvT-JC6gXSnemt6bHWZJ9abonfa9bUleV529--gUC_fOpAAuiCY-cjoowEJdAIySMCIAh7YRQvO54QQQ4je2ZgpJ0G0YtT7A9JtN1g:1pWJdI:DInvlm1zjKdhSBWrxDbf9Z_5FG4crdpzEsrcbL07qLQ",
-        "expire_date": "2023-03-12T16:12:16.113Z"
-    }
-},
-{
-    "model": "sessions.session",
-    "pk": "xb7tdai0f4autqisxwloqc8ufm0109p9",
-    "fields": {
-        "session_data": ".eJxVjDsOwjAQBe_iGln2wvpDSc8Zot14jQPIluKkQtwdIqWA9s3Me6mB1qUMa5d5mJI6K6sOvxvT-JC6gXSnemt6bHWZJ9abonfa9bUleV529--gUC_fOpAAuiCY-cjoowEJdAIySMCIAh7YRQvO54QQQ4je2ZgpJ0G0YtT7A9JtN1g:1pWMAB:L19bOxswMjOjjHqidD0CgPibHIRcrM-eP37aD2y8GDc",
-        "expire_date": "2023-03-12T18:54:23.861Z"
-    }
-},
-{
-    "model": "thumbnail.kvstore",
-    "pk": "sorl-thumbnail||image||006a66f68a90c6b6a458226c07f6eac6",
-    "fields": {
-        "value": "{\"name\": \"titles/tomato.jpeg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [750, 548]}"
-    }
-},
-{
-    "model": "thumbnail.kvstore",
-    "pk": "sorl-thumbnail||image||017cfaf51a395f60816054b6dda00ee4",
-    "fields": {
-        "value": "{\"name\": \"titles/banana.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [225, 225]}"
-    }
-},
-{
-    "model": "thumbnail.kvstore",
-    "pk": "sorl-thumbnail||image||393285f73f6c71bd1aa8ef6efc7e4644",
-    "fields": {
-        "value": "{\"name\": \"cache/af/cd/afcdc083b8acf3f35ef04ea5eb41fdd5.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
-    }
-},
-{
-    "model": "thumbnail.kvstore",
-    "pk": "sorl-thumbnail||image||6a11ecacd75a98c00644896bedb8f388",
-    "fields": {
-        "value": "{\"name\": \"cache/c8/d9/c8d9f53caf7ccf6b7e8b2fa8aed3c53a.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
-    }
-},
-{
-    "model": "thumbnail.kvstore",
-    "pk": "sorl-thumbnail||thumbnails||006a66f68a90c6b6a458226c07f6eac6",
-    "fields": {
-        "value": "[\"6a11ecacd75a98c00644896bedb8f388\"]"
-    }
-},
-{
-    "model": "thumbnail.kvstore",
-    "pk": "sorl-thumbnail||thumbnails||017cfaf51a395f60816054b6dda00ee4",
-    "fields": {
-        "value": "[\"393285f73f6c71bd1aa8ef6efc7e4644\"]"
+        "session_data": ".eJxVjMsOwiAQRf-FtSE8BlpcuvcbyDADUjU0Ke3K-O_apAvd3nPOfYmI21rj1vMSJxZnocXpd0tIj9x2wHdst1nS3NZlSnJX5EG7vM6cn5fD_Tuo2Ou3zsTsSgjWjo6BgJxKKVhtylBGjapkTc4oMoGxBMTBavIeIQFDdh7E-wP8ejhf:1pWiWv:dzpaq2yY7xHpYniADNN5VsKPC2JzbhF4SKecfHHtsFA",
+        "expire_date": "2023-03-13T18:47:21.107Z"
     }
 }
 ]

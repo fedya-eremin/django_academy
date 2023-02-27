@@ -36,11 +36,14 @@ header {
 	max-height: 2.5em;
 	background: transparent;
 }
-
+.under {
+	padding-top: 5em;
+}
 main {
 	color: #f9f9f9;
 }
 
-.under {
-	padding-top: 5em;
+
+footer {
+	background: linear-gradient(135deg, #9f997e, #cfc182);
 }

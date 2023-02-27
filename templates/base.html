@@ -5,22 +5,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicons/apple-touch-icon.png' %}">
-	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicons/favicon-32x32.png' %}">
-	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicons/favicon-16x16.png' %}">
-	<link rel="manifest" href="{% static 'img/favicons/site.webmanifest' %}">
-	<link rel="mask-icon" href="{% static 'img/favicons/safari-pinned-tab.svg' %}" color="#5bbad5">
-	<meta name="msapplication-TileColor" content="#da532c">
-	<meta name="theme-color" content="#ffffff">
-
+	{% include "includes/header.html" %}	
 	<!--<link rel="icon" href="{% static 'img/favicon.ico' %}" type="image">-->
 	{% compress css %}
 	<link type="text/x-scss" rel="stylesheet" href="{% static 'scss/style.scss' %}">
 	{% endcompress %}
-	<title>Лучший Магазин</title>
+	<title>{% block title %}Teapot{% endblock title %}</title>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 	<header class="d-flex justify-content-between py-3 px-5">
 			<img id="main-logo" src="{% static 'img/cat-logo.png' %}">
 			{% with request.resolver_match.view_name as view_name %}			
@@ -44,5 +36,14 @@
 	<main>
 		{% block content %}Какие-то проблемы?{% endblock content %}
 	</main>
+	<footer class="mt-auto py-5">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="{% url 'homepage:home' %}" class="nav-link px-2 text-muted">Главная</a></li>
+      <li class="nav-item"><a href="{% url 'catalog:item_list' %}" class="nav-link px-2 text-muted">Каталог</a></li>
+      <li class="nav-item"><a href="{% url 'about:about' %}" class="nav-link px-2 text-muted">О проекте</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Соцсети</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2023 Cat Company, Inc</p>
+  </footer>
 </body>
 </html>

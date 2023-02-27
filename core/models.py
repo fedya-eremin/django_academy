@@ -73,3 +73,21 @@ class AbstractWithSlug(django.db.models.Model):
         max_length=200,
         help_text="Впишите slug-последовательность в поле",
     )
+
+
+class AbstractImage(django.db.models.Model):
+    """
+    abstract model of o2m ImageField which
+    SAVES EVERYTHING TO media/gallery
+    """
+
+    class Meta:
+        abstract = True
+
+    image = django.db.models.ImageField(
+        "Дополнительное изображение",
+        upload_to="gallery",
+        default="../static_dev/img/cat-logo.png",
+        blank=True,
+        null=True,
+    )
