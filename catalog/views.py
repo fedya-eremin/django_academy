@@ -7,8 +7,7 @@ def item_list(request):
 
 
 def item_detail(request, key):
-    return HttpResponse(f"<body>This is item {key}</body>".encode("utf-8"))
-
+    return render(request, "catalog/item.html")
 
 def re_positive_num(request):
     return HttpResponse(

@@ -22,6 +22,7 @@ $theme-colors: (
 body {
 	background: linear-gradient(135deg, #d6b584, #11803d);
 	font-family: Roboto, sans-serif;
+	background-attachment: fixed;
 }
 
 header {
