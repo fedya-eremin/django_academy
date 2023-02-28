@@ -101,7 +101,7 @@
 },
 {
     "model": "catalog.titleimage",
-    "pk": 6,
+    "pk": 7,
     "fields": {
         "image": "titles/милый-черный-кот-и-тыква-хеллоуина-на-белой-предпосылке-151252785.jpg"
     }
@@ -172,17 +172,17 @@
 },
 {
     "model": "catalog.item",
-    "pk": 5,
+    "pk": 6,
     "fields": {
         "is_published": true,
         "name": "Тыква",
         "normalized": "тыква",
-        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"превосходно тыква\\\\n\\\"}]}\",\"html\":\"<p>превосходно тыква</p>\"}",
+        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"роскошно тыква\\\\n\\\"}]}\",\"html\":\"<p>роскошно тыква</p>\"}",
         "category": 2,
-        "main_image": 6,
+        "main_image": 7,
         "tags": [
             1,
-            2
+            5
         ]
     }
 },
@@ -509,6 +509,45 @@
         "object_repr": "Тыква",
         "action_flag": 2,
         "change_message": "[{\"deleted\": {\"name\": \"\\u0434\\u043e\\u043f\\u043e\\u043b\\u044c\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0444\\u043e\\u0442\\u043e\", \"object\": \"/media/gallery/%D0%BC%D0%B8%D0%BB%D1%8B%D0%B9-%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9-%D0%BA%D0%BE%D1%82-%D0%B8-%D1%82%D1%8B%D0%BA%D0%B2%D0%B0-%D1%85%D0%B5%D0%BB%D0%BB%D0%BE%D1%83%D0%B8%D0%BD%D0%B0-%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%BE%D0%B9-%D0%BF%D1%80%D0%B5%D0%B4%D0%BF%D0%BE%D1%81%D1%8B%D0%BB%D0%BA%D0%B5-151252785.jpg\"}}, {\"deleted\": {\"name\": \"\\u0434\\u043e\\u043f\\u043e\\u043b\\u044c\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0444\\u043e\\u0442\\u043e\", \"object\": \"/media/gallery/%D0%BC%D0%B8%D0%BB%D1%8B%D0%B9-%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9-%D0%BA%D0%BE%D1%82-%D0%B8-%D1%82%D1%8B%D0%BA%D0%B2%D0%B0-%D1%85%D0%B5%D0%BB%D0%BB%D0%BE%D1%83%D0%B8%D0%BD%D0%B0-%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%BE%D0%B9-%D0%BF%D1%80%D0%B5%D0%B4%D0%BF%D0%BE%D1%81%D1%8B%D0%BB%D0%BA%D0%B5-151252785_7nLtxhe.jpg\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2023-02-28T06:49:02.181Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "6",
+        "object_repr": "/home/main/django_academy/media/titles/милый-черный-кот-и-тыква-хеллоуина-на-белой-предпосылке-151252785.jpg",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2023-02-28T06:49:13.744Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "7",
+        "object_repr": "/home/main/django_academy/media/titles/милый-черный-кот-и-тыква-хеллоуина-на-белой-предпосылке-151252785.jpg",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2023-02-28T06:49:47.311Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "6",
+        "object_repr": "Тыква",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
     }
 },
 {

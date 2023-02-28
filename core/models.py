@@ -85,9 +85,12 @@ class AbstractImage(django.db.models.Model):
         abstract = True
 
     image = django.db.models.ImageField(
-        "Дополнительное изображение",
+        "Изображение",
         upload_to="gallery",
         default="../static_dev/img/cat-logo.png",
         blank=True,
         null=True,
     )
+
+    def __str__(self):
+        return self.image.path
