@@ -73,49 +73,56 @@
 },
 {
     "model": "catalog.titleimage",
-    "pk": 1,
+    "pk": 12,
     "fields": {
-        "image": "titles/banana_L7d3UnI.jpg"
+        "image": "gallery/pearandcat1.jpg"
     }
 },
 {
     "model": "catalog.titleimage",
-    "pk": 3,
+    "pk": 15,
     "fields": {
-        "image": "titles/pearandcat.jpg"
+        "image": "gallery/pearandcat2.jpg"
     }
 },
 {
     "model": "catalog.titleimage",
-    "pk": 4,
+    "pk": 16,
     "fields": {
-        "image": "titles/кот-и-яб-око-42983406.jpg"
+        "image": "gallery/милый-черный-кот-и-тыква-хеллоуина-на-белой-предпосылке-151252785.jpg"
     }
 },
 {
     "model": "catalog.titleimage",
-    "pk": 5,
+    "pk": 20,
     "fields": {
-        "image": "titles/tomato.jpeg"
+        "image": "gallery/кот-и-яб-око-429834061.jpg"
     }
 },
 {
     "model": "catalog.titleimage",
-    "pk": 7,
+    "pk": 21,
     "fields": {
-        "image": "titles/милый-черный-кот-и-тыква-хеллоуина-на-белой-предпосылке-151252785.jpg"
+        "image": "gallery/banana2.jpg"
+    }
+},
+{
+    "model": "catalog.titleimage",
+    "pk": 22,
+    "fields": {
+        "image": "gallery/tomato1.jpeg"
     }
 },
 {
     "model": "catalog.item",
-    "pk": 1,
+    "pk": 8,
     "fields": {
         "is_published": true,
-        "name": "Банан",
-        "normalized": "банан",
-        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"роскошно банан\\\\n\\\"}]}\",\"html\":\"<p>роскошно банан</p>\"}",
-        "category": 1,
-        "main_image": 1,
+        "name": "Томат",
+        "normalized": "томат",
+        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"роскошно томат\\\\n\\\"}]}\",\"html\":\"<p>роскошно томат</p>\"}",
+        "category": 2,
+        "main_image": 22,
         "tags": [
             4,
             5
@@ -124,30 +131,14 @@
 },
 {
     "model": "catalog.item",
-    "pk": 2,
+    "pk": 9,
     "fields": {
         "is_published": true,
         "name": "Яблоко",
         "normalized": "яблоко",
-        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"превосходно яблокок\\\\n\\\"}]}\",\"html\":\"<p>превосходно яблокок</p>\"}",
+        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"роскошно яблоко\\\\n\\\"}]}\",\"html\":\"<p>роскошно яблоко</p>\"}",
         "category": 1,
-        "main_image": 4,
-        "tags": [
-            3,
-            5
-        ]
-    }
-},
-{
-    "model": "catalog.item",
-    "pk": 3,
-    "fields": {
-        "is_published": true,
-        "name": "Томат",
-        "normalized": "томат",
-        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"attributes\\\":{\\\"italic\\\":true},\\\"insert\\\":\\\"роскошно томат\\\"},{\\\"insert\\\":\\\"\\\\n\\\"}]}\",\"html\":\"<p><em>роскошно томат<span class=\\\"ql-cursor\\\">﻿</span></em></p>\"}",
-        "category": 2,
-        "main_image": 5,
+        "main_image": 20,
         "tags": [
             1,
             2
@@ -156,33 +147,50 @@
 },
 {
     "model": "catalog.item",
-    "pk": 4,
+    "pk": 10,
     "fields": {
         "is_published": true,
         "name": "Груша",
         "normalized": "груша",
-        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"роскошно груша\\\\n\\\"}]}\",\"html\":\"<p>роскошно груша</p>\"}",
+        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"превосходно груша\\\\n\\\"}]}\",\"html\":\"<p>превосходно груша</p>\"}",
         "category": 1,
-        "main_image": 3,
+        "main_image": 15,
         "tags": [
-            3,
-            5
+            2,
+            3
         ]
     }
 },
 {
     "model": "catalog.item",
-    "pk": 6,
+    "pk": 11,
     "fields": {
         "is_published": true,
         "name": "Тыква",
         "normalized": "тыква",
-        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"роскошно тыква\\\\n\\\"}]}\",\"html\":\"<p>роскошно тыква</p>\"}",
+        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"превосходно тыква\\\\n\\\"}]}\",\"html\":\"<p>превосходно тыква</p>\"}",
         "category": 2,
-        "main_image": 7,
+        "main_image": 16,
         "tags": [
-            1,
-            5
+            2,
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "catalog.item",
+    "pk": 12,
+    "fields": {
+        "is_published": true,
+        "name": "Банан",
+        "normalized": "банан",
+        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"attributes\\\":{\\\"underline\\\":true,\\\"italic\\\":true,\\\"bold\\\":true},\\\"insert\\\":\\\"роскошно банан\\\"},{\\\"attributes\\\":{\\\"header\\\":1},\\\"insert\\\":\\\"\\\\n\\\"}]}\",\"html\":\"<h1><strong><em><u>роскошно банан</u></em></strong></h1>\"}",
+        "category": 1,
+        "main_image": 21,
+        "tags": [
+            2,
+            3
         ]
     }
 },
@@ -548,6 +556,643 @@
         "object_repr": "Тыква",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2023-02-28T12:26:48.673Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "8",
+        "object_repr": "/home/main/django_academy/media/gallery/pearandcat.jpg",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2023-02-28T12:27:44.623Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "4",
+        "object_repr": "Груша",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043a\\u043e\\u043d\\u043a\\u0430\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2023-02-28T12:30:55.213Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "8",
+        "object_repr": "/home/main/django_academy/media/gallery/pearandcat.jpg",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2023-02-28T12:30:55.219Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "7",
+        "object_repr": "/home/main/django_academy/media/titles/милый-черный-кот-и-тыква-хеллоуина-на-белой-предпосылке-151252785.jpg",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2023-02-28T12:30:55.224Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "5",
+        "object_repr": "/home/main/django_academy/media/titles/tomato.jpeg",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2023-02-28T12:30:55.229Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "4",
+        "object_repr": "/home/main/django_academy/media/titles/кот-и-яб-око-42983406.jpg",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2023-02-28T12:30:55.234Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "3",
+        "object_repr": "/home/main/django_academy/media/titles/pearandcat.jpg",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2023-02-28T12:30:55.239Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "1",
+        "object_repr": "/home/main/django_academy/media/titles/banana_L7d3UnI.jpg",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2023-02-28T12:34:02.280Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "9",
+        "object_repr": "/home/main/django_academy/media/gallery/кот-и-яб-око-42983406.jpg",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2023-02-28T12:34:39.290Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "7",
+        "object_repr": "Яблоко",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2023-02-28T12:35:42.427Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "9",
+        "object_repr": "/home/main/django_academy/media/gallery/кот-и-яб-око-42983406.jpg",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2023-02-28T12:37:53.000Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "9",
+        "object_repr": "/home/main/django_academy/media/gallery/кот-и-яб-око-42983406.jpg",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2023-02-28T12:38:07.757Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "10",
+        "object_repr": "/home/main/django_academy/media/gallery/banana.jpg",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2023-02-28T12:38:21.854Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "11",
+        "object_repr": "/home/main/django_academy/media/gallery/кот-и-яб-око-42983406.jpg",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+        "action_time": "2023-02-28T12:38:34.410Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "12",
+        "object_repr": "/home/main/django_academy/media/gallery/pearandcat1.jpg",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+        "action_time": "2023-02-28T12:38:46.399Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "13",
+        "object_repr": "/home/main/django_academy/media/gallery/png-clipart-pumpkin-and-cat-pumpkins-black-cat.png",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+        "action_time": "2023-02-28T12:39:00.075Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "14",
+        "object_repr": "/home/main/django_academy/media/gallery/tomato.jpeg",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+        "action_time": "2023-02-28T12:39:31.062Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "8",
+        "object_repr": "Томат",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+        "action_time": "2023-02-28T12:40:18.160Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "9",
+        "object_repr": "Яблоко",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+        "action_time": "2023-02-28T12:41:21.277Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "10",
+        "object_repr": "Груша",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+        "action_time": "2023-02-28T12:42:11.073Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "11",
+        "object_repr": "Тыква",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+        "action_time": "2023-02-28T12:42:58.129Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "12",
+        "object_repr": "Банан",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+        "action_time": "2023-02-28T13:19:46.572Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "12",
+        "object_repr": "Банан",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+        "action_time": "2023-02-28T13:25:23.309Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "15",
+        "object_repr": "/home/main/django_academy/media/gallery/pearandcat2.jpg",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+        "action_time": "2023-02-28T13:25:34.331Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "10",
+        "object_repr": "Груша",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043a\\u043e\\u043d\\u043a\\u0430\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+        "action_time": "2023-02-28T13:27:32.414Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "11",
+        "object_repr": "Тыква",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+        "action_time": "2023-02-28T13:27:45.251Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "12",
+        "object_repr": "Банан",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043a\\u043e\\u043d\\u043a\\u0430\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+        "action_time": "2023-02-28T13:27:56.579Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "12",
+        "object_repr": "Банан",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 57,
+    "fields": {
+        "action_time": "2023-02-28T17:19:34.189Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "13",
+        "object_repr": "/home/main/django_academy/media/gallery/png-clipart-pumpkin-and-cat-pumpkins-black-cat.png",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+        "action_time": "2023-02-28T17:19:45.867Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "16",
+        "object_repr": "/home/main/django_academy/media/gallery/милый-черный-кот-и-тыква-хеллоуина-на-белой-предпосылке-151252785.jpg",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+        "action_time": "2023-02-28T17:19:56.248Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "11",
+        "object_repr": "Тыква",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043a\\u043e\\u043d\\u043a\\u0430\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 60,
+    "fields": {
+        "action_time": "2023-02-28T17:22:01.463Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "14",
+        "object_repr": "/home/main/django_academy/media/gallery/tomato.jpeg",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 61,
+    "fields": {
+        "action_time": "2023-02-28T17:22:01.468Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "11",
+        "object_repr": "/home/main/django_academy/media/gallery/кот-и-яб-око-42983406.jpg",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 62,
+    "fields": {
+        "action_time": "2023-02-28T17:22:01.473Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "10",
+        "object_repr": "/home/main/django_academy/media/gallery/banana.jpg",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+        "action_time": "2023-02-28T17:22:19.970Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "17",
+        "object_repr": "/home/main/django_academy/media/gallery/кот-и-яб-око-42983406.jpg",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+        "action_time": "2023-02-28T17:22:31.195Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "18",
+        "object_repr": "/home/main/django_academy/media/gallery/banana.jpg",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 65,
+    "fields": {
+        "action_time": "2023-02-28T17:22:42.162Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "19",
+        "object_repr": "/home/main/django_academy/media/gallery/tomato.jpeg",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 66,
+    "fields": {
+        "action_time": "2023-02-28T17:22:58.205Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "12",
+        "object_repr": "Банан",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043a\\u043e\\u043d\\u043a\\u0430\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 67,
+    "fields": {
+        "action_time": "2023-02-28T17:23:19.765Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "9",
+        "object_repr": "Яблоко",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043a\\u043e\\u043d\\u043a\\u0430\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 68,
+    "fields": {
+        "action_time": "2023-02-28T17:23:41.476Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "8",
+        "object_repr": "Томат",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043a\\u043e\\u043d\\u043a\\u0430\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 69,
+    "fields": {
+        "action_time": "2023-02-28T17:24:07.877Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "19",
+        "object_repr": "/home/main/django_academy/media/gallery/tomato.jpeg",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+        "action_time": "2023-02-28T17:24:07.883Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "18",
+        "object_repr": "/home/main/django_academy/media/gallery/banana.jpg",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 71,
+    "fields": {
+        "action_time": "2023-02-28T17:24:07.888Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "17",
+        "object_repr": "/home/main/django_academy/media/gallery/кот-и-яб-око-42983406.jpg",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 72,
+    "fields": {
+        "action_time": "2023-02-28T17:46:59.087Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "20",
+        "object_repr": "/home/main/django_academy/media/gallery/кот-и-яб-око-429834061.jpg",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 73,
+    "fields": {
+        "action_time": "2023-02-28T17:47:18.835Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "9",
+        "object_repr": "Яблоко",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043a\\u043e\\u043d\\u043a\\u0430\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 74,
+    "fields": {
+        "action_time": "2023-02-28T17:47:41.960Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "21",
+        "object_repr": "/home/main/django_academy/media/gallery/banana2.jpg",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 75,
+    "fields": {
+        "action_time": "2023-02-28T17:48:07.164Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "12",
+        "object_repr": "Банан",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043a\\u043e\\u043d\\u043a\\u0430\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 76,
+    "fields": {
+        "action_time": "2023-02-28T17:48:58.101Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "22",
+        "object_repr": "/home/main/django_academy/media/gallery/tomato1.jpeg",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 77,
+    "fields": {
+        "action_time": "2023-02-28T17:49:15.810Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "8",
+        "object_repr": "Томат",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043a\\u043e\\u043d\\u043a\\u0430\"]}}]"
     }
 },
 {
@@ -1102,6 +1747,342 @@
     "fields": {
         "session_data": ".eJxVjMsOwiAQRf-FtSE8BlpcuvcbyDADUjU0Ke3K-O_apAvd3nPOfYmI21rj1vMSJxZnocXpd0tIj9x2wHdst1nS3NZlSnJX5EG7vM6cn5fD_Tuo2Ou3zsTsSgjWjo6BgJxKKVhtylBGjapkTc4oMoGxBMTBavIeIQFDdh7E-wP8ejhf:1pWiWv:dzpaq2yY7xHpYniADNN5VsKPC2JzbhF4SKecfHHtsFA",
         "expire_date": "2023-03-13T18:47:21.107Z"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||006a66f68a90c6b6a458226c07f6eac6",
+    "fields": {
+        "value": "{\"name\": \"titles/tomato.jpeg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||0ac3cb884820ea4b6f5a250c9df767d6",
+    "fields": {
+        "value": "{\"name\": \"cache/28/29/282954473068e6bad6fc5617ee09e2a3.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||0d4af91cffb3c8b1e2080ac1b6161906",
+    "fields": {
+        "value": "{\"name\": \"cache/d8/2d/d82d4417a9edd1d9904777b7f4a12a69.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||0e04b2a57079f28c0887aafe966e9168",
+    "fields": {
+        "value": "{\"name\": \"titles/\\u043a\\u043e\\u0442-\\u0438-\\u044f\\u0431-\\u043e\\u043a\\u043e-42983406.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||1be9d76c66c90f8e1beebb189b316681",
+    "fields": {
+        "value": "{\"name\": \"cache/0e/db/0edb16979eb6e74eea1ee15fd7b9d477.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||219ae3d7f88f8e0171e53391ddd00f84",
+    "fields": {
+        "value": "{\"name\": \"gallery/pearandcat2.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [800, 533]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||301bf55350909039f49d09791da99f65",
+    "fields": {
+        "value": "{\"name\": \"gallery/tomato1.jpeg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [750, 548]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||30be4ca24278c73267ad20f93af00b2c",
+    "fields": {
+        "value": "{\"name\": \"cache/1f/1c/1f1c9d770def6e3d20407d5c6b52d618.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||32db89531b57414d897335530ec51f3e",
+    "fields": {
+        "value": "{\"name\": \"titles/\\u043c\\u0438\\u043b\\u044b\\u0439-\\u0447\\u0435\\u0440\\u043d\\u044b\\u0439-\\u043a\\u043e\\u0442-\\u0438-\\u0442\\u044b\\u043a\\u0432\\u0430-\\u0445\\u0435\\u043b\\u043b\\u043e\\u0443\\u0438\\u043d\\u0430-\\u043d\\u0430-\\u0431\\u0435\\u043b\\u043e\\u0439-\\u043f\\u0440\\u0435\\u0434\\u043f\\u043e\\u0441\\u044b\\u043b\\u043a\\u0435-151252785.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||4621a73fa52646bb63dc5bbaf0c2398b",
+    "fields": {
+        "value": "{\"name\": \"gallery/pearandcat1.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [229, 220]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||474d4304bb1d39f3a4ddc83c142a9c43",
+    "fields": {
+        "value": "{\"name\": \"gallery/png-clipart-pumpkin-and-cat-pumpkins-black-cat.png\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [900, 900]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||474dcc1c2d94ea3e18031ae60bcf6057",
+    "fields": {
+        "value": "{\"name\": \"cache/74/bc/74bc544c9942570d29813d79e1a99c97.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||6a507f3889ac14964bc048e83ea4417e",
+    "fields": {
+        "value": "{\"name\": \"gallery/pearandcat.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [192, 114]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||6be12c555355d957655fd32170aae116",
+    "fields": {
+        "value": "{\"name\": \"cache/2e/83/2e83c7e887d86706bdd918184ccf08e1.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||6d8082c1b0d615582439a19d6c737436",
+    "fields": {
+        "value": "{\"name\": \"gallery/tomato.jpeg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [750, 548]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||6e197b5ea63fb61a0787848bc8c6a403",
+    "fields": {
+        "value": "{\"name\": \"cache/5e/e2/5ee2bc76d5b49dbe6969be8264c9dd21.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||6e9a05b2801c34f8cf1b9c2988992706",
+    "fields": {
+        "value": "{\"name\": \"cache/d5/ca/d5caa32a650e86ab08936bdeae2ae55c.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||7b450fe6453534d59c78052d0f26e800",
+    "fields": {
+        "value": "{\"name\": \"cache/54/69/5469ca72fd8132915a37a4c565034cb8.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||7ebbe1407c1846117bb5df18dafbe32b",
+    "fields": {
+        "value": "{\"name\": \"cache/6f/9c/6f9c1c530df283c06447ae00d12f2103.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||82d3b71fae8f98b74c7b1fa9b83177f6",
+    "fields": {
+        "value": "{\"name\": \"cache/d7/8b/d78b593221d1e86d63eedac054eb61c1.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||8fa3f236379181e781b96f282fb6b590",
+    "fields": {
+        "value": "{\"name\": \"gallery/\\u043c\\u0438\\u043b\\u044b\\u0439-\\u0447\\u0435\\u0440\\u043d\\u044b\\u0439-\\u043a\\u043e\\u0442-\\u0438-\\u0442\\u044b\\u043a\\u0432\\u0430-\\u0445\\u0435\\u043b\\u043b\\u043e\\u0443\\u0438\\u043d\\u0430-\\u043d\\u0430-\\u0431\\u0435\\u043b\\u043e\\u0439-\\u043f\\u0440\\u0435\\u0434\\u043f\\u043e\\u0441\\u044b\\u043b\\u043a\\u0435-151252785.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [800, 585]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||91bd4ce9500d47bc7ab84d469fb7d136",
+    "fields": {
+        "value": "{\"name\": \"cache/c2/23/c2237e223aeb88f2982422ed2ca800d9.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||940f91cfff4884a9ffa3ef9a24752af6",
+    "fields": {
+        "value": "{\"name\": \"gallery/banana2.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [225, 225]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||ae764e6d8e8d7e0ec76699c7ea25fe8c",
+    "fields": {
+        "value": "{\"name\": \"gallery/\\u043a\\u043e\\u0442-\\u0438-\\u044f\\u0431-\\u043e\\u043a\\u043e-429834061.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [700, 900]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||baa90d74bcd3d9e8fd303f6c10f40859",
+    "fields": {
+        "value": "{\"name\": \"titles/pearandcat.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [192, 114]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||bb743301392fe3904226fa400939a952",
+    "fields": {
+        "value": "{\"name\": \"cache/d1/df/d1df8f014a7c2d6429221a8d246cdb3c.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||c6253ab84dcba4faab055648a66cd1fc",
+    "fields": {
+        "value": "{\"name\": \"cache/74/7f/747f80408d451be6ac6200acbdc478bd.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||d6ba4c90b7fedd4dc7ec2e3c8fde3e7d",
+    "fields": {
+        "value": "{\"name\": \"cache/2e/9a/2e9a6114585b6a975590ddb7e71d4470.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||d73701014dddd57b8bdbbfab391bf359",
+    "fields": {
+        "value": "{\"name\": \"cache/09/08/090846ac0d0eb04ae0f67b15d165ebcf.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||d98222abfcbe09e97d7fedf2922bd0a9",
+    "fields": {
+        "value": "{\"name\": \"titles/banana_L7d3UnI.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [225, 225]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||f89890b309f4a77345dcc1a36bbc2020",
+    "fields": {
+        "value": "{\"name\": \"gallery/\\u043a\\u043e\\u0442-\\u0438-\\u044f\\u0431-\\u043e\\u043a\\u043e-42983406.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [700, 900]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||fc4790c9417a3755a54768fd3347db57",
+    "fields": {
+        "value": "{\"name\": \"gallery/banana.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [225, 225]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||006a66f68a90c6b6a458226c07f6eac6",
+    "fields": {
+        "value": "[\"474dcc1c2d94ea3e18031ae60bcf6057\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||0e04b2a57079f28c0887aafe966e9168",
+    "fields": {
+        "value": "[\"82d3b71fae8f98b74c7b1fa9b83177f6\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||219ae3d7f88f8e0171e53391ddd00f84",
+    "fields": {
+        "value": "[\"d6ba4c90b7fedd4dc7ec2e3c8fde3e7d\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||301bf55350909039f49d09791da99f65",
+    "fields": {
+        "value": "[\"30be4ca24278c73267ad20f93af00b2c\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||32db89531b57414d897335530ec51f3e",
+    "fields": {
+        "value": "[\"6e9a05b2801c34f8cf1b9c2988992706\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||4621a73fa52646bb63dc5bbaf0c2398b",
+    "fields": {
+        "value": "[\"1be9d76c66c90f8e1beebb189b316681\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||474d4304bb1d39f3a4ddc83c142a9c43",
+    "fields": {
+        "value": "[\"0d4af91cffb3c8b1e2080ac1b6161906\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||6a507f3889ac14964bc048e83ea4417e",
+    "fields": {
+        "value": "[\"d73701014dddd57b8bdbbfab391bf359\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||6d8082c1b0d615582439a19d6c737436",
+    "fields": {
+        "value": "[\"91bd4ce9500d47bc7ab84d469fb7d136\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||8fa3f236379181e781b96f282fb6b590",
+    "fields": {
+        "value": "[\"6be12c555355d957655fd32170aae116\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||940f91cfff4884a9ffa3ef9a24752af6",
+    "fields": {
+        "value": "[\"bb743301392fe3904226fa400939a952\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||ae764e6d8e8d7e0ec76699c7ea25fe8c",
+    "fields": {
+        "value": "[\"6e197b5ea63fb61a0787848bc8c6a403\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||baa90d74bcd3d9e8fd303f6c10f40859",
+    "fields": {
+        "value": "[\"7b450fe6453534d59c78052d0f26e800\", \"3881767eaa07015b05acfc304e47d4a0\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||d98222abfcbe09e97d7fedf2922bd0a9",
+    "fields": {
+        "value": "[\"7ebbe1407c1846117bb5df18dafbe32b\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||f89890b309f4a77345dcc1a36bbc2020",
+    "fields": {
+        "value": "[\"0ac3cb884820ea4b6f5a250c9df767d6\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||fc4790c9417a3755a54768fd3347db57",
+    "fields": {
+        "value": "[\"c6253ab84dcba4faab055648a66cd1fc\"]"
     }
 }
 ]

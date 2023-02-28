@@ -82,7 +82,7 @@ class Item(AbstractCatalog, NormalizedField):
 
     main_image = django.db.models.OneToOneField(
         TitleImage,
-        on_delete=django.db.models.CASCADE,
+        on_delete=django.db.models.SET_NULL,
         null=True,
         verbose_name="иконка",
     )

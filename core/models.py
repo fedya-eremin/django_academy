@@ -88,8 +88,6 @@ class AbstractImage(django.db.models.Model):
         "Изображение",
         upload_to="gallery",
         default="../static_dev/img/cat-logo.png",
-        blank=True,
-        null=True,
     )
 
     def __str__(self):
