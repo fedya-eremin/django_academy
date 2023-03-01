@@ -20,7 +20,7 @@ class GreatValidator:
             reg = re.compile(
                 f"^({arg[0].upper()}|{arg[0].lower()}){arg[1:]}[!?.,]*$"
             )
-            for elem in value.split():
+            for elem in value.plain.split():
                 if re.fullmatch(reg, elem):
                     exists = True
         if not exists:

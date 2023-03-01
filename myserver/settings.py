@@ -57,6 +57,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "debug_toolbar",
+    "sorl.thumbnail",  # Thumbnails, mostly for admin panel
+    "django_cleanup.apps.CleanupConfig",  # To work with images
+    "compressor",  # Adds CSS, SASS, JS compressor and so on
+    "django_quill",
 ]
 
 MIDDLEWARE = [
@@ -80,7 +84,7 @@ ROOT_URLCONF = "myserver.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -156,7 +160,50 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static_dev",
+]
+# Following lines are adding SASS to project
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
+]
+COMPRESS_ROOT = BASE_DIR / STATICFILES_DIRS[0]
+# Following command will be executet if either STATIC_ROOT or
+# COMPRESS_PRECOMPILERS is set
+COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
+
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# configure QuillFields (default config from docs :)
+QUILL_CONFIGS = {
+    "default": {
+        "theme": "snow",
+        "modules": {
+            "syntax": True,
+            "toolbar": [
+                [
+                    {"font": []},
+                    {"header": []},
+                    {"align": []},
+                    "bold",
+                    "italic",
+                    "underline",
+                    "strike",
+                    "blockquote",
+                    {"color": []},
+                    {"background": []},
+                ],
+                ["code-block", "link"],
+                ["clean"],
+            ],
+        },
+    }
+}

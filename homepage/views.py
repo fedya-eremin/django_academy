@@ -1,10 +1,11 @@
 from http import HTTPStatus
 
 from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def home(request):
-    return HttpResponse(b"<body>This is homepage</body>")
+    return render(request, "homepage/homepage.html")
 
 
 def coffee(request):

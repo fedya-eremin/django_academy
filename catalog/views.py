@@ -1,12 +1,13 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def item_list(request):
-    return HttpResponse(b"<body>This is item list</body>")
+    return render(request, "catalog/catalog.html")
 
 
 def item_detail(request, key):
-    return HttpResponse(f"<body>This is item {key}</body>".encode("utf-8"))
+    return render(request, "catalog/item.html")
 
 
 def re_positive_num(request):

@@ -1,0 +1,52 @@
+$primary:    #58390c;
+$secondary:  #d6b584;
+$success:    #7eb45f;
+$info:       #9fafa1;
+$warning:    #e6c855;
+$danger:     #ba1f67;
+$light:      #ffffff;
+$dark:       #000000;
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+); 
+@import "bootstrap/bootstrap";
+
+body {
+	background: linear-gradient(135deg, #d6b584, #11803d);
+	font-family: Roboto, sans-serif;
+	background-attachment: fixed;
+}
+
+header {
+	backdrop-filter: blur(2em);
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+#main-logo {
+	max-height: 2.5em;
+	background: transparent;
+}
+.under {
+	padding-top: 5em;
+}
+main {
+	color: #f9f9f9;
+}
+
+.card {
+	background-size: cover;
+}
+
+footer {
+	background: linear-gradient(135deg, #9f997e, #cfc182);
+}

@@ -18,6 +18,9 @@ class AbstractCatalog(django.db.models.Model):
         "Имя", max_length=150, help_text="Имя, содержит до 150 символов"
     )
 
+    def __str__(self):
+        return self.name
+
 
 class NormalizedField(django.db.models.Model):
     class Meta:
@@ -49,7 +52,7 @@ class NormalizedField(django.db.models.Model):
                 normalized += i
         self.normalized = normalized.lower()
         manager = self.__class__.objects.all()
-        if len(manager.filter(normalized=self.normalized)):
+        if len(manager.filter(normalized=self.normalized).exclude(id=self.id)):
             raise ValidationError("Поле с подобным именем уже имеется!")
         super(NormalizedField, self).clean(*args, **kwargs)
 
@@ -70,3 +73,22 @@ class AbstractWithSlug(django.db.models.Model):
         max_length=200,
         help_text="Впишите slug-последовательность в поле",
     )
+
+
+class AbstractImage(django.db.models.Model):
+    """
+    abstract model of o2m ImageField which
+    SAVES EVERYTHING TO media/gallery
+    """
+
+    class Meta:
+        abstract = True
+
+    image = django.db.models.ImageField(
+        "Изображение",
+        upload_to="gallery",
+        default="../static_dev/img/cat-logo.png",
+    )
+
+    def __str__(self):
+        return self.image.path
