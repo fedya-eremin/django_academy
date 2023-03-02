@@ -49,4 +49,9 @@ main {
 
 footer {
 	background: linear-gradient(135deg, #9f997e, #cfc182);
+	text-align: center;
+}
+
+footer div {
+	color: $danger;
 }

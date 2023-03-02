@@ -1,17 +1,19 @@
+{% load i18n %}
 <footer class="mt-auto py-5">
   <ul class="nav justify-content-center border-bottom pb-3 mb-3">
     <li class="nav-item">
-      <a href="{% url 'homepage:home' %}" class="nav-link px-2 text-muted">Главная</a>
+      <a href="{% url 'homepage:home' %}" class="nav-link px-2 text-muted">{% trans "Главная" %}</a>
     </li>
     <li class="nav-item">
-      <a href="{% url 'catalog:item_list' %}" class="nav-link px-2 text-muted">Каталог</a>
+      <a href="{% url 'catalog:item_list' %}" class="nav-link px-2 text-muted">{% trans "Каталог" %}</a>
     </li>
     <li class="nav-item">
-      <a href="{% url 'about:about' %}" class="nav-link px-2 text-muted">О проекте</a>
+      <a href="{% url 'about:about' %}" class="nav-link px-2 text-muted">{% trans "О проекте" %}</a>
     </li>
     <li class="nav-item">
-      <a href="#" class="nav-link px-2 text-muted">Соцсети</a>
+      <a href="#" class="nav-link px-2 text-muted">{% trans "Соцсети" %}</a>
     </li>
   </ul>
   <p class="text-center text-muted">© 2023 Cat Company, Inc</p>
+  <noscript><p>{% trans "Время сервера: " %}{% now "DATETIME_FORMAT" %}</p></noscript>
 </footer>

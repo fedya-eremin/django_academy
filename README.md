@@ -19,8 +19,21 @@ source ./venv/bin/activate
 pip install -e .
 ```
 
-для установки окружения с линтерами - ```pip install -e .[dev]``` \
-и ```pip install -e .[test]``` с фреймворком для тестирования соответственно
+для установки окружения с линтерами - 
+```
+pip install -e .[dev]
+```
+или 
+```
+pip install -e .[test]
+``` 
+с фреймворком для тестирования соответственно
+
+## Локализация
+Необходимо сгенерировать локали русский/английский:
+```
+python manage.py compilemessages
+```
 
 ## Запуск
 > SECRET_KEY, DEBUG, DATABASE_NAME, DATABASE_USER,DATABASE_PASS \

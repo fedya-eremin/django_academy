@@ -146,13 +146,20 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "ru"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Moscow"
 
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
+
+LANGUAGES = (
+    ("ru", "Russian"),
+    ("en", "English"),
+)
+
+LOCALE_PATHS = (BASE_DIR / "locale",)
 
 
 # Static files (CSS, JavaScript, Images)

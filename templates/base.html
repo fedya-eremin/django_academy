@@ -1,5 +1,6 @@
 {% load static %}
 {% load compress %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -31,16 +32,16 @@
         <ul class="nav nav-pills justify-content-between">
           <li class="nav-item">
             <a href="{% url 'homepage:home' %}"
-               class="nav-link {% if view_name == 'homepage:home' %}active{% endif %}">Главная</a>
+               class="nav-link {% if view_name == 'homepage:home' %}active{% endif %}">{% trans "Главная" %}</a>
           </li>
           <li class="nav-item">
             <a href="{% url 'catalog:item_list' %}"
-               class="nav-link {% if view_name == 'catalog:item_list' %}active{% endif %}">Список товаров
+               class="nav-link {% if view_name == 'catalog:item_list' %}active{% endif %}">{% trans "Каталог" %}
             </a>
           </li>
           <li class="nav-item">
             <a href="{% url 'about:about' %}"
-               class="nav-link {% if view_name == 'about:about' %}active{% endif %}">О проекте</a>
+               class="nav-link {% if view_name == 'about:about' %}active{% endif %}">{% trans "О проекте" %}</a>
           </li>
         </ul>
       {% endwith %}
@@ -51,6 +52,6 @@
       {% endblock content %}
     </main>
     {% include "includes/footer.html" %}
-		<script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
   </body>
 </html>
