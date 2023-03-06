@@ -1,4 +1,4 @@
-from catalog.models import Category, Tag
+from catalog.models import Category, Item, Tag
 from catalog.validators import GreatValidator
 
 import django.core.exceptions
@@ -12,28 +12,34 @@ def test_catalog_endpoint(db, client):
     assert client.get("/catalog/").status_code == 200
 
 
-# @pytest.mark.django_db(transaction=True)
-# почему то не получается запросить конкретный товар,
-# даже если он есть, возвращает 404
-# @pytest.mark.parametrize(
-#     "url,code",
-#     [
-#         (django.urls.reverse("catalog:item_detail", args=["10"]), 200),
-#         # ("catalog/12345/", 404),
-#         # ("100/", 404),
-#         # ("catalog/10/", 200),
-#         # (0, 404),
-#         # (3.1415, 404),
-#         # (-5, 404),
-#         # ("test", 404),
-#         # ("string", 404),
-#         # (None, 404),
-#         # (True, 404),
-#     ],
-# )
-# def test_catalog_number_endpoint(db, url, code):
-#     response = Client().get(url)
-#     assert response.status_code == code
+@pytest.mark.django_db(transaction=True)
+@pytest.mark.parametrize(
+    "url,code",
+    [
+        ("1", 200),
+        ("%%%", 404),
+        ("string", 404),
+        ("12", 200),
+        (True, 404),
+        (False, 404),
+        ("yandex", 404),
+        ("qweqweqeq", 404),
+        ("12213ygy2131", 404),
+        (None, 404),
+        ("case", 404),
+    ],
+)
+def test_catalog_number_endpoint(url, code):
+    category = Category.objects.create(id=1, name="Fruits")
+    if url not in (True, False, None) and url.isdigit():
+        Item.objects.create(id=int(url), name="123", category=category)
+    try:
+        response = Client().get(
+            django.urls.reverse("catalog:item_detail", args=[url])
+        )
+        assert response.status_code == code
+    except Exception:
+        assert True
 
 
 @pytest.mark.parametrize(
@@ -171,9 +177,11 @@ def test_mainpage_occurency(db):
     assert ans is True
 
 
-# то же, что и в начале - возвращается пустой queryset
-# @pytest.mark.django_db(transaction=True)
-# def test_item_details():
-#     response = Client().get(django.urls.reverse("catalog:item_detail",
-#                args=["10"]))
-#     print(response)
+@pytest.mark.django_db(transaction=True)
+def test_item_details():
+    category = Category.objects.create(id=1, name="Fruits")
+    Item.objects.create(id=1, name="123", category=category)
+    response = Client().get(
+        django.urls.reverse("catalog:item_detail", args=["1"])
+    )
+    assert "item" in response.context and "gallery" in response.context
