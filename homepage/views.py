@@ -1,11 +1,14 @@
 from http import HTTPStatus
 
+import catalog.models
+
 from django.http import HttpResponse
 from django.shortcuts import render
 
 
 def home(request):
-    return render(request, "homepage/homepage.html")
+    context = {"items": catalog.models.Item.objects.mainpage()}
+    return render(request, "homepage/homepage.html", context)
 
 
 def coffee(request):

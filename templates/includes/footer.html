@@ -15,5 +15,8 @@
     </li>
   </ul>
   <p class="text-center text-muted">© 2023 Cat Company, Inc</p>
-  <noscript><p>{% trans "Время сервера: " %}{% now "DATETIME_FORMAT" %}</p></noscript>
+  <noscript>
+    <p>{% trans "Время сервера: " %}{% now "DATETIME_FORMAT" %}</p>
+  </noscript>
+  <p id="hidden-time">{% now "U" %}</p>
 </footer>

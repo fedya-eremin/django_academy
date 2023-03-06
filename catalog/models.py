@@ -10,6 +10,7 @@ from core.models import (
 import django.core.validators
 import django.db.models
 import django.utils.safestring
+from django.shortcuts import get_object_or_404
 
 from django_quill.fields import QuillField
 
@@ -54,6 +55,35 @@ class TitleImage(AbstractImage):
         verbose_name_plural = "иконки"
 
 
+class ItemManager(django.db.models.Manager):
+    """
+    a simple query manager for Item. I think its functionality is clear
+    """
+
+    def mainpage(self):
+        return (
+            self.get_queryset()
+            .select_related("category")
+            .order_by("category__name")
+            .prefetch_related(
+                django.db.models.Prefetch(
+                    "tags",
+                    queryset=Tag.objects.filter(is_published=True).only(
+                        "name"
+                    ),
+                )
+            )
+            .only("name", "text", "category__name")
+            .filter(is_published=True, is_on_main=True)
+        )
+
+    def get_clearly(self, key):
+        return get_object_or_404(
+            self.get_queryset().only("id", "name", "text", "main_image"),
+            id=key,
+        )
+
+
 class Item(AbstractCatalog, NormalizedField):
     """
     model which describes item.
@@ -61,9 +91,12 @@ class Item(AbstractCatalog, NormalizedField):
     category(one-to-many), tags(many-to-many)
     """
 
+    objects = ItemManager()
+
     class Meta:
         verbose_name = "товар"
         verbose_name_plural = "товары"
+        ordering = ("name",)
 
     text = QuillField(
         "Описание",
@@ -72,6 +105,12 @@ class Item(AbstractCatalog, NormalizedField):
         ],
         help_text='Текст должен содержать слово "превосходно" или "роскошно"',
     )
+
+    @property
+    def short_text(self):
+        return " ".join(self.text.plain.split()[:10])
+
+    is_on_main = django.db.models.BooleanField("На главной", default=False)
     category = django.db.models.ForeignKey(
         Category,
         on_delete=django.db.models.CASCADE,
@@ -92,12 +131,12 @@ class Item(AbstractCatalog, NormalizedField):
         if self.main_image:
             thumbnail = get_thumbnail(
                 self.main_image.image.path,
-                "300x300",
+                "50x50",
                 crop="center",
                 quality=51,
             )
             return django.utils.safestring.mark_safe(
-                f'<img src="{thumbnail.url}" height=50>'
+                f'<img src="{thumbnail.url}" />'
             )
 
     image_thumbnail.allow_tags = True

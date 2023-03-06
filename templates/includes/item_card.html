@@ -1,0 +1,9 @@
+{% load static %}
+<div class="item-box">
+  <h3>
+    <a href="{% url 'catalog:item_detail' key=item.id %}">{{ item.name }}</a>
+  </h3>
+  <p>{{ item.category__name }}</p>
+  <p>{{ item.short_text }}</p>
+  {% for tag in item.tags.all  %}<span class="badge bg-secondary">{{ tag.name }}</span>{% endfor %}
+</div>
