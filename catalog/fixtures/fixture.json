@@ -23,7 +23,7 @@
     "model": "catalog.tag",
     "pk": 3,
     "fields": {
-        "is_published": true,
+        "is_published": false,
         "name": "Акция",
         "normalized": "акция",
         "slug": "sale"
@@ -121,6 +121,7 @@
         "name": "Томат",
         "normalized": "томат",
         "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"роскошно томат\\\\n\\\"}]}\",\"html\":\"<p>роскошно томат</p>\"}",
+        "is_on_main": true,
         "category": 2,
         "main_image": 22,
         "tags": [
@@ -137,6 +138,7 @@
         "name": "Яблоко",
         "normalized": "яблоко",
         "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"роскошно яблоко\\\\n\\\"}]}\",\"html\":\"<p>роскошно яблоко</p>\"}",
+        "is_on_main": false,
         "category": 1,
         "main_image": 20,
         "tags": [
@@ -153,6 +155,7 @@
         "name": "Груша",
         "normalized": "груша",
         "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"превосходно груша\\\\n\\\"}]}\",\"html\":\"<p>превосходно груша</p>\"}",
+        "is_on_main": true,
         "category": 1,
         "main_image": 15,
         "tags": [
@@ -169,6 +172,7 @@
         "name": "Тыква",
         "normalized": "тыква",
         "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"превосходно тыква\\\\n\\\"}]}\",\"html\":\"<p>превосходно тыква</p>\"}",
+        "is_on_main": false,
         "category": 2,
         "main_image": 16,
         "tags": [
@@ -185,13 +189,30 @@
         "is_published": true,
         "name": "Банан",
         "normalized": "банан",
-        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"attributes\\\":{\\\"underline\\\":true,\\\"italic\\\":true,\\\"bold\\\":true},\\\"insert\\\":\\\"роскошно банан\\\"},{\\\"attributes\\\":{\\\"header\\\":1},\\\"insert\\\":\\\"\\\\n\\\"}]}\",\"html\":\"<h1><strong><em><u>роскошно банан</u></em></strong></h1>\"}",
+        "text": "{\"delta\":\"{\\\"ops\\\":[{\\\"insert\\\":\\\"роскошно банан a a aa a a a a a a  aa  aa a a a a  a aa a  a a aa  a\\\\n\\\"}]}\",\"html\":\"<p>роскошно банан a a aa a a a a a a  aa  aa a a a a  a aa a  a a aa  a</p>\"}",
+        "is_on_main": true,
         "category": 1,
         "main_image": 21,
         "tags": [
             2,
             3
         ]
+    }
+},
+{
+    "model": "catalog.gallery",
+    "pk": 1,
+    "fields": {
+        "image": "gallery/Tomato_je.jpg",
+        "item": 8
+    }
+},
+{
+    "model": "catalog.gallery",
+    "pk": 2,
+    "fields": {
+        "image": "gallery/tomato_noun_001_17860.jpg",
+        "item": 8
     }
 },
 {
@@ -1196,6 +1217,123 @@
     }
 },
 {
+    "model": "admin.logentry",
+    "pk": 78,
+    "fields": {
+        "action_time": "2023-02-28T18:00:49.393Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "12",
+        "object_repr": "Банан",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 79,
+    "fields": {
+        "action_time": "2023-03-04T19:10:53.281Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "12",
+        "object_repr": "Банан",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430 \\u0433\\u043b\\u0430\\u0432\\u043d\\u043e\\u0439\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 80,
+    "fields": {
+        "action_time": "2023-03-04T19:11:05.470Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "10",
+        "object_repr": "Груша",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430 \\u0433\\u043b\\u0430\\u0432\\u043d\\u043e\\u0439\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 81,
+    "fields": {
+        "action_time": "2023-03-04T19:11:15.302Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "8",
+        "object_repr": "Томат",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430 \\u0433\\u043b\\u0430\\u0432\\u043d\\u043e\\u0439\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 82,
+    "fields": {
+        "action_time": "2023-03-05T09:05:23.595Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "3",
+        "object_repr": "Акция",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 83,
+    "fields": {
+        "action_time": "2023-03-05T09:40:06.222Z",
+        "user": 1,
+        "content_type": 1,
+        "object_id": "2",
+        "object_repr": "Овощи",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 84,
+    "fields": {
+        "action_time": "2023-03-05T09:40:20.449Z",
+        "user": 1,
+        "content_type": 1,
+        "object_id": "2",
+        "object_repr": "Овощи",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 85,
+    "fields": {
+        "action_time": "2023-03-05T12:57:07.947Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "8",
+        "object_repr": "Томат",
+        "action_flag": 2,
+        "change_message": "[{\"added\": {\"name\": \"\\u0434\\u043e\\u043f\\u043e\\u043b\\u044c\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0444\\u043e\\u0442\\u043e\", \"object\": \"/media/gallery/Tomato_je.jpg\"}}, {\"added\": {\"name\": \"\\u0434\\u043e\\u043f\\u043e\\u043b\\u044c\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0435 \\u0444\\u043e\\u0442\\u043e\", \"object\": \"/media/gallery/tomato_noun_001_17860.jpg\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 86,
+    "fields": {
+        "action_time": "2023-03-05T21:27:21.966Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "12",
+        "object_repr": "Банан",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435\"]}}]"
+    }
+},
+{
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -1779,6 +1917,13 @@
 },
 {
     "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||115be1d677d21b56f86e41eb5790126a",
+    "fields": {
+        "value": "{\"name\": \"cache/6f/a9/6fa9fb67e994f2e718c04677b6efe632.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [50, 50]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||image||1be9d76c66c90f8e1beebb189b316681",
     "fields": {
         "value": "{\"name\": \"cache/0e/db/0edb16979eb6e74eea1ee15fd7b9d477.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
@@ -1831,6 +1976,13 @@
     "pk": "sorl-thumbnail||image||474dcc1c2d94ea3e18031ae60bcf6057",
     "fields": {
         "value": "{\"name\": \"cache/74/bc/74bc544c9942570d29813d79e1a99c97.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||4aea40933528ccbf899075f0e0501b32",
+    "fields": {
+        "value": "{\"name\": \"cache/dc/91/dc91b8afc755772585f82a1909bf6d6d.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [50, 50]}"
     }
 },
 {
@@ -1912,9 +2064,23 @@
 },
 {
     "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||aac5afc5401f4c1eb84c60eda9247f0b",
+    "fields": {
+        "value": "{\"name\": \"cache/d9/7b/d97b4a03bd176e273800eeb7c689ced7.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [50, 50]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||image||ae764e6d8e8d7e0ec76699c7ea25fe8c",
     "fields": {
         "value": "{\"name\": \"gallery/\\u043a\\u043e\\u0442-\\u0438-\\u044f\\u0431-\\u043e\\u043a\\u043e-429834061.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [700, 900]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||ba7f76347190bcbcb785ecd753dbfd96",
+    "fields": {
+        "value": "{\"name\": \"cache/71/11/71119e4c756d612f7327f9e7bff3175d.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [50, 50]}"
     }
 },
 {
@@ -1936,6 +2102,13 @@
     "pk": "sorl-thumbnail||image||c6253ab84dcba4faab055648a66cd1fc",
     "fields": {
         "value": "{\"name\": \"cache/74/7f/747f80408d451be6ac6200acbdc478bd.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||cb9cb0a6b1e439e9fff7e2877cf1a9e3",
+    "fields": {
+        "value": "{\"name\": \"cache/d5/e6/d5e6c7dd9c64896c129881a4b6b7ee86.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [50, 50]}"
     }
 },
 {
@@ -1991,14 +2164,14 @@
     "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||thumbnails||219ae3d7f88f8e0171e53391ddd00f84",
     "fields": {
-        "value": "[\"d6ba4c90b7fedd4dc7ec2e3c8fde3e7d\"]"
+        "value": "[\"d6ba4c90b7fedd4dc7ec2e3c8fde3e7d\", \"4aea40933528ccbf899075f0e0501b32\"]"
     }
 },
 {
     "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||thumbnails||301bf55350909039f49d09791da99f65",
     "fields": {
-        "value": "[\"30be4ca24278c73267ad20f93af00b2c\"]"
+        "value": "[\"aac5afc5401f4c1eb84c60eda9247f0b\", \"30be4ca24278c73267ad20f93af00b2c\"]"
     }
 },
 {
@@ -2040,21 +2213,21 @@
     "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||thumbnails||8fa3f236379181e781b96f282fb6b590",
     "fields": {
-        "value": "[\"6be12c555355d957655fd32170aae116\"]"
+        "value": "[\"ba7f76347190bcbcb785ecd753dbfd96\", \"6be12c555355d957655fd32170aae116\"]"
     }
 },
 {
     "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||thumbnails||940f91cfff4884a9ffa3ef9a24752af6",
     "fields": {
-        "value": "[\"bb743301392fe3904226fa400939a952\"]"
+        "value": "[\"cb9cb0a6b1e439e9fff7e2877cf1a9e3\", \"bb743301392fe3904226fa400939a952\"]"
     }
 },
 {
     "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||thumbnails||ae764e6d8e8d7e0ec76699c7ea25fe8c",
     "fields": {
-        "value": "[\"6e197b5ea63fb61a0787848bc8c6a403\"]"
+        "value": "[\"115be1d677d21b56f86e41eb5790126a\", \"6e197b5ea63fb61a0787848bc8c6a403\"]"
     }
 },
 {
