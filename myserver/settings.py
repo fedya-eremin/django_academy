@@ -30,7 +30,7 @@ env = environ.Env(
     DATABASE_PASS=(str, None),
     INTERNAL_IPS=(list, ["127.0.0.1"]),
     ENABLE_REVERSE_RU_MIDDLEWARE=(bool, False),
-    VALIDATE_WORDS=(list, ["роскошно"]),
+    VALIDATE_WORDS=(list, ["роскошно", "превосходно"]),
 )
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
