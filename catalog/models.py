@@ -107,10 +107,6 @@ class Item(AbstractCatalog, NormalizedField, AbstractImage):
         help_text='Текст должен содержать слово "превосходно" или "роскошно"',
     )
 
-    @property
-    def short_text(self):
-        return " ".join(self.text.plain.split()[:10])
-
     is_on_main = django.db.models.BooleanField("На главной", default=False)
     category = django.db.models.ForeignKey(
         Category,
