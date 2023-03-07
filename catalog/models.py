@@ -136,7 +136,6 @@ class TitleImage(django.db.models.Model):
     item = django.db.models.OneToOneField(
         Item,
         on_delete=django.db.models.CASCADE,
-        null=True,
         verbose_name="иконка",
         related_name="title_image",
     )
