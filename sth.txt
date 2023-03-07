@@ -1,0 +1,1 @@
+{'id': 1, 'is_published': True, 'name': '123', 'image': <ImageFieldFile: ../static_dev/img/cat-logo.png>, 'text': <django_quill.fields.FieldQuill object at 0x7f9be7517370>, 'is_on_main': False, 'category': 1, 'tags': []}

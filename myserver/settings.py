@@ -30,11 +30,13 @@ env = environ.Env(
     DATABASE_PASS=(str, None),
     INTERNAL_IPS=(list, ["127.0.0.1"]),
     ENABLE_REVERSE_RU_MIDDLEWARE=(bool, False),
+    VALIDATE_WORDS=(list, ["роскошно"]),
 )
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env("SECRET_KEY")
+VALIDATE_WORDS = env("VALIDATE_WORDS")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")

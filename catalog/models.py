@@ -14,6 +14,8 @@ from django.shortcuts import get_object_or_404
 
 from django_quill.fields import QuillField
 
+from myserver import settings
+
 
 class Tag(AbstractCatalog, AbstractWithSlug, NormalizedField):
     """
@@ -80,7 +82,7 @@ class ItemManager(django.db.models.Manager):
                     "gallery", queryset=Gallery.objects.filter(item=key)
                 ),
             )
-            .only("name", "text", "image"),
+            .only("name", "text", "image", "category", "tags"),
             pk=key,
         )
 
@@ -102,7 +104,7 @@ class Item(AbstractCatalog, NormalizedField, AbstractImage):
     text = QuillField(
         "Описание",
         validators=[
-            GreatValidator("превосходно", "роскошно"),
+            GreatValidator(*settings.VALIDATE_WORDS),
         ],
         help_text='Текст должен содержать слово "превосходно" или "роскошно"',
     )
@@ -138,6 +140,7 @@ class TitleImage(django.db.models.Model):
         on_delete=django.db.models.CASCADE,
         verbose_name="иконка",
         related_name="title_image",
+        null=True,
     )
 
 
