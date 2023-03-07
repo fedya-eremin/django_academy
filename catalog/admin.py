@@ -1,4 +1,4 @@
-from catalog.models import Category, Gallery, Item, Tag, TitleImage
+from catalog.models import Category, Gallery, Item, Tag
 
 from django.contrib import admin
 
@@ -31,11 +31,3 @@ class CategoryAdmin(admin.ModelAdmin):
 class TagAdmin(admin.ModelAdmin):
     list_display = ("name",)
     readonly_fields = ["normalized"]
-
-
-@admin.register(TitleImage)
-class TitleImagesAdmin(admin.ModelAdmin):
-    class Meta:
-        model = TitleImage
-
-    list_display = ("image",)

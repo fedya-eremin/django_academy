@@ -82,14 +82,14 @@ def test_converter_uint_endpoint(url, code, client):
     assert client.get(f"/catalog/converter/{url}/").status_code == code
 
 
-def test_category_creation(db):
+def test_category_creation_and_count(db):
     init_cnt = Category.objects.count()
     category = Category.objects.create(name="test_category")
     final_cnt = Category.objects.count()
     assert final_cnt == init_cnt + 1 and category.name == "test_category"
 
 
-def test_tag_creation(db):
+def test_tag_creation_and_count(db):
     init_cnt = Tag.objects.count()
     tag = Tag.objects.create(name="test_tag")
     final_cnt = Tag.objects.count()
@@ -101,12 +101,13 @@ def category(db):
     return Category.objects.create(name="test_category")
 
 
-# fails for some reason...
-# def test_item_creation(db, category):
-#     init_cnt = Item.objects.count()
-#     item = Item.objects.create(id=100, name="test_item1", category=category)
-#     final_cnt = Item.objects.count()
-#     assert final_cnt == init_cnt + 1 and item.name == "test_item"
+@pytest.mark.django_db
+def test_item_creation_and_count(db):
+    init_cnt = Item.objects.count()
+    category = Category.objects.create(id=1, name="Fruits")
+    item = Item.objects.create(id=100, name="test_item", category=category)
+    final_cnt = Item.objects.count()
+    assert final_cnt == 1 + init_cnt and item.name == "test_item"
 
 
 class Plain(str):
@@ -178,10 +179,18 @@ def test_mainpage_occurency(db):
 
 
 @pytest.mark.django_db(transaction=True)
+def test_item_type():
+    category = Category.objects.create(id=1, name="Fruits")
+    item = Item.objects.create(id=1, name="123", category=category)
+    assert type(item) == Item
+
+
+@pytest.mark.django_db(transaction=True)
 def test_item_details():
     category = Category.objects.create(id=1, name="Fruits")
     Item.objects.create(id=1, name="123", category=category)
     response = Client().get(
         django.urls.reverse("catalog:item_detail", args=["1"])
     )
-    assert "item" in response.context and "gallery" in response.context
+    item = response.context["item"]
+    assert set(["name", "text", "image", "gallery"]).issubset(set(dir(item)))

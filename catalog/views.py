@@ -5,14 +5,14 @@ from django.shortcuts import render
 
 
 def item_list(request):
-    context = {"items": catalog.models.Item.objects.mainpage()}
+    context = {"items": catalog.models.Item.objects.base_query()}
     return render(request, "catalog/catalog.html", context)
 
 
 def item_detail(request, key):
     context = {
-        "item": catalog.models.Item.objects.get(id=key),
-        "gallery": catalog.models.Gallery.objects.filter(item=key),
+        "item": catalog.models.Item.objects.get_clearly(key),
+        # "gallery": catalog.models.Gallery.objects.filter(item=key),
     }
     return render(request, "catalog/item.html", context)
 

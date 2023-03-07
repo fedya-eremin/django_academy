@@ -76,12 +76,15 @@ footer div {
 
 .item-container {
 		width: 100%;
-		display: flex;
+		display: inline-flex;
 		flex-direction: row; 
-		justify-content: space-evenly;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		margin: auto;
 		
 		.item-box {
-				width: 30%;
+				display: inline-block;
+				width: 27%;
 				margin: 2em;
 				padding: 1em;
 				border-radius: 1em;
@@ -93,6 +96,9 @@ footer div {
 		}
 }
 
+.badge {
+		margin: 0 5px;
+}
 
 
 #main-img {

@@ -7,19 +7,23 @@
 {% block content %}
   <div class="px-4 py-5 my-5 text-center">
     <h2>{{ item.name }}</h2>
-    <p>{{ item.text.plain }}</p>
+		<p>{{ item.text.html|safe }}</p>
     <img id="main-img"
-         src="{{ item.main_image.image.url }}"
+         src="{{ item.image.url }}"
          alt="no main"
          height=""
          width=""/>
     <h3>Галерея товара:</h3>
-    <div id="gallery-box">
-      {% for photo in gallery %}<img class="gallery-item"
-     src="{{ photo.image.url }}"
-     alt=""
-     height=""
-     width=""/>{% endfor %}
+    <div id="gallery-box">	
+      {% for photo in item.gallery.all %}<img class="gallery-item"
+     		src="{{ photo.image.url }}"
+     		alt=""
+     		height=""
+     		width=""/>
+			{% empty %}
+				<p>No images yet!</p>
+			{% endfor %}
+			
     </div>
   </div>
 {% endblock content %}
