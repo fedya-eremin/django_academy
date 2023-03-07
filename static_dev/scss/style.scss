@@ -32,6 +32,16 @@ header {
 	width: 100%;
 }
 
+img {
+		border-radius: 20px;
+		height: auto;
+		max-width: 100%;
+}
+
+#hidden-time {
+	display: none;
+}
+
 #main-logo {
 	max-height: 2.5em;
 	background: transparent;
@@ -40,6 +50,7 @@ header {
 	padding-top: 5em;
 }
 main {
+  align-items: center;
 	color: #f9f9f9;
 }
 
@@ -54,4 +65,55 @@ footer {
 
 footer div {
 	color: $danger;
+}
+
+.outer-items {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+}
+
+
+.item-container {
+		width: 100%;
+		display: inline-flex;
+		flex-direction: row; 
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		margin: auto;
+		
+		.item-box {
+				display: inline-block;
+				width: 27%;
+				margin: 2em;
+				padding: 1em;
+				border-radius: 1em;
+				background: linear-gradient(135deg, #c0de5c, #bd6432);
+		}
+		.item-box:hover {
+				opacity: 0.5;
+				transition: opacity .3s ease-in;
+		}
+}
+
+.badge {
+		margin: 0 5px;
+}
+
+
+#main-img {
+		margin: 2em 0;
+}
+
+
+#gallery-box {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+}
+
+
+.gallery-item {
+		max-width: 80%;
+		margin-top: 2em;
 }

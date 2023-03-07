@@ -10,10 +10,9 @@ from core.models import (
 import django.core.validators
 import django.db.models
 import django.utils.safestring
+from django.shortcuts import get_object_or_404
 
 from django_quill.fields import QuillField
-
-from sorl.thumbnail import get_thumbnail
 
 
 class Tag(AbstractCatalog, AbstractWithSlug, NormalizedField):
@@ -48,22 +47,57 @@ class Category(AbstractCatalog, AbstractWithSlug, NormalizedField):
     )
 
 
-class TitleImage(AbstractImage):
-    class Meta:
-        verbose_name = "иконка"
-        verbose_name_plural = "иконки"
+class ItemManager(django.db.models.Manager):
+    """
+    a simple query manager for Item. I think its functionality is clear
+    """
+
+    def base_query(self):
+        return (
+            self.get_queryset()
+            .select_related("category")
+            .order_by("category__name")
+            .prefetch_related(
+                django.db.models.Prefetch(
+                    "tags",
+                    queryset=Tag.objects.filter(is_published=True).only(
+                        "name"
+                    ),
+                )
+            )
+            .only("name", "text", "category__name")
+            .filter(category__is_published=True, is_published=True)
+        )
+
+    def mainpage(self):
+        return self.base_query().filter(is_on_main=True)
+
+    def get_clearly(self, key):
+        return get_object_or_404(
+            self.get_queryset()
+            .prefetch_related(
+                django.db.models.Prefetch(
+                    "gallery", queryset=Gallery.objects.filter(item=key)
+                ),
+            )
+            .only("name", "text", "image"),
+            pk=key,
+        )
 
 
-class Item(AbstractCatalog, NormalizedField):
+class Item(AbstractCatalog, NormalizedField, AbstractImage):
     """
     model which describes item.
     has AbstractCatalog's inner fields, text,
     category(one-to-many), tags(many-to-many)
     """
 
+    objects = ItemManager()
+
     class Meta:
         verbose_name = "товар"
         verbose_name_plural = "товары"
+        ordering = ("name",)
 
     text = QuillField(
         "Описание",
@@ -72,6 +106,8 @@ class Item(AbstractCatalog, NormalizedField):
         ],
         help_text='Текст должен содержать слово "превосходно" или "роскошно"',
     )
+
+    is_on_main = django.db.models.BooleanField("На главной", default=False)
     category = django.db.models.ForeignKey(
         Category,
         on_delete=django.db.models.CASCADE,
@@ -80,28 +116,29 @@ class Item(AbstractCatalog, NormalizedField):
     )
     tags = django.db.models.ManyToManyField(Tag, verbose_name="тэги")
 
-    main_image = django.db.models.OneToOneField(
-        TitleImage,
-        on_delete=django.db.models.SET_NULL,
-        null=True,
-        verbose_name="иконка",
-    )
-
     def image_thumbnail(self):
         """shows item's thumbnail on the dashboard of table"""
-        if self.main_image:
-            thumbnail = get_thumbnail(
-                self.main_image.image.path,
-                "300x300",
-                crop="center",
-                quality=51,
-            )
+        if self.image:
             return django.utils.safestring.mark_safe(
-                f'<img src="{thumbnail.url}" height=50>'
+                f'<img src="{self.get_thumb_50x50.url}" />'
             )
+        return "no title image"
 
     image_thumbnail.allow_tags = True
     image_thumbnail.short_description = "превью"
+
+
+class TitleImage(django.db.models.Model):
+    class Meta:
+        verbose_name = "иконка"
+        verbose_name_plural = "иконки"
+
+    item = django.db.models.OneToOneField(
+        Item,
+        on_delete=django.db.models.CASCADE,
+        verbose_name="иконка",
+        related_name="title_image",
+    )
 
 
 class Gallery(AbstractImage):
@@ -110,11 +147,14 @@ class Gallery(AbstractImage):
     """
 
     class Meta:
-        verbose_name = "допольнительное фото"
-        verbose_name_plural = "допольнительные фото"
+        verbose_name = "дополнительное фото"
+        verbose_name_plural = "дополнительные фото"
 
     item = django.db.models.ForeignKey(
-        Item, on_delete=django.db.models.CASCADE, default=None
+        Item,
+        on_delete=django.db.models.CASCADE,
+        default=None,
+        related_name="gallery",
     )
 
     def __str__(self):

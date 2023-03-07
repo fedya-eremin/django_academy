@@ -1,6 +1,8 @@
 import django.db.models
 from django.core.exceptions import ValidationError
 
+from sorl.thumbnail import get_thumbnail
+
 
 class AbstractCatalog(django.db.models.Model):
     """
@@ -89,6 +91,15 @@ class AbstractImage(django.db.models.Model):
         upload_to="gallery",
         default="../static_dev/img/cat-logo.png",
     )
+
+    @property
+    def get_thumb_50x50(self):
+        return get_thumbnail(
+            self.image,
+            "50x50",
+            crop="center",
+            quality=51,
+        )
 
     def __str__(self):
         return self.image.path

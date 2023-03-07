@@ -18,11 +18,14 @@
       <div class="col-lg-6">
         <h1 class="display-5 fw-bold lh-1 mb-3">{% trans "Лучший магазин фруктов и овощей с котиками" %}</h1>
         <p class="lead">{% lorem 1 b random %}</p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
-        </div>
       </div>
     </div>
   </div>
+  <div class="item-container">
+    {% for item in items %}
+      {% include "includes/item_card.html" %}
+    {% empty %}
+    </div>
+    <script>alert("Проблемы с наличием содержимого")</script>
+  {% endfor %}
 {% endblock content %}

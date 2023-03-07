@@ -9,7 +9,10 @@ class ReverseRuMiddleware:
     def __call__(self, request):
         """reverses russian words in each tenth response"""
         response = self.get_response(request)
-        content = list(response.content.decode("utf-8"))
+        try:
+            content = list(response.content.decode("utf-8"))
+        except AttributeError:
+            return response
         begin = -1
         if not self.count % 10:
             for i in range(len(content) - 1):

@@ -1,13 +1,20 @@
+import catalog.models
+
 from django.http import HttpResponse
 from django.shortcuts import render
 
 
 def item_list(request):
-    return render(request, "catalog/catalog.html")
+    context = {"items": catalog.models.Item.objects.base_query()}
+    return render(request, "catalog/catalog.html", context)
 
 
 def item_detail(request, key):
-    return render(request, "catalog/item.html")
+    context = {
+        "item": catalog.models.Item.objects.get_clearly(key),
+        # "gallery": catalog.models.Gallery.objects.filter(item=key),
+    }
+    return render(request, "catalog/item.html", context)
 
 
 def re_positive_num(request):
