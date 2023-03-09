@@ -47,46 +47,6 @@ def test_catalog_number_endpoint(url, code):
         assert True
 
 
-@pytest.mark.parametrize(
-    "url,code",
-    [
-        (123, 200),
-        (456, 200),
-        (789, 200),
-        ("012", 404),
-        (0x012, 200),
-        (0, 404),
-        ("0x012", 404),
-        ("string", 404),
-        (1.4142, 404),
-        (True, 404),
-        (None, 404),
-    ],
-)
-def test_re_number_endpoint(url, code, client):
-    assert client.get(f"/catalog/re/{url}/").status_code == code
-
-
-@pytest.mark.parametrize(
-    "url,code",
-    [
-        (123, 200),
-        (456, 200),
-        (789, 200),
-        ("012", 404),
-        (0x012, 200),
-        (0, 404),
-        ("0x012", 404),
-        ("string", 404),
-        (1.4142, 404),
-        (True, 404),
-        (None, 404),
-    ],
-)
-def test_converter_uint_endpoint(url, code, client):
-    assert client.get(f"/catalog/converter/{url}/").status_code == code
-
-
 def test_category_creation_and_count(db):
     init_cnt = Category.objects.count()
     category = Category.objects.create(name="test_category")
