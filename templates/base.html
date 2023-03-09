@@ -43,6 +43,13 @@
             <a href="{% url 'about:about' %}"
                class="nav-link {% if view_name == 'about:about' %}active{% endif %}">{% trans "О проекте" %}</a>
           </li>
+					{% if user.is_superuser %}
+					<li class="nav-item">
+            <a href="{% url 'admin:index' %}"
+               class="nav-link {% if view_name == 'about:about' %}active{% endif %}">{% trans "Админ" %}</a>
+					</li>
+					{% endif %}
+
         </ul>
       {% endwith %}
     </header>

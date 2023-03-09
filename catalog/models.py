@@ -1,3 +1,5 @@
+from datetime import date, timedelta
+
 from catalog.validators import GreatValidator
 
 from core.models import (
@@ -10,7 +12,9 @@ from core.models import (
 import django.core.validators
 import django.db.models
 import django.utils.safestring
+from django.db.models import F
 from django.shortcuts import get_object_or_404
+
 
 from django_quill.fields import QuillField
 
@@ -86,6 +90,26 @@ class ItemManager(django.db.models.Manager):
             pk=key,
         )
 
+    def not_modified(self):
+        return self.base_query().filter(
+            date_modified__year=F("date_published__year"),
+            date_modified__month=F("date_published__month"),
+            date_modified__day=F("date_published__day"),
+            date_modified__hour=F("date_published__hour"),
+            date_modified__minute=F("date_published__minute"),
+            date_modified__second=F("date_published__second"),
+        )
+
+    def on_friday(self):
+        return self.base_query().filter(date_modified__iso_week_day=5)
+
+    def get_five_random(self):
+        return (
+            self.base_query()
+            .filter(date_published__date__gte=date.today() - timedelta(days=7))
+            .order_by("?")[:5]
+        )
+
 
 class Item(AbstractCatalog, NormalizedField, AbstractImage):
     """
@@ -108,6 +132,20 @@ class Item(AbstractCatalog, NormalizedField, AbstractImage):
         ],
         help_text='Текст должен содержать слово "превосходно" или "роскошно"',
     )
+    date_modified = django.db.models.DateTimeField(
+        "время изменения", auto_now=True
+    )
+    date_published = django.db.models.DateTimeField(
+        "время публикации", auto_now_add=True
+    )
+
+    @property  # move it to manager's annotation
+    def is_modified(self):
+        if int(self.date_modified.strftime("%Y%m%d%H%M%S")) == int(
+            self.date_published.strftime("%Y%m%d%H%M%S")
+        ):
+            return False
+        return True
 
     is_on_main = django.db.models.BooleanField("На главной", default=False)
     category = django.db.models.ForeignKey(

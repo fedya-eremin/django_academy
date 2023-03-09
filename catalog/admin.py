@@ -13,7 +13,14 @@ class ItemAdmin(admin.ModelAdmin):
     class Meta:
         model = Item
 
-    list_display = ("name", "is_published", "image_thumbnail")
+    list_display = (
+        "name",
+        "is_published",
+        "image_thumbnail",
+        "date_modified",
+        "date_published",
+        "is_modified",
+    )
     inlines = (GalleryField,)
     list_editable = ("is_published",)
     filter_horizontal = ("tags",)
