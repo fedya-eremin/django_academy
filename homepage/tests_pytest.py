@@ -25,3 +25,17 @@ def test_mainpage_item_amount(db):
     )
     response = Client().get(django.urls.reverse("homepage:home"))
     assert response.context["items"].count() == 1
+
+
+@pytest.mark.django_db
+def test_mainpage_item_type(db):
+    category = Category.objects.create(id=1, name="Fruits")
+    Item.objects.create(
+        id=1,
+        name="test_item",
+        is_published=True,
+        category=category,
+        is_on_main=True,
+    )
+    response = Client().get(django.urls.reverse("homepage:home"))
+    assert type(response.context["items"].get(pk=1)) == Item

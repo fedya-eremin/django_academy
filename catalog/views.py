@@ -12,7 +12,6 @@ def item_list(request):
 def item_detail(request, key):
     context = {
         "item": catalog.models.Item.objects.get_clearly(key),
-        # "gallery": catalog.models.Gallery.objects.filter(item=key),
     }
     return render(request, "catalog/item.html", context)
 

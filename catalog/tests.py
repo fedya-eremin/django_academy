@@ -3,7 +3,12 @@ from catalog.validators import GreatValidator
 
 import django.core.exceptions
 import django.urls
+from django.forms.models import model_to_dict
 from django.test import Client
+
+from django_quill.quill import Quill
+
+from myserver import settings
 
 import pytest
 
@@ -110,46 +115,6 @@ def test_item_creation_and_count(db):
     assert final_cnt == 1 + init_cnt and item.name == "test_item"
 
 
-class Plain(str):
-    """because of Quill usage added some properties"""
-
-    def __init__(self, plain):
-        super().__init__()
-        self.plain = plain
-
-
-@pytest.mark.parametrize(
-    "text",
-    [
-        "qweqweq",
-        "123123213123",
-        "ogqweqqыфвфф",
-        "яндексбраузер",
-        "weweqwdпревосходнононеверно",
-        "роскошнононеправильно",
-    ],
-)
-def test_great_validator_negative(text):
-    with pytest.raises(django.core.exceptions.ValidationError):
-        func = GreatValidator("превосходно", "роскошно")
-        func(Plain(text))
-
-
-@pytest.mark.parametrize(
-    "text",
-    [
-        "яндекс бразер - это превосходно",
-        "пользоваться им - роскошно",
-        "превосходно роскошно",
-        "Роскошно!!!",
-        "превосходно? но правильно!",
-    ],
-)
-def test_great_validator_positive(text):
-    func = GreatValidator("превосходно", "роскошно")
-    assert func(Plain(text)) is None
-
-
 @pytest.mark.xfail
 @pytest.mark.parametrize(
     "name",
@@ -178,19 +143,70 @@ def test_mainpage_occurency(db):
     assert ans is True
 
 
-@pytest.mark.django_db(transaction=True)
-def test_item_type():
+def get_quill(value):
+    quill = Quill(
+        {
+            "delta": {"ops": [{"insert": "%s\\n" % value}]},
+            "html": "<p>%s</p>" % value,
+        }
+    )
+    with open("sth.txt", "w+") as file:
+        file.write(str(quill))
+    return quill
+
+
+@pytest.fixture
+@pytest.mark.django_db
+def item():
     category = Category.objects.create(id=1, name="Fruits")
-    item = Item.objects.create(id=1, name="123", category=category)
+    return Item.objects.create(
+        id=1,
+        name="123",
+        category=category,
+        text='{"delta":"{\\"ops\\":[{\\"insert\\":\\"превосходно груша'
+        '\\\\n\\"}]}","html":"<p>превосходно груша</p>"}',
+    )
+
+
+@pytest.mark.django_db(transaction=True)
+def test_item_type(item):
     assert type(item) == Item
 
 
-@pytest.mark.django_db(transaction=True)
-def test_item_details():
-    category = Category.objects.create(id=1, name="Fruits")
-    Item.objects.create(id=1, name="123", category=category)
+@pytest.mark.parametrize(
+    "field",
+    (
+        "id",
+        "is_published",
+        "is_on_main",
+        "name",
+        "text",
+        "category",
+        "tags",
+        "image",
+    ),
+)
+@pytest.mark.django_db
+def test_item_details_positive(field, item):
     response = Client().get(
         django.urls.reverse("catalog:item_detail", args=["1"])
     )
-    item = response.context["item"]
-    assert set(["name", "text", "image", "gallery"]).issubset(set(dir(item)))
+    assert field in model_to_dict(response.context["item"])
+
+
+@pytest.mark.parametrize("field", ("normalized",))
+@pytest.mark.django_db(transaction=True)
+def test_item_details_negative(field, item):
+    response = Client().get(
+        django.urls.reverse("catalog:item_detail", args=["1"])
+    )
+    assert field not in model_to_dict(response.context["item"])
+
+
+@pytest.mark.django_db
+def test_validator_in_response(item):
+    response = Client().get(
+        django.urls.reverse("catalog:item_detail", args=["1"])
+    )
+    func = GreatValidator(*settings.VALIDATE_WORDS)
+    assert func(response.context["item"].text) is None
