@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-  <section class="py-5 text-center container"/>
+  <section class="text-center"/>
   <div class="container px-4 py-5" id="custom-cards">
-		<h2 class="pb-2 border-bottom">{{ title }}</h2>
+    <h2 class="pb-2 border-bottom">{{ title }}</h2>
     <div class="item-container">
-    {% for item in items %}
-      {% include "includes/item_card.html" %}
-    {% empty %}
-    	<script>alert("Проблемы с наличием содержимого")</script>
-  	{% endfor %}
-		</div>
+      {% for item in items %}
+        {% include "includes/item_card.html" %}
+      {% empty %}
+        <script>alert("Проблемы с наличием содержимого")</script>
+      {% endfor %}
+    </div>
   </div>
 {% endblock content %}

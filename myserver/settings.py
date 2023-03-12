@@ -31,6 +31,7 @@ env = environ.Env(
     INTERNAL_IPS=(list, ["127.0.0.1"]),
     ENABLE_REVERSE_RU_MIDDLEWARE=(bool, False),
     VALIDATE_WORDS=(list, ["роскошно", "превосходно"]),
+    DEFAULT_FROM_EMAIL=(str, "example@ya.ru"),
 )
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
     "homepage.apps.HomepageConfig",
     "catalog.apps.CatalogConfig",
     "about.apps.AboutConfig",
+    "feedback.apps.FeedbackConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -216,3 +218,7 @@ QUILL_CONFIGS = {
         },
     }
 }
+
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = BASE_DIR / "sent_mails"
+DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")

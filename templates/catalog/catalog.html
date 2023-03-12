@@ -5,8 +5,8 @@
   {% trans "Каталог" %}
 {% endblock title %}
 {% block content %}
-  <section class="py-5 text-center container"/>
-  <div class="container px-4 py-5" id="custom-cards">
+  <section class="text-center"/>
+  <div class="container px-4" id="custom-cards">
     <h2 class="pb-2 border-bottom">{% trans "Товары по категориям" %}</h2>
     <div class="outer-items">
       {% regroup items by category as category_list %}

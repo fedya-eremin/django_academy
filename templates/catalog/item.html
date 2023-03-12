@@ -7,37 +7,35 @@
 {% block content %}
   <div class="px-4 py-5 my-5 text-center">
     <h2>{{ item.name }}</h2>
-		<h4>{{ item.category }}</h4>
-		{% for tag in item.tags.all  %}<span class="badge bg-secondary">{{ tag.name }}</span>{% endfor %}
-		<p>{{ item.text.html|safe }}</p>
-		<div class="img-box">
-			<img id="main-img"
-         src="{{ item.image.url }}"
-         alt="no main"
-         height=""
-         width=""/>
-			<button type="click" class="btn btn-secondary">
-				<a href="{% url 'catalog:download' dst=item.image.path %}">Скачать</a>
-			</button>
-		</div>
+    <h4>{{ item.category }}</h4>
+    {% for tag in item.tags.all  %}<span class="badge bg-secondary">{{ tag.name }}</span>{% endfor %}
+    <p>{{ item.text.html|safe }}</p>
+    <div class="img-box">
+      <img id="main-img"
+           src="{{ item.image.url }}"
+           alt="no main"
+           height=""
+           width=""/>
+      <button type="click" class="btn btn-secondary">
+        <a href="{% url 'catalog:download' dst=item.image.path %}">Скачать</a>
+      </button>
+    </div>
     <h3>Галерея товара:</h3>
-    <div id="gallery-box">	
+    <div id="gallery-box">
       {% for photo in item.gallery.all %}
-			<div class="img-box">
-				<img id="main-img"
-					 src="{{ photo.image.url }}"
-					 alt="no main"
-					 height=""
-					 width=""/>
-				<button type="click" class="btn btn-secondary">
-					<a href="{% url 'catalog:download' dst=photo.image.path %}">Скачать</a>
-			</button>
-		</div>
-
-			{% empty %}
-				<p>No images yet!</p>
-			{% endfor %}
-			
+        <div class="img-box">
+          <img id="main-img"
+               src="{{ photo.image.url }}"
+               alt="no main"
+               height=""
+               width=""/>
+          <button type="click" class="btn btn-secondary">
+            <a href="{% url 'catalog:download' dst=photo.image.path %}">Скачать</a>
+          </button>
+        </div>
+      {% empty %}
+        <p>No images yet!</p>
+      {% endfor %}
     </div>
   </div>
 {% endblock content %}
