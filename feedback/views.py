@@ -2,6 +2,7 @@ from django.core.mail import send_mail
 from django.shortcuts import redirect, render
 
 from feedback.forms import FeedbackForm
+from feedback.models import FeedbackModel
 
 from myserver.settings import DEFAULT_FROM_EMAIL
 
@@ -11,6 +12,7 @@ def feedback(request):
     if form.is_valid():
         text = form.cleaned_data.get("text")
         address = form.cleaned_data.get("email")
+        FeedbackModel.objects.create(text=text, email=address)
         send_mail(
             "Feedback",
             text,

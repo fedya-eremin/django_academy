@@ -1,11 +1,13 @@
 from django.urls import reverse
 
 from feedback.forms import FeedbackForm
+from feedback.models import FeedbackModel
 
 import pytest
 
 
 @pytest.fixture
+@pytest.mark.django_db
 def feedback_ans(client):
     context = {"form": FeedbackForm()}
     response = client.get(
@@ -31,6 +33,7 @@ def test_form_label_help(feedback_ans):
     )
 
 
+@pytest.mark.django_db
 def test_form_success_redirect(client):
     form_data = {
         "text": "123",
@@ -43,3 +46,33 @@ def test_form_success_redirect(client):
     assert response.status_code == 302 and response["location"] == reverse(
         "feedback:feedback_success"
     )
+
+
+@pytest.mark.django_db
+def test_form_success_update(client):
+    init_cnt = FeedbackModel.objects.count()
+    form_data = {
+        "text": "123",
+        "email": "dog@ya.ru",
+    }
+    client.post(
+        reverse("feedback:feedback"),
+        data=form_data,
+    )
+    final_cnt = FeedbackModel.objects.count()
+    assert init_cnt + 1 == final_cnt
+
+
+@pytest.mark.django_db
+def test_form_failing_update(client):
+    init_cnt = FeedbackModel.objects.count()
+    form_data = {
+        "text": "123",
+        "email": "ginger.com",
+    }
+    client.post(
+        reverse("feedback:feedback"),
+        data=form_data,
+    )
+    final_cnt = FeedbackModel.objects.count()
+    assert init_cnt == final_cnt

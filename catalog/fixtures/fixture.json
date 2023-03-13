@@ -130,6 +130,16 @@
     }
 },
 {
+    "model": "feedback.feedbackmodel",
+    "pk": 1,
+    "fields": {
+        "text": "qweqwe ура фидбек",
+        "created_on": "2023-03-13T18:24:05.504Z",
+        "email": "yandex@yandex.ru",
+        "status": "received"
+    }
+},
+{
     "model": "admin.logentry",
     "pk": 1,
     "fields": {
