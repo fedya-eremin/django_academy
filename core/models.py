@@ -89,7 +89,7 @@ class AbstractImage(django.db.models.Model):
     image = django.db.models.ImageField(
         "Изображение",
         upload_to="gallery",
-        default="../static_dev/img/cat-logo.png",
+        default="cat-logo.png",
     )
 
     @property

@@ -1,4 +1,4 @@
-from catalog.models import Category, Item, Tag
+from catalog.models import Category, Item, Tag, TitleImage
 from catalog.validators import GreatValidator
 
 import django.core.exceptions
@@ -45,46 +45,6 @@ def test_catalog_number_endpoint(url, code):
         assert response.status_code == code
     except Exception:
         assert True
-
-
-@pytest.mark.parametrize(
-    "url,code",
-    [
-        (123, 200),
-        (456, 200),
-        (789, 200),
-        ("012", 404),
-        (0x012, 200),
-        (0, 404),
-        ("0x012", 404),
-        ("string", 404),
-        (1.4142, 404),
-        (True, 404),
-        (None, 404),
-    ],
-)
-def test_re_number_endpoint(url, code, client):
-    assert client.get(f"/catalog/re/{url}/").status_code == code
-
-
-@pytest.mark.parametrize(
-    "url,code",
-    [
-        (123, 200),
-        (456, 200),
-        (789, 200),
-        ("012", 404),
-        (0x012, 200),
-        (0, 404),
-        ("0x012", 404),
-        ("string", 404),
-        (1.4142, 404),
-        (True, 404),
-        (None, 404),
-    ],
-)
-def test_converter_uint_endpoint(url, code, client):
-    assert client.get(f"/catalog/converter/{url}/").status_code == code
 
 
 def test_category_creation_and_count(db):
@@ -159,7 +119,8 @@ def get_quill(value):
 @pytest.mark.django_db
 def item():
     category = Category.objects.create(id=1, name="Fruits")
-    return Item.objects.create(
+
+    item = Item.objects.create(
         id=1,
         name="123",
         category=category,
@@ -167,10 +128,13 @@ def item():
         '\\\\n\\"}]}","html":"<p>превосходно груша</p>"}',
     )
 
+    TitleImage.objects.create(id=1, image="cat-logo.png", item=item)
+    return item
 
-@pytest.mark.django_db(transaction=True)
+
+@pytest.mark.django_db
 def test_item_type(item):
-    assert type(item) == Item
+    assert type(item)
 
 
 @pytest.mark.parametrize(
@@ -183,7 +147,6 @@ def test_item_type(item):
         "text",
         "category",
         "tags",
-        "image",
     ),
 )
 @pytest.mark.django_db

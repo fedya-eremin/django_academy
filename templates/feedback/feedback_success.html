@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  Успех!
+{% endblock title %}
+{% block content %}
+  <div class="container">
+    <h1>Спасибо за фидбек! Ваше мнение очень важно для нас!</h1>
+    <img src="{% static 'img/mads.webp' %}" alt="" height="" width=""/>
+    <div class="button-box">
+      <button type="click" class="btn btn-secondary">
+        <a href="{% url 'homepage:home' %}">На главную</a>
+      </button>
+      <button type="click" class="btn btn-secondary">
+        <a href="{% url 'feedback:feedback' %}">Ещё по одной?</a>
+      </button>
+    </div>
+  </div>
+{% endblock content %}

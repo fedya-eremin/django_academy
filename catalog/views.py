@@ -1,6 +1,6 @@
 import catalog.models
 
-from django.http import HttpResponse
+from django.http import FileResponse, HttpResponse
 from django.shortcuts import render
 
 
@@ -24,3 +24,32 @@ def re_positive_num(request):
 
 def converter_uint(request, key):
     return HttpResponse(f"<body>Used converter {key}</body>".encode("utf-8"))
+
+
+def return_img(request, dst):
+    print(dst)
+    return FileResponse(open(dst, "rb"), as_attachment=True)
+
+
+def friday(request):
+    context = {
+        "items": catalog.models.Item.objects.on_friday(),
+        "title": "Изменено в пятницу",
+    }
+    return render(request, "catalog/sidepage.html", context)
+
+
+def last_week(request):
+    context = {
+        "items": catalog.models.Item.objects.get_five_random(),
+        "title": "Новинки",
+    }
+    return render(request, "catalog/sidepage.html", context)
+
+
+def unmodified(request):
+    context = {
+        "items": catalog.models.Item.objects.not_modified(),
+        "title": "Ни разу не изменённые",
+    }
+    return render(request, "catalog/sidepage.html", context)

@@ -20,12 +20,23 @@
         <p class="lead">{% lorem 1 b random %}</p>
       </div>
     </div>
+    <div class="item-box">
+      <button type="click" class="btn btn-secondary">
+        <a href="{% url 'homepage:friday' %}">Пятница</a>
+      </button>
+      <button type="click" class="btn btn-secondary">
+        <a href="{% url 'homepage:last_week' %}">Новинки</a>
+      </button>
+      <button type="click" class="btn btn-secondary">
+        <a href="{% url 'homepage:unmodified' %}">Неизменённые</a>
+      </button>
+    </div>
   </div>
   <div class="item-container">
     {% for item in items %}
       {% include "includes/item_card.html" %}
     {% empty %}
-    </div>
-    <script>alert("Проблемы с наличием содержимого")</script>
-  {% endfor %}
+      <script>alert("Проблемы с наличием содержимого")</script>
+    {% endfor %}
+  </div>
 {% endblock content %}

@@ -1,3 +1,5 @@
+from datetime import date, timedelta
+
 from catalog.validators import GreatValidator
 
 from core.models import (
@@ -10,7 +12,9 @@ from core.models import (
 import django.core.validators
 import django.db.models
 import django.utils.safestring
+from django.db.models import F
 from django.shortcuts import get_object_or_404
+
 
 from django_quill.fields import QuillField
 
@@ -82,12 +86,32 @@ class ItemManager(django.db.models.Manager):
                     "gallery", queryset=Gallery.objects.filter(item=key)
                 ),
             )
-            .only("name", "text", "image", "category", "tags"),
+            .only("name", "text", "title_image", "category", "tags"),
             pk=key,
         )
 
+    def not_modified(self):
+        return self.base_query().filter(
+            date_modified__year=F("date_published__year"),
+            date_modified__month=F("date_published__month"),
+            date_modified__day=F("date_published__day"),
+            date_modified__hour=F("date_published__hour"),
+            date_modified__minute=F("date_published__minute"),
+            date_modified__second=F("date_published__second"),
+        )
 
-class Item(AbstractCatalog, NormalizedField, AbstractImage):
+    def on_friday(self):
+        return self.base_query().filter(date_modified__iso_week_day=5)
+
+    def get_five_random(self):
+        return (
+            self.base_query()
+            .filter(date_published__date__gte=date.today() - timedelta(days=7))
+            .order_by("?")[:5]
+        )
+
+
+class Item(AbstractCatalog, NormalizedField):
     """
     model which describes item.
     has AbstractCatalog's inner fields, text,
@@ -108,6 +132,12 @@ class Item(AbstractCatalog, NormalizedField, AbstractImage):
         ],
         help_text='Текст должен содержать слово "превосходно" или "роскошно"',
     )
+    date_modified = django.db.models.DateTimeField(
+        "время изменения", auto_now=True
+    )
+    date_published = django.db.models.DateTimeField(
+        "время публикации", auto_now_add=True
+    )
 
     is_on_main = django.db.models.BooleanField("На главной", default=False)
     category = django.db.models.ForeignKey(
@@ -118,11 +148,19 @@ class Item(AbstractCatalog, NormalizedField, AbstractImage):
     )
     tags = django.db.models.ManyToManyField(Tag, verbose_name="тэги")
 
+    @property  # move it to manager's annotation
+    def is_modified(self):
+        if int(self.date_modified.strftime("%Y%m%d%H%M%S")) == int(
+            self.date_published.strftime("%Y%m%d%H%M%S")
+        ):
+            return False
+        return True
+
     def image_thumbnail(self):
         """shows item's thumbnail on the dashboard of table"""
-        if self.image:
+        if self.title_image.image:
             return django.utils.safestring.mark_safe(
-                f'<img src="{self.get_thumb_50x50.url}" />'
+                f'<img src="{self.title_image.get_thumb_50x50.url}" />'
             )
         return "no title image"
 
@@ -130,7 +168,7 @@ class Item(AbstractCatalog, NormalizedField, AbstractImage):
     image_thumbnail.short_description = "превью"
 
 
-class TitleImage(django.db.models.Model):
+class TitleImage(AbstractImage):
     class Meta:
         verbose_name = "иконка"
         verbose_name_plural = "иконки"
@@ -140,7 +178,6 @@ class TitleImage(django.db.models.Model):
         on_delete=django.db.models.CASCADE,
         verbose_name="иконка",
         related_name="title_image",
-        null=True,
     )
 
 

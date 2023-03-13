@@ -1,4 +1,4 @@
-from catalog.models import Category, Gallery, Item, Tag
+from catalog.models import Category, Gallery, Item, Tag, TitleImage
 
 from django.contrib import admin
 
@@ -8,13 +8,25 @@ class GalleryField(admin.StackedInline):
     extra = 1
 
 
+class TitleImageField(admin.StackedInline):
+    model = TitleImage
+    min_num = 1
+
+
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
     class Meta:
         model = Item
 
-    list_display = ("name", "is_published", "image_thumbnail")
-    inlines = (GalleryField,)
+    list_display = (
+        "name",
+        "is_published",
+        "image_thumbnail",
+        "date_modified",
+        "date_published",
+        "is_modified",
+    )
+    inlines = (GalleryField, TitleImageField)
     list_editable = ("is_published",)
     filter_horizontal = ("tags",)
     list_display_links = ("name",)

@@ -19,3 +19,27 @@ def coffee(request):
 
 def test_reverse_middleware(request, text):
     return HttpResponse(f"<body>{text}</body>".encode("utf-8"))
+
+
+def friday(request):
+    context = {
+        "items": catalog.models.Item.objects.on_friday(),
+        "title": "Изменено в пятницу",
+    }
+    return render(request, "homepage/sidepage.html", context)
+
+
+def last_week(request):
+    context = {
+        "items": catalog.models.Item.objects.get_five_random(),
+        "title": "Новинки",
+    }
+    return render(request, "homepage/sidepage.html", context)
+
+
+def unmodified(request):
+    context = {
+        "items": catalog.models.Item.objects.not_modified(),
+        "title": "Ни разу не изменённые",
+    }
+    return render(request, "homepage/sidepage.html", context)
