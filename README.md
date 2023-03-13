@@ -40,16 +40,20 @@ python manage.py compilemessages
 и ALLOWED_HOSTS следует указать в файле .env. Для первых двух \
 из них предусмотрено значение по умолчанию. Пример представлен \
 в .env.example, для использования необходимо убрать расширение \
-файла
+файла. Также следует указать почтовый адрес в DEFAULT_FROM_EMAIL, \
+а так же работу ReverseRuMiddleware
 ```
 python3 manage.py runserver
 ``` 
 
 ## База данных
-База данных содержит три таблицы:
+База данных содержит шесть таблиц:
 - Item
 - Category
 - Tag
+- Gallery
+- TitleImage
+- Feedback
 
 Данные для примера находятся в фикстуре в приложении catalog
 
