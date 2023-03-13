@@ -11,5 +11,5 @@ urlpatterns = [
     path("<int:key>/", views.item_detail, name="item_detail"),
     path("converter/<uint:key>/", views.converter_uint),
     re_path(r"^re/[1-9]+\d*/$", views.re_positive_num),
-    path("<path:dst>/", views.return_img, name="download"),
+    path("downloads<path:dst>", views.return_img, name="download"),
 ]

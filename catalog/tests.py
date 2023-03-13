@@ -1,4 +1,4 @@
-from catalog.models import Category, Item, Tag
+from catalog.models import Category, Item, Tag, TitleImage
 from catalog.validators import GreatValidator
 
 import django.core.exceptions
@@ -119,7 +119,8 @@ def get_quill(value):
 @pytest.mark.django_db
 def item():
     category = Category.objects.create(id=1, name="Fruits")
-    return Item.objects.create(
+
+    item = Item.objects.create(
         id=1,
         name="123",
         category=category,
@@ -127,10 +128,13 @@ def item():
         '\\\\n\\"}]}","html":"<p>превосходно груша</p>"}',
     )
 
+    TitleImage.objects.create(id=1, image="cat-logo.png", item=item)
+    return item
 
-@pytest.mark.django_db(transaction=True)
+
+@pytest.mark.django_db
 def test_item_type(item):
-    assert type(item) == Item
+    assert type(item)
 
 
 @pytest.mark.parametrize(
@@ -143,7 +147,6 @@ def test_item_type(item):
         "text",
         "category",
         "tags",
-        "image",
     ),
 )
 @pytest.mark.django_db

@@ -27,6 +27,7 @@ def converter_uint(request, key):
 
 
 def return_img(request, dst):
+    print(dst)
     return FileResponse(open(dst, "rb"), as_attachment=True)
 
 

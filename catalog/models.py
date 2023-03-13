@@ -86,7 +86,7 @@ class ItemManager(django.db.models.Manager):
                     "gallery", queryset=Gallery.objects.filter(item=key)
                 ),
             )
-            .only("name", "text", "image", "category", "tags"),
+            .only("name", "text", "title_image", "category", "tags"),
             pk=key,
         )
 
@@ -111,7 +111,7 @@ class ItemManager(django.db.models.Manager):
         )
 
 
-class Item(AbstractCatalog, NormalizedField, AbstractImage):
+class Item(AbstractCatalog, NormalizedField):
     """
     model which describes item.
     has AbstractCatalog's inner fields, text,
@@ -139,14 +139,6 @@ class Item(AbstractCatalog, NormalizedField, AbstractImage):
         "время публикации", auto_now_add=True
     )
 
-    @property  # move it to manager's annotation
-    def is_modified(self):
-        if int(self.date_modified.strftime("%Y%m%d%H%M%S")) == int(
-            self.date_published.strftime("%Y%m%d%H%M%S")
-        ):
-            return False
-        return True
-
     is_on_main = django.db.models.BooleanField("На главной", default=False)
     category = django.db.models.ForeignKey(
         Category,
@@ -156,11 +148,19 @@ class Item(AbstractCatalog, NormalizedField, AbstractImage):
     )
     tags = django.db.models.ManyToManyField(Tag, verbose_name="тэги")
 
+    @property  # move it to manager's annotation
+    def is_modified(self):
+        if int(self.date_modified.strftime("%Y%m%d%H%M%S")) == int(
+            self.date_published.strftime("%Y%m%d%H%M%S")
+        ):
+            return False
+        return True
+
     def image_thumbnail(self):
         """shows item's thumbnail on the dashboard of table"""
-        if self.image:
+        if self.title_image.image:
             return django.utils.safestring.mark_safe(
-                f'<img src="{self.get_thumb_50x50.url}" />'
+                f'<img src="{self.title_image.get_thumb_50x50.url}" />'
             )
         return "no title image"
 
@@ -168,7 +168,7 @@ class Item(AbstractCatalog, NormalizedField, AbstractImage):
     image_thumbnail.short_description = "превью"
 
 
-class TitleImage(django.db.models.Model):
+class TitleImage(AbstractImage):
     class Meta:
         verbose_name = "иконка"
         verbose_name_plural = "иконки"
@@ -178,7 +178,6 @@ class TitleImage(django.db.models.Model):
         on_delete=django.db.models.CASCADE,
         verbose_name="иконка",
         related_name="title_image",
-        null=True,
     )
 
 
