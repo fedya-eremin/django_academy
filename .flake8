@@ -10,4 +10,5 @@ exclude =
 	about/migrations,
 	core/migrations,
 	homepage/migrations,
+	feedback/migrations,
 	build,

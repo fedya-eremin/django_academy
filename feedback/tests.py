@@ -1,7 +1,11 @@
+import shutil
+
 from django.urls import reverse
 
 from feedback.forms import FeedbackForm
-from feedback.models import FeedbackModel
+from feedback.models import FeedbackAttachments, FeedbackModel
+
+from myserver.settings import BASE_DIR
 
 import pytest
 
@@ -35,10 +39,7 @@ def test_form_label_help(feedback_ans):
 
 @pytest.mark.django_db
 def test_form_success_redirect(client):
-    form_data = {
-        "text": "123",
-        "email": "dog@ya.ru",
-    }
+    form_data = {"text": "123", "email": "dog@ya.ru", "name": "main"}
     response = client.post(
         reverse("feedback:feedback"),
         data=form_data,
@@ -51,10 +52,7 @@ def test_form_success_redirect(client):
 @pytest.mark.django_db
 def test_form_success_update(client):
     init_cnt = FeedbackModel.objects.count()
-    form_data = {
-        "text": "123",
-        "email": "dog@ya.ru",
-    }
+    form_data = {"text": "123", "email": "dog@ya.ru", "name": "main"}
     client.post(
         reverse("feedback:feedback"),
         data=form_data,
@@ -66,13 +64,28 @@ def test_form_success_update(client):
 @pytest.mark.django_db
 def test_form_failing_update(client):
     init_cnt = FeedbackModel.objects.count()
-    form_data = {
-        "text": "123",
-        "email": "ginger.com",
-    }
+    form_data = {"text": "123", "email": "ginger.com", "name": "main"}
     client.post(
         reverse("feedback:feedback"),
         data=form_data,
     )
     final_cnt = FeedbackModel.objects.count()
     assert init_cnt == final_cnt
+
+
+@pytest.mark.django_db
+def test_form_file_upload(client):
+    with open(BASE_DIR / "README.md") as file:
+        form_data = {
+            "text": "123",
+            "email": "ginger@ginger.com",
+            "name": "main",
+            "file_field": file,
+        }
+        client.post(
+            reverse("feedback:feedback"),
+            data=form_data,
+        )
+    resp = FeedbackAttachments.objects.get(pk=1)
+    shutil.rmtree(BASE_DIR / "media/attachments/1")
+    assert resp.file == "attachments/1/README.md"
