@@ -101,5 +101,14 @@ class AbstractImage(django.db.models.Model):
             quality=51,
         )
 
+    @property
+    def get_thumb_300x300(self):
+        return get_thumbnail(
+            self.image,
+            "300x300",
+            crop="center",
+            quality=51,
+        )
+
     def __str__(self):
         return self.image.path

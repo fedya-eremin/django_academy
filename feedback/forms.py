@@ -6,7 +6,7 @@ class FeedbackForm(django.forms.Form):
         label="Текст",
         help_text="Введите текст фидбека",
         widget=django.forms.Textarea(
-            attrs={"class": "form-control form-control-lg"}
+            attrs={"class": "form-control form-control-lg form-group-item"}
         ),
     )
     email = django.forms.EmailField(

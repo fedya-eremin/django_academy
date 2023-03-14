@@ -12,7 +12,7 @@
     <p>{{ item.text.html|safe }}</p>
     <div class="img-box">
       <img id="main-img"
-           src="{{ item.title_image.image.url }}"
+           src="{{ item.title_image.get_thumb_300x300.url }}"
            alt="no main"
            height=""
            width=""/>
@@ -25,7 +25,7 @@
       {% for photo in item.gallery.all %}
         <div class="img-box">
           <img id="main-img"
-               src="{{ photo.image.url }}"
+               src="{{ photo.get_thumb_300x300.url }}"
                alt="no main"
                height=""
                width=""/>

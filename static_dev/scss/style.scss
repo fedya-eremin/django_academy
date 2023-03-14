@@ -112,9 +112,13 @@ button {
 	margin-top: 5em;
 	display: flex;
 	flex-direction: column;
+	h1 {
+		text-align: center;
+	}
 }
 .button-box {
 	display: flex;
+	width: 50%;
 	flex-direction: row;
 	margin: 1em 0;
 	justify-content: space-around;
@@ -127,8 +131,9 @@ button {
 
 #gallery-box {
 		display: flex;
-		align-items: center;
-		flex-direction: column;
+		align-items: flex-start;
+		flex-direction: row;
+		flex-wrap: wrap;
 }
 
 
@@ -151,9 +156,8 @@ button {
 		a { text-decoration: none; }
 	}
 	img {
-		width:100%;
+		// width:100%;
 		height: auto;
-		height:auto;
 	}
 	&:hover img {
 		opacity: 0.4;
@@ -170,12 +174,43 @@ button {
 	display: flex;
 	flex-direction: column;
 	// align-items: center;
-	ul > li, h1{
+	label {
+		font-weight: bold;
+	}
+	ul > p,ul, h1{
 		width: 70%;
 		margin: auto;
+	}
+	h1 {
+		text-align: center;
 	}
   input[type=submit] {
 		width: 150px;
 		margin: auto;
+	}
+}
+
+#mads {
+	max-height: 400px;
+	max-width: 50%;
+}
+
+.helptext {
+	font-size: .75em;
+	font-style: italic;
+}
+
+.feedback-success {
+	align-items: center;
+}
+
+.errorlist {
+	color: $warning;
+	//margin: 0 -20%;
+	font-weight: bold;
+	text-decoration: none;
+
+	li {
+		margin: 0;
 	}
 }

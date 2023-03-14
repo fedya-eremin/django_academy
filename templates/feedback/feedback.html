@@ -7,8 +7,8 @@
     {% csrf_token %}
     <h1>Фидбек</h1>
     <ul class="form-group">
-      {{ form.as_ul }}
+      {{ form.as_p }}
     </ul>
-    <input type="submit" name="send" value="Отправить"/>
+    <input class="btn btn-primary" type="submit" name="send" value="Отправить"/>
   </form>
 {% endblock content %}
