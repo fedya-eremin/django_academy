@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+	<div class="container">
+		<h1>О пользователе {{ user_detail.username }}</h1>
+		<ul class="list-group">
+			<li class="list-group-item">Почта: {{ user_detail.email|default:"<strong>не указано</strong>" }}</li>
+			<li class="list-group-item">Имя: {{ user_detail.first_name|default:"<strong>не указано</strong>" }}</li>
+			<li class="list-group-item">Фамилия: {{ user_detail.last_name|default:"<strong>не указано</strong>" }}</li>
+			<li class="list-group-item">Дата рождения: {{ user_detail.profile.birthday|default:"<strong>Не указано</strong>" }}</li>
+			<li class="list-group-item">Аватарка: <img src="{{ user_detail.profile.image.url|default:"/static/img/cat-logo.png" }}" alt="" width="100px" height="100px" /></li>
+			<li class="list-group-item">Сварено кофе: {{ user_detail.profile.coffee_count }}</li>	
+			<a href="{% url 'users:active_users' %}">К списку активных пользователей</a>
+
+		</ul>
+	</div>
+{% endblock content %}

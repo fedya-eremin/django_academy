@@ -1,0 +1,7 @@
+{% extends "users/login.html" %}
+{% block form-block %}
+	<h1>Письмо с ссылкой для восстановления отправлено!</h1>
+	<button class="btn btn-secondary" type="click">
+		<a href="{% url 'homepage:home' %}">На главную!</a>
+	</button>
+{% endblock form-block %}

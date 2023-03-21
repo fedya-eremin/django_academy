@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+	<form enctype="multipart/form-data" method="post" class="feedback">
+	{% csrf_token %}
+		<ul class="form-group">
+			{{ user_form.as_p }}
+			{{ profile_form.as_p }}
+		</ul>
+		<input class="btn btn-primary" type="submit" name="send" value="Изменить данные"/>
+		<a href="{% url 'users:logout' %}">Выйти</a>
+		<a href="{% url 'users:active_users' %}">
+		Список активных пользователей
+		</a>
+	</form>
+{% endblock content %}

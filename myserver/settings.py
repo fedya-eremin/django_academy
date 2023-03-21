@@ -32,17 +32,19 @@ env = environ.Env(
     ENABLE_REVERSE_RU_MIDDLEWARE=(bool, False),
     VALIDATE_WORDS=(list, ["роскошно", "превосходно"]),
     DEFAULT_FROM_EMAIL=(str, "example@ya.ru"),
+    NEW_USER_ACTIVATED=(bool, False),
 )
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env("SECRET_KEY")
 VALIDATE_WORDS = env("VALIDATE_WORDS")
-
+NEW_USER_ACTIVATED = env("NEW_USER_ACTIVATED")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 if DEBUG is True:
     ALLOWED_HOSTS = ["*"]
+    NEW_USER_ACTIVATED = True
 else:
     ALLOWED_HOSTS = env("ALLOWED_HOSTS")
 
@@ -54,6 +56,7 @@ INSTALLED_APPS = [
     "catalog.apps.CatalogConfig",
     "about.apps.AboutConfig",
     "feedback.apps.FeedbackConfig",
+    "users.apps.UsersConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -64,7 +67,7 @@ INSTALLED_APPS = [
     "sorl.thumbnail",  # Thumbnails, mostly for admin panel
     "django_cleanup.apps.CleanupConfig",  # To work with images
     "compressor",  # Adds CSS, SASS, JS compressor and so on
-    "django_quill",
+    "django_quill",  # Text processor in admin panel
 ]
 
 MIDDLEWARE = [
@@ -143,6 +146,11 @@ AUTH_PASSWORD_VALIDATORS = [
         ),
     },
 ]
+
+
+LOGIN_URL = "/auth/login/"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/auth/logout/"
 
 
 # Internationalization

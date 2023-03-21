@@ -11,4 +11,5 @@ exclude =
 	core/migrations,
 	homepage/migrations,
 	feedback/migrations,
+	users/migrations,
 	build,
