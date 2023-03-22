@@ -6,7 +6,6 @@ import users.models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ("auth", "0015_alter_user_email"),
         ("users", "0003_alter_profile_birthday"),
     ]
 
