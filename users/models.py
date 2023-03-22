@@ -6,14 +6,11 @@ from django.dispatch import receiver
 from myserver.settings import NEW_USER_ACTIVATED
 
 
+User._meta.get_field("email")._unique = True
+
+
 def gen_user_path(instance, filename):
     return f"users/{instance.user.id}/{filename}"
-
-
-@receiver(pre_save, sender=User)
-def default_user_inactive(sender, instance, update_fields, **kwargs):
-    if instance._state.adding is True and NEW_USER_ACTIVATED is False:
-        instance.is_active = False
 
 
 class Profile(django.db.models.Model):
@@ -43,3 +40,9 @@ class Profile(django.db.models.Model):
         "сварено кофе",
         default=0,
     )
+
+
+@receiver(pre_save, sender=User)
+def default_user_inactive(sender, instance, update_fields, **kwargs):
+    if instance._state.adding is True and NEW_USER_ACTIVATED is False:
+        instance.is_active = False

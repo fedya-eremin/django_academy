@@ -6,7 +6,11 @@
 {% block content %}
   <div class="container feedback-success">
     <h1>Спасибо за фидбек! Ваше мнение очень важно для нас!</h1>
-    <img id="mads" src="{% static 'img/mads.webp' %}" alt="" height="" width=""/>
+    <img id="mads"
+         src="{% static 'img/mads.webp' %}"
+         alt=""
+         height=""
+         width=""/>
     <div class="button-box">
       <button type="click" class="btn btn-secondary">
         <a href="{% url 'homepage:home' %}">На главную</a>

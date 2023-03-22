@@ -1,5 +1,4 @@
 from django.contrib.auth.views import (
-    LoginView,
     LogoutView,
     PasswordChangeDoneView,
     PasswordChangeView,
@@ -11,6 +10,7 @@ from django.contrib.auth.views import (
 from django.urls import path, reverse_lazy
 
 from users.views import (
+    MyLoginView,
     activation_view,
     get_user_detail,
     get_user_list,
@@ -24,7 +24,7 @@ app_name = "users"
 urlpatterns = [
     path(
         "login/",
-        LoginView.as_view(
+        MyLoginView.as_view(
             template_name="users/login.html",
         ),
         name="login",
@@ -32,7 +32,6 @@ urlpatterns = [
     path(
         "logout/",
         LogoutView.as_view(
-            template_name="users/login.html",
             next_page=reverse_lazy("users:login"),
         ),
         name="logout",

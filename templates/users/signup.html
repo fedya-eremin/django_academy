@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta name="description" content="my first website"/>
-    <meta name="keywords" content="cat,cats,kitten,fruits,vegetable"/>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-		<title>Регистрация</title>
-	</head>
-	<body>
-		<form enctype="multipart/form-data" method="post" class="feedback">
-			{% csrf_token %}
-			<h1>Регистрация</h1>
-			<div class="form-group">
-				{{ form.as_p }}
-			</div>
-			<input class="btn btn-primary" type="submit" name="send" value="Зарегистрироваться"/>
-		</form>
-	</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+  {% load static %}
+  <div class="px-4 py-5 my-5 feedback">
+    <form enctype="multipart/form-data" method="post" class="feedback">
+      {% csrf_token %}
+      <h1>Регистрация</h1>
+      <div class="form-group signup">{{ form.as_p }}</div>
+      <input class="btn btn-primary"
+             type="submit"
+             name="send"
+             value="Зарегистрироваться"/>
+    </form>
+  </div>
+{% endblock content %}

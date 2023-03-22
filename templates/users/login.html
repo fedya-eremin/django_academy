@@ -1,48 +1,21 @@
+{% extends "base.html" %}
 {% load static %}
-{% load compress %}
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Логин</title>
-    <meta name="description" content="my first website"/>
-    <meta name="keywords" content="cat,cats,kitten,fruits,vegetable"/>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-		{% include "includes/head.html" %}
-    {% compress css %}
-      <link type="text/x-scss"
-            rel="stylesheet"
-            href="{% static 'scss/style.scss' %}"/>
-    {% endcompress %}
-	</head>
-	<body>
-		<main class="in-form">
-			{% block form-block %}
-				<form action="" method="post">
-					{% csrf_token %}
-					{% if form.errors %}
-						<div class="alert alert-danger">
-							Проверьте введённые данные!
-						</div>
-					{% endif %}
-
-					{% for field in form %}
-					<div>
-						{{ field.label_tag }} {{ field }}
-						{% if field.field.required %}
-							<span>*</span>
-						{% endif %}
-						{% if field.help_text %}
-							<p class="help">{{ field.help_text | safe }}</p>
-						{% endif %}
-					</div>
-					{% endfor %}
-					<button class="btn btn-primary" type="submit">
-					{% block view-text %} Войти {% endblock view-text %}
-					</button>
-			</form>
-			{% endblock form-block %}
-		</main>
-	</body>
-</html>
+{% block content %}
+  <div class="px-4 py-5 my-5 text-center feedback">
+    <form action="" method="post">
+      {% csrf_token %}
+      {% if form.errors %}<div class="alert alert-danger">Проверьте введённые данные!</div>{% endif %}
+      {% for field in form %}
+        <div class="login-block form-control-lg form-group-item">
+          {{ field.label_tag }} {{ field }}           {% if field.help_text %}<p class="help">{{ field.help_text | safe }}</p>{% endif %}
+        </div>
+      {% endfor %}
+      <button id="btn-login" class="btn btn-primary" type="submit">
+        {% block view-text %}
+          Войти
+        {% endblock view-text %}
+      </button>
+    </form>
+    <a href="{% url "users:signup" %}">Нет аккаунта?</a>
+  </div>
+{% endblock content %}

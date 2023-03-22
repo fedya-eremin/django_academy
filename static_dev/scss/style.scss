@@ -229,3 +229,40 @@ button {
 		min-width: 50%;
 	}
 }
+
+div.signup {
+  width: 50;
+  margin: auto;
+}
+
+#profile-picture {
+  width: 30%;
+  margin: auto;
+}
+
+.some-links {
+  display: flex;
+  flex-direction: column;
+}
+
+#drink-coffee {
+  margin-top: 10px;
+}
+
+.login-block {
+  width: 30%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  label {
+    font-weight: bolder;
+  }
+  
+  input {
+    padding: 5px;
+    border-radius: 15px;
+    border: none;
+  }
+}

@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-	<div class="container">
-		<h1>Активные пользователи: </h1>
-		<ul class="list-group list-group-flush users-list">
-		{% for man in active_users %}
-			<li class="list-group-item list-group-item-warning"><a href="{% url 'users:user_detail' id=man.id %}">{{ man.username }}</a></li>
-		{% empty %}
-			<li class="list-group-item list-group-item-warning">WTF no active users?</li>
-		{% endfor %}
-		</ul>
-	</div>
+  <div class="container">
+    <h1>Активные пользователи:</h1>
+    <ul class="list-group list-group-flush users-list">
+      {% for man in active_users %}
+        <li class="list-group-item list-group-item-warning">
+          <a href="{% url 'users:user_detail' id=man.id %}">{{ man.username }}</a>
+        </li>
+      {% empty %}
+        <li class="list-group-item list-group-item-warning">WTF no active users?</li>
+      {% endfor %}
+    </ul>
+  </div>
 {% endblock content %}
