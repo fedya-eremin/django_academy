@@ -1,10 +1,13 @@
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms import (
+    CharField,
     DateField,
     DateInput,
+    Form,
     IntegerField,
     ModelForm,
+    PasswordInput,
     TextInput,
 )
 
@@ -28,8 +31,17 @@ class MyUserCreationForm(UserCreationForm, BootstrapClassesMixin):
     pass
 
 
-class MyLoginForm(AuthenticationForm, BootstrapClassesMixin):
-    pass
+class MyLoginForm(Form):
+    username = CharField(
+        label="Пользователь",
+        max_length=150,
+        widget=TextInput(attrs={"autofocus": True}),
+    )
+    password = CharField(
+        label="Пароль",
+        strip=False,
+        widget=PasswordInput(attrs={"autocomplete": "current-password"}),
+    )
 
 
 class UserForm(BootstrapClassesMixin):

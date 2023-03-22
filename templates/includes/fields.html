@@ -1,0 +1,7 @@
+{% if form.errors %}<div class="alert alert-danger">Проверьте введённые данные!</div>{% endif %}
+{% for field in form %}
+  <div class="login-block form-control-lg form-group-item">
+    {{ field.label_tag }} {{ field }}
+    {% if field.help_text %}<p class="help">{{ field.help_text | safe }}</p>{% endif %}
+  </div>
+{% endfor %}

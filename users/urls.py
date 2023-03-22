@@ -10,10 +10,10 @@ from django.contrib.auth.views import (
 from django.urls import path, reverse_lazy
 
 from users.views import (
-    MyLoginView,
     activation_view,
     get_user_detail,
     get_user_list,
+    login_view,
     profile_view,
     signup,
 )
@@ -24,9 +24,7 @@ app_name = "users"
 urlpatterns = [
     path(
         "login/",
-        MyLoginView.as_view(
-            template_name="users/login.html",
-        ),
+        login_view,
         name="login",
     ),
     path(

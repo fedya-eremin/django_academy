@@ -1,15 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
-  {% load static %}
   <div class="px-4 py-5 my-5 feedback">
     <form enctype="multipart/form-data" method="post" class="feedback">
       {% csrf_token %}
-      <h1>Регистрация</h1>
-      <div class="form-group signup">{{ form.as_p }}</div>
-      <input class="btn btn-primary"
-             type="submit"
-             name="send"
-             value="Зарегистрироваться"/>
+      {% include "includes/signup.html" %}
     </form>
   </div>
 {% endblock content %}

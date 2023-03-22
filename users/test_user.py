@@ -73,3 +73,7 @@ class TestUser:
             assert (
                 response1.status_code == 302 and response2.status_code == 404
             )
+
+    @pytest.fixture
+    def login_try(self, client):
+        pass

@@ -1,0 +1,24 @@
+<img id="profile-picture"
+     src="{{ user.profile.image.url }}"
+     alt=""
+     width=""
+     height=""/>
+<ul class="form-group">
+  {{ user_form.as_p }}
+  {{ profile_form.as_p }}
+  <p>
+    <button id="drink-coffee"
+            class="btn btn-secondary"
+            type="click"
+            name="Coffee">Выпить кофe</button>
+  </p>
+</ul>
+<input class="btn btn-primary"
+       type="submit"
+       name="send"
+       value="Изменить данные"/>
+<div class="some-links">
+  <a class="badge" href="{% url 'users:active_users' %}">Список активных пользователей</a>
+  <a class="badge" href="{% url 'users:password_reset' %}">Изменить пароль</a>
+  <a class="badge" href="{% url 'users:logout' %}">Выйти</a>
+</div>

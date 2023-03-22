@@ -1,7 +1,7 @@
-{% extends "users/login.html" %}
-{% block form-block %}
+{% extends "base.html" %}
+{% block content %}
   <h1>ПАРОЛЬ УСПЕШНО СМЕНЁН</h1>
   <button class="btn btn-secondary" type="click">
     <a href="{% url 'homepage:home' %}">На главную!</a>
   </button>
-{% endblock form-block %}
+{% endblock content %}
