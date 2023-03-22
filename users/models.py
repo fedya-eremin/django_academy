@@ -1,4 +1,4 @@
-import sys
+# import sys
 
 import django.db.models
 from django.contrib.auth.models import User
