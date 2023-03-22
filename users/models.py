@@ -8,8 +8,8 @@ from django.dispatch import receiver
 from myserver.settings import NEW_USER_ACTIVATED
 
 
-# if "makemigrations" not in sys.argv and "migrate" not in sys.argv:
-User._meta.get_field("email")._unique = True
+if "makemigrations" not in sys.argv and "migrate" not in sys.argv:
+    User._meta.get_field("email")._unique = True
 
 
 def gen_user_path(instance, filename):
