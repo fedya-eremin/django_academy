@@ -7,6 +7,8 @@ import mock
 
 import pytest
 
+from users.models import ProxyUser
+
 NOT_NOW = datetime(2099, 11, 11, 11, tzinfo=timezone(timedelta(0)))
 
 
@@ -73,3 +75,34 @@ class TestUser:
             assert (
                 response1.status_code == 302 and response2.status_code == 404
             )
+
+    @pytest.fixture(
+        params=(
+            {
+                "username": "qwe",
+                "email": "qwe",
+                "password": "yandexbrowser12",
+            },
+            {
+                "username": "ya@ndex.ru",
+                "email": "ya@ndex.ru",
+                "password": "yandexbrowser12",
+            },
+        )
+    )
+    def login_try(self, request, client):
+        ProxyUser.objects.create(
+            username=request.param["username"],
+            email=request.param["email"],
+            password=request.param["password"],
+        )
+        return client.post(
+            reverse("users:login"),
+            data={
+                "username": request.param["username"],
+                "password": request.param["password"],
+            },
+        )
+
+    def test_success_login(self, login_try):
+        assert login_try.status_code == 302

@@ -42,10 +42,7 @@ def signup(request):
 def login_view(request):
     if request.method == "POST":
         form = MyLoginForm(data=request.POST)
-        print(form.is_valid())
-        print(request.POST)
         if form.is_valid():
-            print(123)
             data = form.cleaned_data
             usr = authenticate(
                 username=data["username"], password=data["password"]
