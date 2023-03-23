@@ -5,8 +5,8 @@
     {% if validlink %}
       <p>Введите новый пароль</p>
       <form action="" method="post">
-        <div style="display:none">
-          <input type="hidden" value="{{ csrf_token }}" name="csrfmiddlewaretoken">
+        <div id="dn">
+          <input type="hidden" value="{{ csrf_token }}" name="csrfmiddlewaretoken"/>
         </div>
         <table class="px-4 py-5 my-5 text-center feedback">
           <tr>
