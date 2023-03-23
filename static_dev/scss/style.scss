@@ -266,3 +266,21 @@ div.signup {
     border: none;
   }
 }
+
+.input-cell > input {
+    padding: 5px;
+    border-radius: 15px;
+    border: none;
+}
+
+table.feedback {
+  align-items: center;
+    padding: 5px;
+    border-radius: 15px;
+    border: none;
+}
+
+.redir-btn {
+  width: 200px;
+  margin: auto;
+}
