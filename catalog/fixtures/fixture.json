@@ -130,16 +130,6 @@
     }
 },
 {
-    "model": "feedback.feedbackmodel",
-    "pk": 1,
-    "fields": {
-        "text": "qweqwe ура фидбек",
-        "created_on": "2023-03-13T18:24:05.504Z",
-        "email": "yandex@yandex.ru",
-        "status": "received"
-    }
-},
-{
     "model": "admin.logentry",
     "pk": 1,
     "fields": {
@@ -460,24 +450,6 @@
         "name": "Can view иконка",
         "content_type": 5,
         "codename": "view_titleimage"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 21,
-    "fields": {
-        "name": "Can add Обратная связь",
-        "content_type": 6,
-        "codename": "add_feedbackmodel"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 22,
-    "fields": {
-        "name": "Can change Обратная связь",
-        "content_type": 6,
-        "codename": "change_feedbackmodel"
     }
 },
 {
@@ -806,14 +778,6 @@
     "fields": {
         "app_label": "catalog",
         "model": "titleimage"
-    }
-},
-{
-    "model": "contenttypes.contenttype",
-    "pk": 6,
-    "fields": {
-        "app_label": "feedback",
-        "model": "feedbackmodel"
     }
 },
 {

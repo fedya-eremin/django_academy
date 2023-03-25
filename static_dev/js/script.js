@@ -1,3 +1,7 @@
+var script = document.createElement('script');
+script.src = 'https://code.jquery.com/jquery-3.6.3.min.js'; 
+document.getElementsByTagName('head')[0].appendChild(script);
+
 const a = document.getElementsByTagName("footer")[0]
 	.appendChild(document.createElement("div"));
 
@@ -12,3 +16,6 @@ const currentTime = () => {
 	a.innerHTML = Date(date);
 }
 setInterval(currentTime, 1000);
+
+
+$(".gallery-box").children(".img-box").add("button")

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="px-4 py-5 my-5 text-center feedback">
+    <h1>ПАРОЛЬ УСПЕШНО ВОССТАНОВЛЕН</h1>
+    <button class="btn btn-secondary redir-btn" type="click">
+      <a href="{% url 'homepage:home' %}">На главную!</a>
+    </button>
+  </div>
+{% endblock content %}

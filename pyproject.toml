@@ -22,7 +22,7 @@ packages = ["about", "catalog", "homepage", "myserver", "core"]
 [project.optional-dependencies]
     dev = ["flake8==6.0.0", "black==23.1.0", "pep8-naming", 
 	   "flake8-import-order","flake8-quotes", "Flake8-pyproject", "djlint==1.19.16"]
-    test = ["pytest==7.2.1", "pytest-django==4.5.2"]
+    test = ["pytest==7.2.1", "pytest-django==4.5.2", "mock==5.0.1"]
 
 [tool.black]
 line-length = 79

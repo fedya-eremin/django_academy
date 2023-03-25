@@ -41,7 +41,8 @@ python manage.py compilemessages
 из них предусмотрено значение по умолчанию. Пример представлен \
 в .env.example, для использования необходимо убрать расширение \
 файла. Также следует указать почтовый адрес в DEFAULT_FROM_EMAIL, \
-а так же работу ReverseRuMiddleware
+а так же работу ReverseRuMiddleware. Укажите, активировать ли пользователя \
+по умолчанию в NEW_USER_ACTIVATED
 ```
 python3 manage.py runserver
 ``` 

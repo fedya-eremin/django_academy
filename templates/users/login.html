@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <div class="px-4 py-5 my-5 text-center feedback">
+    <form action="" method="post">
+      {% comment %}
+        csrf похоже нельзя поместить в инклуд, не рендерит
+      {% endcomment %}
+      {% csrf_token %}
+      {% include "includes/fields.html" %}
+      <button id="btn-login" class="btn btn-primary" type="submit">
+        {% block view-text %}
+          Войти
+        {% endblock view-text %}
+      </button>
+    </form>
+    <a href="{% url "users:signup" %}">Нет аккаунта?</a>
+    <a href="{% url "users:password_reset" %}">Восстановить пароль</a>
+  </div>
+{% endblock content %}
